@@ -7,13 +7,9 @@
     <item
         android:id="@+id/listaUsuariosFragment"
         android:icon="@android:drawable/ic_menu_myplaces"
-        android:title="Usuarios" />
+        android:title="Cuentas" />
     <item
         android:id="@+id/reporteMensualFragment"
         android:icon="@android:drawable/ic_menu_sort_by_size"
         android:title="Reportes" />
-    <item
-        android:id="@+id/loginFragment"
-        android:icon="@android:drawable/ic_lock_power_off"
-        android:title="Cerrar Sesión" />
 </menu>

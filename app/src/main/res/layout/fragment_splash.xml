@@ -3,18 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorPrimary">
+    android:background="@color/black">
 
     <ImageView
         android:id="@+id/ivSplashLogo"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@android:drawable/ic_menu_gallery"
+        android:src="@drawable/ic_book"
         app:layout_constraintBottom_toTopOf="@+id/tvSplashName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_chainStyle="packed"
+        app:tint="@color/primary_brown" />
 
     <TextView
         android:id="@+id/tvSplashName"
@@ -22,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="BookNook"
-        android:textColor="@android:color/white"
+        android:textColor="@color/primary_brown"
         android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -34,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="48dp"
-        android:indeterminateTint="@android:color/white"
+        android:indeterminateTint="@color/primary_brown"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

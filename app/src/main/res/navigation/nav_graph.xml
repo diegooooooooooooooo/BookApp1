@@ -5,6 +5,7 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/splashFragment">
 
+    <!-- Splash Screen -->
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.example.bookapp.ui.login.SplashFragment"
@@ -17,10 +18,11 @@
             app:popUpToInclusive="true" />
     </fragment>
 
+    <!-- Login -->
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.bookapp.ui.login.LoginFragment"
-        android:label="Login"
+        android:label="Iniciar Sesión"
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_dashboardBibliotecarioFragment"
@@ -34,53 +36,119 @@
             app:popUpToInclusive="true" />
     </fragment>
 
-    <fragment
-        android:id="@+id/dashboardBibliotecarioFragment"
-        android:name="com.example.bookapp.ui.dashboard.DashboardBibliotecarioFragment"
-        android:label="Dashboard Bibliotecario"
-        tools:layout="@layout/fragment_dashboard_bibliotecario" />
-
+    <!-- FLOW: ADMINISTRADOR -->
     <fragment
         android:id="@+id/dashboardAdminFragment"
         android:name="com.example.bookapp.ui.dashboard.DashboardAdminFragment"
-        android:label="Dashboard Administrador"
-        tools:layout="@layout/fragment_dashboard_admin" />
+        android:label="Dashboard Admin"
+        tools:layout="@layout/fragment_dashboard_admin">
+        <action
+            android:id="@+id/action_dashboardAdminFragment_to_listaUsuariosFragment"
+            app:destination="@id/listaUsuariosFragment" />
+        <action
+            android:id="@+id/action_dashboardAdminFragment_to_reporteMensualFragment"
+            app:destination="@id/reporteMensualFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/listaUsuariosFragment"
+        android:name="com.example.bookapp.ui.usuarios.ListaUsuariosFragment"
+        android:label="Gestión"
+        tools:layout="@layout/fragment_lista_usuarios">
+        <action
+            android:id="@+id/action_listaUsuariosFragment_to_registrarUsuarioFragment"
+            app:destination="@id/registrarUsuarioFragment" />
+        <action
+            android:id="@+id/action_listaUsuariosFragment_to_registrarSocioFragment"
+            app:destination="@id/registrarSocioFragment" />
+        <action
+            android:id="@+id/action_listaUsuariosFragment_to_perfilUsuarioFragment"
+            app:destination="@id/perfilUsuarioFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registrarUsuarioFragment"
+        android:name="com.example.bookapp.ui.usuarios.RegistrarUsuarioFragment"
+        android:label="Nueva Cuenta"
+        tools:layout="@layout/fragment_registrar_usuario" />
+
+    <fragment
+        android:id="@+id/registrarSocioFragment"
+        android:name="com.example.bookapp.ui.usuarios.RegistrarSocioFragment"
+        android:label="Nuevo Lector"
+        tools:layout="@layout/fragment_registrar_socio" />
+
+    <fragment
+        android:id="@+id/perfilUsuarioFragment"
+        android:name="com.example.bookapp.ui.usuarios.PerfilUsuarioFragment"
+        android:label="Detalle"
+        tools:layout="@layout/fragment_perfil_usuario" />
+
+    <fragment
+        android:id="@+id/reporteMensualFragment"
+        android:name="com.example.bookapp.ui.reportes.ReporteMensualFragment"
+        android:label="Reporte Mensual"
+        tools:layout="@layout/fragment_reporte_mensual">
+        <action
+            android:id="@+id/action_reporteMensualFragment_to_comparacionMensualFragment"
+            app:destination="@id/comparacionMensualFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/comparacionMensualFragment"
+        android:name="com.example.bookapp.ui.reportes.ComparacionMensualFragment"
+        android:label="Comparativa"
+        tools:layout="@layout/fragment_comparacion_mensual" />
+
+
+    <!-- FLOW: BIBLIOTECARIO -->
+    <fragment
+        android:id="@+id/dashboardBibliotecarioFragment"
+        android:name="com.example.bookapp.ui.dashboard.DashboardBibliotecarioFragment"
+        android:label="Inicio"
+        tools:layout="@layout/fragment_dashboard_bibliotecario">
+        <action
+            android:id="@+id/action_dashboardBibliotecarioFragment_to_catalogoLibrosFragment"
+            app:destination="@id/catalogoLibrosFragment" />
+        <action
+            android:id="@+id/action_dashboardBibliotecarioFragment_to_registrarPrestamoFragment"
+            app:destination="@id/registrarPrestamoFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/catalogoLibrosFragment"
         android:name="com.example.bookapp.ui.libros.CatalogoLibrosFragment"
         android:label="Catálogo"
-        tools:layout="@layout/fragment_catalogo_libros" />
+        tools:layout="@layout/fragment_catalogo_libros">
+        <action
+            android:id="@+id/action_catalogoLibrosFragment_to_detalleLibroFragment"
+            app:destination="@id/detalleLibroFragment" />
+        <action
+            android:id="@+id/action_catalogoLibrosFragment_to_registrarLibroFragment"
+            app:destination="@id/registrarLibroFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/detalleLibroFragment"
         android:name="com.example.bookapp.ui.libros.DetalleLibroFragment"
-        android:label="Detalle del Libro"
+        android:label="Detalle Libro"
         tools:layout="@layout/fragment_detalle_libro" />
 
     <fragment
         android:id="@+id/registrarLibroFragment"
         android:name="com.example.bookapp.ui.libros.RegistrarLibroFragment"
-        android:label="Nuevo Libro"
+        android:label="Agregar Libro"
         tools:layout="@layout/fragment_registrar_libro" />
-
-    <fragment
-        android:id="@+id/listaUsuariosFragment"
-        android:name="com.example.bookapp.ui.usuarios.ListaUsuariosFragment"
-        android:label="Usuarios"
-        tools:layout="@layout/fragment_lista_usuarios" />
-
-    <fragment
-        android:id="@+id/perfilUsuarioFragment"
-        android:name="com.example.bookapp.ui.usuarios.PerfilUsuarioFragment"
-        android:label="Perfil de Usuario"
-        tools:layout="@layout/fragment_perfil_usuario" />
 
     <fragment
         android:id="@+id/registrarPrestamoFragment"
         android:name="com.example.bookapp.ui.prestamos.RegistrarPrestamoFragment"
-        android:label="Registrar Préstamo"
-        tools:layout="@layout/fragment_registrar_prestamo" />
+        android:label="Nuevo Préstamo"
+        tools:layout="@layout/fragment_registrar_prestamo">
+        <action
+            android:id="@+id/action_registrarPrestamoFragment_to_confirmacionPrestamoFragment"
+            app:destination="@id/confirmacionPrestamoFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/confirmacionPrestamoFragment"
@@ -91,19 +159,7 @@
     <fragment
         android:id="@+id/registrarDevolucionFragment"
         android:name="com.example.bookapp.ui.prestamos.RegistrarDevolucionFragment"
-        android:label="Registrar Devolución"
+        android:label="Devolución"
         tools:layout="@layout/fragment_registrar_devolucion" />
-
-    <fragment
-        android:id="@+id/reporteMensualFragment"
-        android:name="com.example.bookapp.ui.reportes.ReporteMensualFragment"
-        android:label="Reporte de Ingresos"
-        tools:layout="@layout/fragment_reporte_mensual" />
-
-    <fragment
-        android:id="@+id/comparacionMensualFragment"
-        android:name="com.example.bookapp.ui.reportes.ComparacionMensualFragment"
-        android:label="Comparación Mensual"
-        tools:layout="@layout/fragment_comparacion_mensual" />
 
 </navigation>

@@ -3,53 +3,48 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp"
-    android:background="@color/black">
-
-    <ImageView
-        android:id="@+id/ivLogo"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:src="@drawable/ic_book"
-        app:layout_constraintBottom_toTopOf="@+id/tvAppName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:tint="@color/primary_brown" />
+    android:padding="24dp">
 
     <TextView
-        android:id="@+id/tvAppName"
+        android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="BookNook"
-        android:textSize="28sp"
+        android:text="Registrar Nuevo Usuario"
+        android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="@color/primary_brown"
-        android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/tilEmail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivLogo" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilNombre"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:hint="Nombre Completo"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilEmail"
         style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:hint="Correo Electrónico"
-        app:boxStrokeColor="@color/primary_brown"
-        app:hintTextColor="@color/primary_brown"
-        android:textColorHint="@color/primary_light_brown"
-        app:layout_constraintBottom_toTopOf="@+id/tilPassword"
-        app:layout_constraintTop_toBottomOf="@+id/tvAppName">
+        app:layout_constraintTop_toBottomOf="@id/tilNombre">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white" />
+            android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -59,17 +54,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:hint="Contraseña"
-        app:boxStrokeColor="@color/primary_brown"
-        app:hintTextColor="@color/primary_brown"
-        android:textColorHint="@color/primary_light_brown"
-        app:layout_constraintBottom_toTopOf="@+id/tvRoleLabel"
-        app:layout_constraintTop_toBottomOf="@+id/tilEmail">
+        app:layout_constraintTop_toBottomOf="@id/tilEmail">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -77,28 +67,24 @@
         android:id="@+id/tvRoleLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Seleccionar Rol:"
-        android:textColor="@color/primary_brown"
-        android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/rgRole"
+        android:text="Asignar Rol:"
+        android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilPassword" />
+        app:layout_constraintTop_toBottomOf="@id/tilPassword" />
 
     <RadioGroup
         android:id="@+id/rgRole"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/btnLogin"
-        app:layout_constraintTop_toBottomOf="@+id/tvRoleLabel">
+        app:layout_constraintTop_toBottomOf="@id/tvRoleLabel">
 
         <RadioButton
             android:id="@+id/rbBibliotecario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Bibliotecario"
-            android:textColor="@color/white"
-            android:buttonTint="@color/primary_brown"
             android:checked="true" />
 
         <RadioButton
@@ -106,21 +92,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:text="Administrador"
-            android:textColor="@color/white"
-            android:buttonTint="@color/primary_brown" />
+            android:text="Administrador" />
     </RadioGroup>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnRegistrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="48dp"
         android:padding="12dp"
-        android:text="Iniciar Sesión"
-        android:backgroundTint="@color/primary_brown"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rgRole" />
+        android:text="Crear Cuenta"
+        app:layout_constraintTop_toBottomOf="@id/rgRole" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

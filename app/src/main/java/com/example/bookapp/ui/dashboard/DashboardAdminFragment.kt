@@ -5,18 +5,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.bookapp.R
+import com.example.bookapp.data.database.AppDatabase
 import com.example.bookapp.databinding.FragmentDashboardAdminBinding
+import com.example.bookapp.repository.BibliotecaRepository
+import com.example.bookapp.viewmodel.BibliotecaViewModel
+import com.example.bookapp.viewmodel.ViewModelFactory
+import java.util.Calendar
 
-/**
- * Pantalla principal para el rol de Administrador.
- * Muestra KPIs rápidos y acceso a reportes detallados.
- */
 class DashboardAdminFragment : Fragment() {
 
     private var _binding: FragmentDashboardAdminBinding? = null
     private val binding get() = _binding!!
+
+    private val viewModel: BibliotecaViewModel by viewModels {
+        val database = AppDatabase.getDatabase(requireContext())
+        ViewModelFactory(BibliotecaRepository(database.libroDao(), database.usuarioDao(), database.prestamoDao(), database.socioDao()))
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,11 +39,22 @@ class DashboardAdminFragment : Fragment() {
         binding.btnVerReportes.setOnClickListener {
             findNavController().navigate(R.id.reporteMensualFragment)
         }
-        
-        // Aquí se cargarían los datos reales del ViewModel en una implementación completa
-        binding.tvIngresosMes.text = "$4,250.00"
-        binding.tvLibrosPrestados.text = "42"
-        binding.tvUsuariosActivos.text = "15"
+
+        // Obtener mes actual para los reportes
+        val mesActual = Calendar.getInstance().get(Calendar.MONTH) + 1
+        val mesStr = mesActual.toString().padStart(2, '0')
+
+        viewModel.getIngresosMes(mesStr).observe(viewLifecycleOwner) { ingresos ->
+            binding.tvIngresosMes.text = "$${String.format("%.2f", ingresos ?: 0.0)}"
+        }
+
+        viewModel.prestamosActivos.observe(viewLifecycleOwner) { prestamos ->
+            binding.tvLibrosPrestados.text = prestamos.size.toString()
+        }
+
+        viewModel.allSocios.observe(viewLifecycleOwner) { socios ->
+            binding.tvUsuariosActivos.text = socios.size.toString()
+        }
     }
 
     override fun onDestroyView() {

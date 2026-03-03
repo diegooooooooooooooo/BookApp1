@@ -4,19 +4,26 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.bookapp.data.database.AppDatabase
+import com.example.bookapp.data.entities.LibroEntity
 import com.example.bookapp.databinding.FragmentRegistrarLibroBinding
+import com.example.bookapp.repository.BibliotecaRepository
+import com.example.bookapp.viewmodel.BibliotecaViewModel
+import com.example.bookapp.viewmodel.ViewModelFactory
 
-/**
- * Fragmento para registrar un nuevo libro en la base de datos.
- */
 class RegistrarLibroFragment : Fragment() {
 
     private var _binding: FragmentRegistrarLibroBinding? = null
     private val binding get() = _binding!!
+
+    private val viewModel: BibliotecaViewModel by viewModels {
+        val database = AppDatabase.getDatabase(requireContext())
+        ViewModelFactory(BibliotecaRepository(database.libroDao(), database.usuarioDao(), database.prestamoDao(), database.socioDao()))
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,18 +36,27 @@ class RegistrarLibroFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Configurar el spinner de categorías
-        val categorias = arrayOf("Ficción", "Ciencia", "Historia", "Tecnología", "Infantil")
-        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, categorias)
-        binding.spinnerCategoria.setAdapter(adapter)
-
         binding.btnGuardarLibro.setOnClickListener {
-            val titulo = binding.etTitulo.text.toString()
-            if (titulo.isNotEmpty()) {
+            val titulo = binding.etTitulo.text.toString().trim()
+            val autor = binding.etAutor.text.toString().trim()
+            val editorial = binding.etEditorial.text.toString().trim()
+            val isbn = binding.etIsbn.text.toString().trim()
+            val ejemplaresStr = binding.etEjemplares.text.toString().trim()
+
+            if (titulo.isNotEmpty() && autor.isNotEmpty() && ejemplaresStr.isNotEmpty()) {
+                val libro = LibroEntity(
+                    titulo = titulo,
+                    autor = autor,
+                    editorial = editorial,
+                    isbn = isbn,
+                    categoria = "", // Removed category as requested
+                    ejemplares = ejemplaresStr.toIntOrNull() ?: 1
+                )
+                viewModel.insertLibro(libro)
                 Toast.makeText(context, "Libro guardado exitosamente", Toast.LENGTH_SHORT).show()
                 findNavController().popBackStack()
             } else {
-                binding.etTitulo.error = "Campo requerido"
+                Toast.makeText(context, "Por favor, completa los campos requeridos", Toast.LENGTH_SHORT).show()
             }
         }
     }
