@@ -1,3 +1,36 @@
 <resources>
     <string name="app_name">BookApp</string>
+    <string name="welcome_bibliotecario">¡Hola, Bibliotecario!</string>
+    <string name="subtitle_bibliotecario">¿Qué deseas hacer hoy?</string>
+    <string name="nuevo_prestamo">Nuevo Préstamo</string>
+    <string name="devolucion">Devolución</string>
+    <string name="explorar_catalogo">Explorar Catálogo de Libros</string>
+    <string name="desc_nuevo_prestamo">Icono de nuevo préstamo</string>
+    <string name="desc_devolucion">Icono de devolución</string>
+    <string name="desc_explorar_catalogo">Icono de catálogo</string>
+    <string name="desc_flecha_ir">Icono de flecha para ir</string>
+
+    <!-- Dashboard Admin -->
+    <string name="admin_dashboard">Dashboard Administrativo</string>
+    <string name="ingresos_mes">Ingresos del Mes</string>
+    <string name="libros_prestados">Libros Prestados</string>
+    <string name="usuarios_activos">Usuarios Activos</string>
+    <string name="ver_reportes">Ver Reportes Analíticos</string>
+    <string name="default_money">$0.00</string>
+    <string name="default_zero">0</string>
+
+    <!-- Catálogo -->
+    <string name="buscar_hint">Buscar por título o autor&#8230;</string>
+    <string name="desc_add_libro">Botón para añadir nuevo libro</string>
+
+    <!-- Item Libro -->
+    <string name="desc_portada_libro">Portada del libro</string>
+    <string name="placeholder_titulo_libro">Título del Libro</string>
+    <string name="placeholder_autor_libro">Autor del Libro</string>
+    <string name="estado_disponible">Disponible</string>
+
+    <!-- Item Usuario -->
+    <string name="desc_avatar_usuario">Avatar del usuario</string>
+    <string name="placeholder_nombre_usuario">Nombre del Usuario</string>
+    <string name="placeholder_email_usuario">correo@ejemplo.com</string>
 </resources>

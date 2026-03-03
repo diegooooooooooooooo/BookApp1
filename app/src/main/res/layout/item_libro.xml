@@ -21,14 +21,14 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="Portada del libro" />
+            android:contentDescription="@string/desc_portada_libro" />
 
         <TextView
             android:id="@+id/tvTitulo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="Título del Libro"
+            android:text="@string/placeholder_titulo_libro"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -39,7 +39,7 @@
             android:id="@+id/tvAutor"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Autor del Libro"
+            android:text="@string/placeholder_autor_libro"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/tvTitulo"
@@ -50,7 +50,7 @@
             style="@style/Widget.Material3.Chip.Assist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Disponible"
+            android:text="@string/estado_disponible"
             app:layout_constraintStart_toStartOf="@id/tvTitulo"
             app:layout_constraintTop_toBottomOf="@id/tvAutor" />
 
