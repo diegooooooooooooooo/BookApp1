@@ -11,7 +11,6 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.bookapp.R
 import com.example.bookapp.data.database.AppDatabase
 import com.example.bookapp.databinding.ActivityMainBinding
 import com.example.bookapp.repository.BibliotecaRepository
