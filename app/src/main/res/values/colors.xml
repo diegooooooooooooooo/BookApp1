@@ -7,4 +7,10 @@
     <color name="primary_dark_brown">#5D4037</color>
     <color name="tan">#F5F5DC</color>
     <color name="light_tan">#FFF8E1</color>
+
+    <!-- Added missing colors -->
+    <color name="jet_black">#212121</color>
+    <color name="blue_slate">#455A64</color>
+    <color name="silver">#BDBDBD</color>
+    <color name="coral_glow">#FF8A65</color>
 </resources>

@@ -48,6 +48,9 @@
         <action
             android:id="@+id/action_dashboardAdminFragment_to_reporteMensualFragment"
             app:destination="@id/reporteMensualFragment" />
+        <action
+            android:id="@+id/action_dashboardAdminFragment_to_configuracionFragment"
+            app:destination="@id/configuracionFragment" />
     </fragment>
 
     <fragment
@@ -64,6 +67,9 @@
         <action
             android:id="@+id/action_listaUsuariosFragment_to_perfilUsuarioFragment"
             app:destination="@id/perfilUsuarioFragment" />
+        <action
+            android:id="@+id/action_listaUsuariosFragment_to_configuracionFragment"
+            app:destination="@id/configuracionFragment" />
     </fragment>
 
     <fragment
@@ -92,6 +98,9 @@
         <action
             android:id="@+id/action_reporteMensualFragment_to_comparacionMensualFragment"
             app:destination="@id/comparacionMensualFragment" />
+        <action
+            android:id="@+id/action_reporteMensualFragment_to_configuracionFragment"
+            app:destination="@id/configuracionFragment" />
     </fragment>
 
     <fragment
@@ -113,6 +122,9 @@
         <action
             android:id="@+id/action_dashboardBibliotecarioFragment_to_registrarPrestamoFragment"
             app:destination="@id/registrarPrestamoFragment" />
+        <action
+            android:id="@+id/action_dashboardBibliotecarioFragment_to_configuracionFragment"
+            app:destination="@id/configuracionFragment" />
     </fragment>
 
     <fragment
@@ -126,6 +138,9 @@
         <action
             android:id="@+id/action_catalogoLibrosFragment_to_registrarLibroFragment"
             app:destination="@id/registrarLibroFragment" />
+        <action
+            android:id="@+id/action_catalogoLibrosFragment_to_configuracionFragment"
+            app:destination="@id/configuracionFragment" />
     </fragment>
 
     <fragment
@@ -148,6 +163,9 @@
         <action
             android:id="@+id/action_registrarPrestamoFragment_to_confirmacionPrestamoFragment"
             app:destination="@id/confirmacionPrestamoFragment" />
+        <action
+            android:id="@+id/action_registrarPrestamoFragment_to_configuracionFragment"
+            app:destination="@id/configuracionFragment" />
     </fragment>
 
     <fragment
@@ -161,5 +179,12 @@
         android:name="com.example.bookapp.ui.prestamos.RegistrarDevolucionFragment"
         android:label="Devolución"
         tools:layout="@layout/fragment_registrar_devolucion" />
+
+    <!-- Pantalla de Configuración -->
+    <fragment
+        android:id="@+id/configuracionFragment"
+        android:name="com.example.bookapp.ui.configuracion.ConfiguracionFragment"
+        android:label="Ajustes"
+        tools:layout="@layout/fragment_configuracion" />
 
 </navigation>

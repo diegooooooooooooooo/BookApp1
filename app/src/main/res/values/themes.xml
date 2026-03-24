@@ -1,14 +1,22 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.BookApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <item name="colorPrimary">@color/black</item>
-        <item name="colorOnPrimary">@color/primary_brown</item>
-        <item name="colorPrimaryContainer">@color/black</item>
-        <item name="colorSecondary">@color/primary_brown</item>
-        <item name="android:windowBackground">@color/black</item>
-        <item name="android:statusBarColor">@color/black</item>
-        <item name="android:navigationBarColor">@color/black</item>
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/blue_slate</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/blue_slate</item>
+        <item name="colorOnPrimaryContainer">@color/white</item>
+
+        <item name="colorSecondary">@color/coral_glow</item>
+        <item name="colorOnSecondary">@color/jet_black</item>
+
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:statusBarColor">@color/jet_black</item>
+        <item name="android:navigationBarColor">@color/jet_black</item>
+
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/jet_black</item>
+        <item name="colorOutline">@color/silver</item>
     </style>
 
     <style name="Theme.BookApp" parent="Base.Theme.BookApp" />

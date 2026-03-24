@@ -13,6 +13,10 @@
         android:icon="@android:drawable/ic_menu_sort_by_size"
         android:title="Reportes" />
     <item
+        android:id="@+id/configuracionFragment"
+        android:icon="@android:drawable/ic_menu_preferences"
+        android:title="Ajustes" />
+    <item
         android:id="@+id/loginFragment"
         android:icon="@android:drawable/ic_lock_power_off"
         android:title="Cerrar Sesión" />

@@ -13,6 +13,15 @@ class BibliotecaViewModel(private val repository: BibliotecaRepository) : ViewMo
     val allSocios: LiveData<List<SocioEntity>> = repository.allSocios.asLiveData()
     val prestamosActivos: LiveData<List<PrestamoEntity>> = repository.prestamosActivos.asLiveData()
 
+    init {
+        // Sincronización inicial al abrir la app
+        syncFromFirestore()
+    }
+
+    fun syncFromFirestore() = viewModelScope.launch {
+        repository.syncFromFirestore()
+    }
+
     fun insertLibro(libro: LibroEntity) = viewModelScope.launch {
         repository.insertLibro(libro)
     }

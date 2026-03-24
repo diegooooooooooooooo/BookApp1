@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface SocioDao {
     @Insert
-    suspend fun insert(socio: SocioEntity)
+    suspend fun insert(socio: SocioEntity): Long
 
     @Update
     suspend fun update(socio: SocioEntity)

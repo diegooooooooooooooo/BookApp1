@@ -9,8 +9,8 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "socios")
 data class SocioEntity(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    val nombre: String,
-    val dni: String,
-    val telefono: String,
-    val correo: String
+    val nombre: String = "",
+    val dni: String = "",
+    val telefono: String = "",
+    val correo: String = ""
 )

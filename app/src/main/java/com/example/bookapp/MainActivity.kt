@@ -39,36 +39,39 @@ class MainActivity : AppCompatActivity() {
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
 
-        // Navigation configuration - IMPORTANT: We manually specify END (Right)
+        // Navigation configuration - Destinations listed here will have the hamburger icon
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.dashboardAdminFragment, 
                 R.id.dashboardBibliotecarioFragment,
+                R.id.catalogoLibrosFragment,
+                R.id.listaUsuariosFragment,
+                R.id.reporteMensualFragment,
+                R.id.configuracionFragment,
                 R.id.loginFragment
             ), binding.drawerLayout
         )
 
-        // Setup with Navigation Components
         setupActionBarWithNavController(navController, appBarConfiguration)
+        
+        // Initial setup for the NavigationView (Drawer)
         binding.navView.setupWithNavController(navController)
 
-        // Handle navigation item selection manually to ensure it works with END drawer
+        // Handle drawer navigation item selection manually for logout and consistency
         binding.navView.setNavigationItemSelectedListener { menuItem ->
-            if (menuItem.itemId == R.id.loginFragment) {
-                loginViewModel.logout()
-                navController.navigate(R.id.loginFragment)
-                binding.drawerLayout.closeDrawer(GravityCompat.END)
-                true
-            } else {
-                val handled = androidx.navigation.ui.NavigationUI.onNavDestinationSelected(menuItem, navController)
-                if (handled) binding.drawerLayout.closeDrawer(GravityCompat.END)
-                handled
+            when (menuItem.itemId) {
+                R.id.loginFragment -> {
+                    loginViewModel.logout()
+                    navController.navigate(R.id.loginFragment)
+                    binding.drawerLayout.closeDrawer(GravityCompat.START)
+                    true
+                }
+                else -> {
+                    val handled = androidx.navigation.ui.NavigationUI.onNavDestinationSelected(menuItem, navController)
+                    if (handled) binding.drawerLayout.closeDrawer(GravityCompat.START)
+                    handled
+                }
             }
-        }
-
-        // Handle Bottom Navigation manually to ensure role-based sync
-        binding.bottomNavigation.setOnItemSelectedListener { item ->
-            androidx.navigation.ui.NavigationUI.onNavDestinationSelected(item, navController)
         }
 
         // Logic to switch menus based on role
@@ -82,6 +85,8 @@ class MainActivity : AppCompatActivity() {
                     binding.bottomNavigation.inflateMenu(R.menu.bottom_nav_menu)
                     binding.drawerLayout.setDrawerLockMode(androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
                 }
+                
+                // Re-setup with NavController to bind the newly inflated menu items
                 binding.bottomNavigation.setupWithNavController(navController)
                 binding.bottomNavigation.visibility = View.VISIBLE
             }
@@ -95,26 +100,22 @@ class MainActivity : AppCompatActivity() {
                     binding.drawerLayout.setDrawerLockMode(androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
                 }
                 else -> {
-                    binding.bottomNavigation.visibility = View.VISIBLE
                     binding.toolbar.visibility = View.VISIBLE
+                    // Bottom navigation visibility is handled by the user observer
                 }
             }
         }
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        // Correct implementation for RIGHT drawer navigation
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
-    
-    // Manual toggle for the drawer on the toolbar button click
+
     override fun onOptionsItemSelected(item: android.view.MenuItem): Boolean {
+        // Handle the home button (hamburger/arrow) correctly
         if (item.itemId == android.R.id.home) {
-            // Check if drawer is needed and if it should open from the END
-            val topDestinations = setOf(R.id.dashboardAdminFragment, R.id.dashboardBibliotecarioFragment)
-            if (topDestinations.contains(navController.currentDestination?.id) && 
-                binding.drawerLayout.getDrawerLockMode(GravityCompat.END) != androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_LOCKED_CLOSED) {
-                binding.drawerLayout.openDrawer(GravityCompat.END)
+            if (binding.drawerLayout.getDrawerLockMode(GravityCompat.START) == androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_UNLOCKED) {
+                binding.drawerLayout.openDrawer(GravityCompat.START)
                 return true
             }
         }

@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:background="@color/white"
+    android:padding="20dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,7 +15,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Registrar Devolución"
-            android:textSize="24sp"
+            android:textColor="@color/jet_black"
+            android:textSize="26sp"
             android:textStyle="bold"
             android:layout_marginBottom="24dp" />
 
@@ -22,38 +24,53 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
-            app:cardCornerRadius="12dp">
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/silver"
+            app:cardBackgroundColor="@color/white">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Datos del Préstamo"
+                    android:textColor="@color/blue_slate"
+                    android:textSize="12sp"
+                    android:textAllCaps="true"
+                    android:letterSpacing="0.1"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvDevolucionLibro"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Libro: El Principito" />
+                    android:layout_marginTop="12dp"
+                    android:text="Libro: El Principito"
+                    android:textColor="@color/jet_black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvDevolucionUsuario"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Usuario: Juan Pérez" />
+                    android:layout_marginTop="4dp"
+                    android:text="Usuario: Juan Pérez"
+                    android:textColor="@color/blue_slate" />
 
                 <TextView
                     android:id="@+id/tvDevolucionFechaLimite"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Fecha Límite: 15/03/2024" />
+                    android:layout_marginTop="4dp"
+                    android:text="Fecha Límite: 15/03/2024"
+                    android:textColor="@color/blue_slate" />
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -61,35 +78,44 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            app:cardCornerRadius="12dp"
-            app:cardBackgroundColor="?attr/colorErrorContainer">
+            android:layout_marginBottom="32dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/coral_glow"
+            app:cardBackgroundColor="#FFF5F2">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Cálculo de Multa"
+                    android:textColor="@color/coral_glow"
+                    android:textSize="12sp"
+                    android:textAllCaps="true"
+                    android:letterSpacing="0.1"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvDiasRetraso"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Días de retraso: 5" />
+                    android:layout_marginTop="12dp"
+                    android:text="Días de retraso: 5"
+                    android:textColor="@color/jet_black" />
 
                 <TextView
                     android:id="@+id/tvMultaGenerada"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Multa: $250.00"
-                    android:textSize="20sp"
+                    android:textColor="@color/jet_black"
+                    android:textSize="24sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -100,7 +126,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="12dp"
-            android:text="Confirmar Devolución" />
+            android:text="Confirmar Devolución"
+            android:backgroundTint="@color/blue_slate"
+            android:textColor="@color/white"
+            app:cornerRadius="12dp" />
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

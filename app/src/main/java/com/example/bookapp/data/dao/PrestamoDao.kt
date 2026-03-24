@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface PrestamoDao {
     @Insert
-    suspend fun insert(prestamo: PrestamoEntity)
+    suspend fun insert(prestamo: PrestamoEntity): Long
 
     @Update
     suspend fun update(prestamo: PrestamoEntity)

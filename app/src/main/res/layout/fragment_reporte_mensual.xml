@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:background="@color/white"
+    android:padding="20dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,90 +15,149 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Reporte Mensual de Ingresos"
-            android:textSize="22sp"
+            android:textColor="@color/jet_black"
+            android:textSize="26sp"
             android:textStyle="bold"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="24dp" />
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            app:cardCornerRadius="12dp">
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            app:strokeWidth="0dp"
+            app:cardBackgroundColor="@color/blue_slate">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="24dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Total Acumulado Marzo"
-                    android:textColor="?attr/colorPrimary" />
+                    android:textColor="@color/silver"
+                    android:textSize="12sp"
+                    android:textAllCaps="true"
+                    android:letterSpacing="0.1" />
 
                 <TextView
                     android:id="@+id/tvTotalMensual"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="$4,250.00"
-                    android:textSize="32sp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/white"
+                    android:textSize="36sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="4dp" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:layout_marginBottom="16dp"
-            app:cardCornerRadius="12dp">
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/silver"
+            app:cardBackgroundColor="@color/white">
 
             <com.github.mikephil.charting.charts.BarChart
                 android:id="@+id/barChartIngresos"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="8dp" />
+                android:padding="16dp" />
         </com.google.android.material.card.MaterialCardView>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Origen de Ingresos"
+            android:textColor="@color/blue_slate"
             android:textStyle="bold"
-            android:layout_marginBottom="8dp" />
+            android:textSize="18sp"
+            android:layout_marginBottom="12dp" />
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="8dp">
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/silver"
+            app:cardBackgroundColor="@color/white">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="12dp">
+                android:padding="20dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Multas" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="$1,250.00" android:layout_alignParentEnd="true" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Multas"
+                        android:textColor="@color/jet_black" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="$1,250.00"
+                        android:textColor="@color/jet_black"
+                        android:textStyle="bold"
+                        android:layout_alignParentEnd="true" />
                 </RelativeLayout>
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="12dp"
+                    app:dividerColor="@color/silver" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Membresías" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="$2,000.00" android:layout_alignParentEnd="true" />
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Membresías"
+                        android:textColor="@color/jet_black" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="$2,000.00"
+                        android:textColor="@color/jet_black"
+                        android:textStyle="bold"
+                        android:layout_alignParentEnd="true" />
                 </RelativeLayout>
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="12dp"
+                    app:dividerColor="@color/silver" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Reposiciones" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="$1,000.00" android:layout_alignParentEnd="true" />
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Reposiciones"
+                        android:textColor="@color/jet_black" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="$1,000.00"
+                        android:textColor="@color/jet_black"
+                        android:textStyle="bold"
+                        android:layout_alignParentEnd="true" />
                 </RelativeLayout>
 
             </LinearLayout>

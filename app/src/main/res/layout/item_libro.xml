@@ -5,23 +5,37 @@
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="16dp"
     android:layout_marginVertical="8dp"
-    app:cardCornerRadius="8dp">
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="1dp"
+    app:strokeColor="@color/silver"
+    app:cardBackgroundColor="@color/white">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="12dp">
+        android:padding="16dp">
 
-        <ImageView
-            android:id="@+id/ivPortada"
-            android:layout_width="60dp"
-            android:layout_height="80dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_book"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvPortada"
+            android:layout_width="65dp"
+            android:layout_height="90dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/desc_portada_libro" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivPortada"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_book"
+                app:tint="@color/blue_slate"
+                android:contentDescription="@string/desc_portada_libro" />
+        </com.google.android.material.card.MaterialCardView>
 
         <TextView
             android:id="@+id/tvTitulo"
@@ -29,10 +43,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="@string/placeholder_titulo_libro"
-            android:textSize="16sp"
+            android:textColor="@color/jet_black"
+            android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ivPortada"
+            app:layout_constraintStart_toEndOf="@id/cvPortada"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -40,6 +55,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/placeholder_autor_libro"
+            android:textColor="@color/blue_slate"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/tvTitulo"
@@ -50,7 +66,11 @@
             style="@style/Widget.Material3.Chip.Assist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:text="@string/estado_disponible"
+            android:textColor="@color/white"
+            app:chipBackgroundColor="@color/blue_slate"
+            app:chipStrokeWidth="0dp"
             app:layout_constraintStart_toStartOf="@id/tvTitulo"
             app:layout_constraintTop_toBottomOf="@id/tvAutor" />
 

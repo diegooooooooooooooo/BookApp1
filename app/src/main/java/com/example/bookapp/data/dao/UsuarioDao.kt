@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface UsuarioDao {
     @Insert
-    suspend fun insert(usuario: UsuarioEntity)
+    suspend fun insert(usuario: UsuarioEntity): Long
 
     @Update
     suspend fun update(usuario: UsuarioEntity)

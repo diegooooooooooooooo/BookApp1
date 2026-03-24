@@ -9,8 +9,8 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "usuarios")
 data class UsuarioEntity(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    val nombre: String,
-    val correo: String,
-    val contrasena: String, // Added password field
-    val rol: String // "ADMIN" o "BIBLIOTECARIO"
+    val nombre: String = "",
+    val correo: String = "",
+    val contrasena: String = "",
+    val rol: String = "" // "ADMIN" o "BIBLIOTECARIO"
 )

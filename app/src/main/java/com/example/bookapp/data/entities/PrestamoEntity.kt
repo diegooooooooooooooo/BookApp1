@@ -9,10 +9,10 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "prestamos")
 data class PrestamoEntity(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    val socioId: Int,
-    val libroId: Int,
-    val fechaPrestamo: Long, // Almacenado como timestamp
-    val fechaDevolucionEsperada: Long,
+    val socioId: Int = 0,
+    val libroId: Int = 0,
+    val fechaPrestamo: Long = 0L,
+    val fechaDevolucionEsperada: Long = 0L,
     val fechaEntregaReal: Long? = null,
     val multa: Double = 0.0
 )

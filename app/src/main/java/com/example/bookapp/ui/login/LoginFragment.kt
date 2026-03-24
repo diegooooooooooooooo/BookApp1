@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.bookapp.R
 import com.example.bookapp.data.database.AppDatabase
@@ -23,7 +23,7 @@ class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: LoginViewModel by viewModels {
+    private val viewModel: LoginViewModel by activityViewModels {
         val database = AppDatabase.getDatabase(requireContext())
         ViewModelFactory(BibliotecaRepository(
             database.libroDao(), 

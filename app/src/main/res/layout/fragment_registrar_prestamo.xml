@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:background="@color/white"
+    android:padding="20dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,7 +15,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Registrar Nuevo Préstamo"
-            android:textSize="24sp"
+            android:textColor="@color/jet_black"
+            android:textSize="26sp"
             android:textStyle="bold"
             android:layout_marginBottom="24dp" />
 
@@ -23,11 +25,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Seleccionar Usuario"
+            app:boxStrokeColor="@color/blue_slate"
+            app:hintTextColor="@color/blue_slate"
+            android:textColorHint="@color/silver"
             android:layout_marginBottom="12dp">
             <AutoCompleteTextView
                 android:id="@+id/spinnerUsuario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/jet_black"
                 android:inputType="none" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -36,11 +42,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Seleccionar Libro"
+            app:boxStrokeColor="@color/blue_slate"
+            app:hintTextColor="@color/blue_slate"
+            android:textColorHint="@color/silver"
             android:layout_marginBottom="12dp">
             <AutoCompleteTextView
                 android:id="@+id/spinnerLibro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/jet_black"
                 android:inputType="none" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -49,13 +59,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Fecha de Devolución"
+            app:boxStrokeColor="@color/blue_slate"
+            app:hintTextColor="@color/blue_slate"
+            android:textColorHint="@color/silver"
             android:layout_marginBottom="24dp"
             app:endIconMode="custom"
+            app:endIconTint="@color/blue_slate"
             app:endIconDrawable="@android:drawable/ic_menu_my_calendar">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etFechaDevolucion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/jet_black"
                 android:focusable="false"
                 android:inputType="none" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -65,7 +80,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="12dp"
-            android:text="Confirmar Préstamo" />
+            android:text="Confirmar Préstamo"
+            android:backgroundTint="@color/blue_slate"
+            android:textColor="@color/white"
+            app:cornerRadius="12dp" />
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
