@@ -26,6 +26,14 @@ class BibliotecaViewModel(private val repository: BibliotecaRepository) : ViewMo
         repository.insertLibro(libro)
     }
 
+    fun updateLibro(libro: LibroEntity) = viewModelScope.launch {
+        repository.updateLibro(libro)
+    }
+
+    fun deleteLibro(libro: LibroEntity) = viewModelScope.launch {
+        repository.deleteLibro(libro)
+    }
+
     fun insertSocio(socio: SocioEntity) = viewModelScope.launch {
         repository.insertSocio(socio)
     }

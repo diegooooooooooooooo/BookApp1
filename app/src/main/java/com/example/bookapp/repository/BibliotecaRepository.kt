@@ -41,6 +41,11 @@ class BibliotecaRepository(
         libroDao.update(libro)
         librosCollection.document(libro.id.toString()).set(libro).await()
     }
+
+    suspend fun deleteLibro(libro: LibroEntity) {
+        libroDao.delete(libro)
+        librosCollection.document(libro.id.toString()).delete().await()
+    }
     
     fun searchLibros(query: String) = libroDao.searchLibros(query)
     suspend fun getLibroById(id: Int) = libroDao.getLibroById(id)

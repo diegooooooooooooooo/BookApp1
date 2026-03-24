@@ -185,6 +185,12 @@
         android:id="@+id/configuracionFragment"
         android:name="com.example.bookapp.ui.configuracion.ConfiguracionFragment"
         android:label="Ajustes"
-        tools:layout="@layout/fragment_configuracion" />
+        tools:layout="@layout/fragment_configuracion">
+        <action
+            android:id="@+id/action_configuracionFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
 
 </navigation>

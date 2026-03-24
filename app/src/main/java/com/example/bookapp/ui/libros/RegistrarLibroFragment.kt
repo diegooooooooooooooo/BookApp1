@@ -6,8 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.bookapp.data.database.AppDatabase
 import com.example.bookapp.data.entities.LibroEntity
 import com.example.bookapp.databinding.FragmentRegistrarLibroBinding
@@ -20,10 +21,13 @@ class RegistrarLibroFragment : Fragment() {
     private var _binding: FragmentRegistrarLibroBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: BibliotecaViewModel by viewModels {
+    // Usar activityViewModels para compartir el estado
+    private val viewModel: BibliotecaViewModel by activityViewModels {
         val database = AppDatabase.getDatabase(requireContext())
         ViewModelFactory(BibliotecaRepository(database.libroDao(), database.usuarioDao(), database.prestamoDao(), database.socioDao()))
     }
+
+    private var libroAEditar: LibroEntity? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,6 +40,14 @@ class RegistrarLibroFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Recuperar argumentos si existen (para edición)
+        arguments?.let {
+            val libroId = it.getInt("libroId", -1)
+            if (libroId != -1) {
+                setupEditMode(libroId)
+            }
+        }
+
         binding.btnGuardarLibro.setOnClickListener {
             val titulo = binding.etTitulo.text.toString().trim()
             val autor = binding.etAutor.text.toString().trim()
@@ -44,19 +56,48 @@ class RegistrarLibroFragment : Fragment() {
             val ejemplaresStr = binding.etEjemplares.text.toString().trim()
 
             if (titulo.isNotEmpty() && autor.isNotEmpty() && ejemplaresStr.isNotEmpty()) {
-                val libro = LibroEntity(
+                val libro = libroAEditar?.copy(
                     titulo = titulo,
                     autor = autor,
                     editorial = editorial,
                     isbn = isbn,
-                    categoria = "", // Removed category as requested
+                    ejemplares = ejemplaresStr.toIntOrNull() ?: 1
+                ) ?: LibroEntity(
+                    titulo = titulo,
+                    autor = autor,
+                    editorial = editorial,
+                    isbn = isbn,
+                    categoria = "",
                     ejemplares = ejemplaresStr.toIntOrNull() ?: 1
                 )
-                viewModel.insertLibro(libro)
-                Toast.makeText(context, "Libro guardado exitosamente", Toast.LENGTH_SHORT).show()
+
+                if (libroAEditar != null) {
+                    viewModel.updateLibro(libro)
+                    Toast.makeText(context, "Libro actualizado exitosamente", Toast.LENGTH_SHORT).show()
+                } else {
+                    viewModel.insertLibro(libro)
+                    Toast.makeText(context, "Libro guardado exitosamente", Toast.LENGTH_SHORT).show()
+                }
                 findNavController().popBackStack()
             } else {
                 Toast.makeText(context, "Por favor, completa los campos requeridos", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun setupEditMode(libroId: Int) {
+        // Observamos todos los libros y buscamos el que necesitamos editar
+        viewModel.allLibros.observe(viewLifecycleOwner) { libros ->
+            val libro = libros.find { it.id == libroId }
+            if (libro != null && libroAEditar == null) {
+                libroAEditar = libro
+                binding.etTitulo.setText(libro.titulo)
+                binding.etAutor.setText(libro.autor)
+                binding.etEditorial.setText(libro.editorial)
+                binding.etIsbn.setText(libro.isbn)
+                binding.etEjemplares.setText(libro.ejemplares.toString())
+                binding.btnGuardarLibro.text = "Actualizar Libro"
+                // Opcional: cambiar el título del fragmento
             }
         }
     }

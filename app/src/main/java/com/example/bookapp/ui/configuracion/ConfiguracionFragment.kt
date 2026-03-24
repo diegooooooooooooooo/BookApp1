@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.bookapp.R
 import com.example.bookapp.data.database.AppDatabase
@@ -19,7 +19,7 @@ class ConfiguracionFragment : Fragment() {
     private var _binding: FragmentConfiguracionBinding? = null
     private val binding get() = _binding!!
 
-    private val loginViewModel: LoginViewModel by viewModels {
+    private val loginViewModel: LoginViewModel by activityViewModels {
         val database = AppDatabase.getDatabase(requireContext())
         ViewModelFactory(BibliotecaRepository(database.libroDao(), database.usuarioDao(), database.prestamoDao(), database.socioDao()))
     }
@@ -37,7 +37,7 @@ class ConfiguracionFragment : Fragment() {
 
         binding.btnCerrarSesion.setOnClickListener {
             loginViewModel.logout()
-            findNavController().navigate(R.id.loginFragment)
+            findNavController().navigate(R.id.action_configuracionFragment_to_loginFragment)
         }
     }
 
