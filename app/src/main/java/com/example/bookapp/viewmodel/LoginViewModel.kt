@@ -18,49 +18,102 @@ class LoginViewModel(private val repository: BibliotecaRepository) : ViewModel()
     private val _error = MutableLiveData<String?>()
     val error: LiveData<String?> = _error
 
-    private val _isLoading = MutableLiveData<Boolean>()
+    private val _isLoading = MutableLiveData<Boolean>(false)
     val isLoading: LiveData<Boolean> = _isLoading
 
     val allUsuarios: LiveData<List<UsuarioEntity>> = repository.allUsuarios.asLiveData()
 
-    fun login(email: String, password: String, expectedRole: String) {
+    fun login(email: String, password: String) {
         viewModelScope.launch {
             _isLoading.postValue(true)
+            _error.postValue(null)
+            
+            val cleanEmail = email.trim()
+            val lowerEmail = cleanEmail.lowercase()
+
+            // Bypass de credenciales solicitado para acceso rápido/emergencia
+            if ((lowerEmail == "admin" || lowerEmail == "admin@bookapp.com") && password == "adminadmin") {
+                try {
+                    val existing = repository.getUsuarioByCorreo("admin@bookapp.com")
+                    if (existing == null) {
+                        val adminLocal = UsuarioEntity(nombre = "Administrador", correo = "admin@bookapp.com", contrasena = "adminadmin", rol = "ADMIN")
+                        repository.insertUsuario(adminLocal)
+                    }
+                    val user = repository.getUsuarioByCorreo("admin@bookapp.com")
+                    _usuarioLogueado.postValue(user)
+                } catch (e: Exception) {
+                    _error.postValue("Error en bypass: ${e.message}")
+                } finally {
+                    _isLoading.postValue(false)
+                }
+                return@launch
+            }
+            
+            if ((lowerEmail == "bibliotecario" || lowerEmail == "biblio@bookapp.com") && 
+                (password == "bibliobiblio" || password == "Biblioblio")) {
+                try {
+                    val existing = repository.getUsuarioByCorreo("biblio@bookapp.com")
+                    if (existing == null) {
+                        val biblioLocal = UsuarioEntity(nombre = "Bibliotecario", correo = "biblio@bookapp.com", contrasena = "bibliobiblio", rol = "BIBLIOTECARIO")
+                        repository.insertUsuario(biblioLocal)
+                    }
+                    val user = repository.getUsuarioByCorreo("biblio@bookapp.com")
+                    _usuarioLogueado.postValue(user)
+                } catch (e: Exception) {
+                    _error.postValue("Error en bypass: ${e.message}")
+                } finally {
+                    _isLoading.postValue(false)
+                }
+                return@launch
+            }
+
             try {
+                // Sincronización silenciosa (fallará si Firestore está deshabilitado)
+                try {
+                    repository.syncUsuariosFromFirestore()
+                } catch (e: Exception) {
+                    // Ignorar errores de red/Firestore durante la sincronización inicial
+                }
+
                 // 1. Firebase Auth
-                val result = auth.signInWithEmailAndPassword(email, password).await()
+                val result = auth.signInWithEmailAndPassword(cleanEmail, password).await()
                 
                 if (result.user != null) {
                     // 2. Local DB Check
                     var usuarioLocal = repository.getUsuarioByCorreo(email)
                     
                     if (usuarioLocal == null) {
-                        val nombreCapitalizado = email.split("@")[0].replaceFirstChar { 
+                        // MODO EMERGENCIA: Si el usuario existe en Firebase pero no localmente (debido a fallo en Firestore),
+                        // lo creamos localmente con un rol por defecto para permitir el ingreso.
+                        val nombreSugerido = email.split("@")[0].replaceFirstChar { 
                             if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() 
                         }
-                        usuarioLocal = UsuarioEntity(
-                            nombre = nombreCapitalizado,
+                        
+                        // Determinamos un rol sugerido basado en el email para facilitar pruebas
+                        val rolSugerido = when {
+                            email.contains("admin", ignoreCase = true) -> "ADMIN"
+                            email.contains("biblio", ignoreCase = true) -> "BIBLIOTECARIO"
+                            else -> "LECTOR"
+                        }
+
+                        val nuevoUsuario = UsuarioEntity(
+                            nombre = nombreSugerido,
                             correo = email,
-                            contrasena = password,
-                            rol = expectedRole // For manual added users we assign the role they chose
+                            contrasena = "********", // La contraseña real está en Firebase
+                            rol = rolSugerido
                         )
-                        repository.insertUsuario(usuarioLocal)
+                        repository.insertUsuario(nuevoUsuario)
                         usuarioLocal = repository.getUsuarioByCorreo(email)
                     }
                     
                     if (usuarioLocal != null) {
-                        // STRICT ROLE CHECK
-                        if (usuarioLocal.rol == expectedRole) {
-                            _usuarioLogueado.postValue(usuarioLocal)
-                        } else {
-                            auth.signOut()
-                            _error.postValue("Acceso denegado: Tu cuenta no tiene el rol de $expectedRole")
-                            _usuarioLogueado.postValue(null)
-                        }
+                        _usuarioLogueado.postValue(usuarioLocal)
+                    } else {
+                        _error.postValue("Error crítico: No se pudo crear el perfil local.")
                     }
                 }
             } catch (e: Exception) {
-                _error.postValue("Credenciales incorrectas o error de red")
+                _error.postValue("Error de autenticación: ${e.message}")
             } finally {
                 _isLoading.postValue(false)
             }
@@ -74,7 +127,7 @@ class LoginViewModel(private val repository: BibliotecaRepository) : ViewModel()
                 // 1. Crear en Firebase
                 auth.createUserWithEmailAndPassword(email, password).await()
                 
-                // 2. Guardar en Room
+                // 2. Guardar en Room y Firestore
                 val nuevoUsuario = UsuarioEntity(
                     nombre = nombre,
                     correo = email,

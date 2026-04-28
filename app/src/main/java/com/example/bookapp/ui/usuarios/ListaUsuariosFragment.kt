@@ -10,11 +10,10 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.bookapp.BookApplication
 import com.example.bookapp.R
-import com.example.bookapp.data.database.AppDatabase
 import com.example.bookapp.data.entities.SocioEntity
 import com.example.bookapp.databinding.FragmentListaUsuariosBinding
-import com.example.bookapp.repository.BibliotecaRepository
 import com.example.bookapp.viewmodel.BibliotecaViewModel
 import com.example.bookapp.viewmodel.LoginViewModel
 import com.example.bookapp.viewmodel.ViewModelFactory
@@ -25,13 +24,11 @@ class ListaUsuariosFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val loginViewModel: LoginViewModel by activityViewModels {
-        val database = AppDatabase.getDatabase(requireContext())
-        ViewModelFactory(BibliotecaRepository(database.libroDao(), database.usuarioDao(), database.prestamoDao(), database.socioDao()))
+        ViewModelFactory((requireActivity().application as BookApplication).repository)
     }
 
     private val bibliotecaViewModel: BibliotecaViewModel by viewModels {
-        val database = AppDatabase.getDatabase(requireContext())
-        ViewModelFactory(BibliotecaRepository(database.libroDao(), database.usuarioDao(), database.prestamoDao(), database.socioDao()))
+        ViewModelFactory((requireActivity().application as BookApplication).repository)
     }
 
     override fun onCreateView(

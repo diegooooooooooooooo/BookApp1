@@ -92,13 +92,31 @@
             app:boxStrokeColor="@color/blue_slate"
             app:hintTextColor="@color/blue_slate"
             android:textColorHint="@color/silver"
-            android:layout_marginBottom="32dp">
+            android:layout_marginBottom="16dp">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etEjemplares"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/jet_black"
                 android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Valor / Precio"
+            app:boxStrokeColor="@color/blue_slate"
+            app:hintTextColor="@color/blue_slate"
+            android:textColorHint="@color/silver"
+            app:prefixText="$"
+            android:layout_marginBottom="32dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etValor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/jet_black"
+                android:inputType="numberDecimal" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton

@@ -16,5 +16,6 @@ data class LibroEntity(
     val categoria: String = "",
     val editorial: String = "",
     val ejemplares: Int = 0,
-    val disponible: Boolean = true
+    val valor: Double = 0.0,
+    val estado: LibroEstado = LibroEstado.DISPONIBLE
 )

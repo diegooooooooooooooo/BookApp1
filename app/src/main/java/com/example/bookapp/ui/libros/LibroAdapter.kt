@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bookapp.data.entities.LibroEntity
+import com.example.bookapp.data.entities.LibroEstado
 import com.example.bookapp.databinding.ItemLibroBinding
 
 class LibroAdapter(
@@ -38,12 +39,19 @@ class LibroAdapter(
             binding.tvTitulo.text = libro.titulo
             binding.tvAutor.text = libro.autor
             
-            if (libro.disponible) {
-                binding.chipEstado.text = "Disponible"
-                binding.chipEstado.setChipBackgroundColorResource(android.R.color.holo_green_light)
-            } else {
-                binding.chipEstado.text = "Prestado"
-                binding.chipEstado.setChipBackgroundColorResource(android.R.color.holo_red_light)
+            when (libro.estado) {
+                LibroEstado.DISPONIBLE -> {
+                    binding.chipEstado.text = "Disponible"
+                    binding.chipEstado.setChipBackgroundColorResource(android.R.color.holo_green_light)
+                }
+                LibroEstado.PRESTADO -> {
+                    binding.chipEstado.text = "Prestado"
+                    binding.chipEstado.setChipBackgroundColorResource(android.R.color.holo_red_light)
+                }
+                LibroEstado.NO_DISPONIBLE -> {
+                    binding.chipEstado.text = "No Disponible"
+                    binding.chipEstado.setChipBackgroundColorResource(android.R.color.darker_gray)
+                }
             }
 
             // Mostrar u ocultar acciones admin

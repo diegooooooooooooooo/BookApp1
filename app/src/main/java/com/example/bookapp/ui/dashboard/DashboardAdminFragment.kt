@@ -7,10 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.bookapp.BookApplication
 import com.example.bookapp.R
-import com.example.bookapp.data.database.AppDatabase
+import com.example.bookapp.data.model.PrestamoPendiente
 import com.example.bookapp.databinding.FragmentDashboardAdminBinding
-import com.example.bookapp.repository.BibliotecaRepository
 import com.example.bookapp.viewmodel.BibliotecaViewModel
 import com.example.bookapp.viewmodel.ViewModelFactory
 import java.util.Calendar
@@ -21,8 +22,7 @@ class DashboardAdminFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: BibliotecaViewModel by viewModels {
-        val database = AppDatabase.getDatabase(requireContext())
-        ViewModelFactory(BibliotecaRepository(database.libroDao(), database.usuarioDao(), database.prestamoDao(), database.socioDao()))
+        ViewModelFactory((requireActivity().application as BookApplication).repository)
     }
 
     override fun onCreateView(
@@ -36,25 +36,41 @@ class DashboardAdminFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnVerReportes.setOnClickListener {
-            findNavController().navigate(R.id.reporteMensualFragment)
+        setupMorososRecyclerView()
+
+        binding.btnVerTodosMorosos.setOnClickListener {
+            // Navegar a la lista completa de préstamos pendientes con opciones de ordenamiento
+            findNavController().navigate(R.id.action_dashboardAdminFragment_to_listaPendientesFragment)
         }
 
-        // Obtener mes actual para los reportes
-        val mesActual = Calendar.getInstance().get(Calendar.MONTH) + 1
-        val mesStr = mesActual.toString().padStart(2, '0')
+        // Observar datos reales
+        viewModel.prestamosActivosConDetalles.observe(viewLifecycleOwner) { prestamos ->
+            binding.tvTotalPrestamos.text = prestamos.size.toString()
+            
+            val currentTime = System.currentTimeMillis()
+            val pendientesList = prestamos.filter { it.fechaDevolucionEsperada < currentTime }
+                .map { prestamo ->
+                    val diasRetraso = ((currentTime - prestamo.fechaDevolucionEsperada) / (1000 * 60 * 60 * 24)).toInt()
+                    PrestamoPendiente(
+                        socioNombre = prestamo.socioNombre,
+                        libroTitulo = prestamo.libroTitulo,
+                        fechaVencimiento = prestamo.fechaDevolucionEsperada,
+                        diasRetraso = diasRetraso
+                    )
+                }
 
-        viewModel.getIngresosMes(mesStr).observe(viewLifecycleOwner) { ingresos ->
-            binding.tvIngresosMes.text = "$${String.format("%.2f", ingresos ?: 0.0)}"
-        }
+            binding.rvMorosos.adapter = PrestamosPendientesAdapter(pendientesList)
 
-        viewModel.prestamosActivos.observe(viewLifecycleOwner) { prestamos ->
-            binding.tvLibrosPrestados.text = prestamos.size.toString()
+            val countPendientes = pendientesList.size
+            binding.badgeError.text = "$countPendientes con retraso"
+            binding.badgeMorososCount.text = "$countPendientes pendientes"
+            binding.badgeSuccess.text = "${prestamos.size - countPendientes} al día"
         }
+    }
 
-        viewModel.allSocios.observe(viewLifecycleOwner) { socios ->
-            binding.tvUsuariosActivos.text = socios.size.toString()
-        }
+    private fun setupMorososRecyclerView() {
+        binding.rvMorosos.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvMorosos.setHasFixedSize(true)
     }
 
     override fun onDestroyView() {

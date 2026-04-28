@@ -4,16 +4,13 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.bookapp.data.database.AppDatabase
 import com.example.bookapp.databinding.ActivityMainBinding
-import com.example.bookapp.repository.BibliotecaRepository
 import com.example.bookapp.viewmodel.LoginViewModel
 import com.example.bookapp.viewmodel.ViewModelFactory
 
@@ -24,8 +21,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
 
     private val loginViewModel: LoginViewModel by viewModels {
-        val database = AppDatabase.getDatabase(this)
-        ViewModelFactory(BibliotecaRepository(database.libroDao(), database.usuarioDao(), database.prestamoDao(), database.socioDao()))
+        ViewModelFactory((application as BookApplication).repository)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,51 +35,30 @@ class MainActivity : AppCompatActivity() {
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
 
-        // Navigation configuration - Destinations listed here will have the hamburger icon
+        // Navigation configuration - Destinations listed here will NOT have the hamburger icon
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.dashboardAdminFragment, 
                 R.id.dashboardBibliotecarioFragment,
+                R.id.dashboardLectorFragment,
                 R.id.catalogoLibrosFragment,
                 R.id.listaUsuariosFragment,
                 R.id.reporteMensualFragment,
                 R.id.configuracionFragment,
                 R.id.loginFragment
-            ), binding.drawerLayout
+            )
         )
 
         setupActionBarWithNavController(navController, appBarConfiguration)
-        
-        // Initial setup for the NavigationView (Drawer)
-        binding.navView.setupWithNavController(navController)
-
-        // Handle drawer navigation item selection manually for logout and consistency
-        binding.navView.setNavigationItemSelectedListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.loginFragment -> {
-                    loginViewModel.logout()
-                    navController.navigate(R.id.loginFragment)
-                    binding.drawerLayout.closeDrawer(GravityCompat.START)
-                    true
-                }
-                else -> {
-                    val handled = androidx.navigation.ui.NavigationUI.onNavDestinationSelected(menuItem, navController)
-                    if (handled) binding.drawerLayout.closeDrawer(GravityCompat.START)
-                    handled
-                }
-            }
-        }
 
         // Logic to switch menus based on role
         loginViewModel.usuarioLogueado.observe(this) { usuario ->
             if (usuario != null) {
                 binding.bottomNavigation.menu.clear()
-                if (usuario.rol == "ADMIN") {
-                    binding.bottomNavigation.inflateMenu(R.menu.admin_bottom_nav_menu)
-                    binding.drawerLayout.setDrawerLockMode(androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_UNLOCKED)
-                } else {
-                    binding.bottomNavigation.inflateMenu(R.menu.bottom_nav_menu)
-                    binding.drawerLayout.setDrawerLockMode(androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+                when (usuario.rol) {
+                    "ADMIN" -> binding.bottomNavigation.inflateMenu(R.menu.admin_bottom_nav_menu)
+                    "LECTOR" -> binding.bottomNavigation.inflateMenu(R.menu.lector_bottom_nav_menu)
+                    else -> binding.bottomNavigation.inflateMenu(R.menu.bottom_nav_menu)
                 }
                 
                 // Re-setup with NavController to bind the newly inflated menu items
@@ -94,10 +69,9 @@ class MainActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.loginFragment, R.id.splashFragment -> {
+                R.id.loginFragment, R.id.splashFragment, R.id.signUpFragment -> {
                     binding.bottomNavigation.visibility = View.GONE
                     binding.toolbar.visibility = View.GONE
-                    binding.drawerLayout.setDrawerLockMode(androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
                 }
                 else -> {
                     binding.toolbar.visibility = View.VISIBLE
@@ -109,16 +83,5 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
-    }
-
-    override fun onOptionsItemSelected(item: android.view.MenuItem): Boolean {
-        // Handle the home button (hamburger/arrow) correctly
-        if (item.itemId == android.R.id.home) {
-            if (binding.drawerLayout.getDrawerLockMode(GravityCompat.START) == androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_UNLOCKED) {
-                binding.drawerLayout.openDrawer(GravityCompat.START)
-                return true
-            }
-        }
-        return super.onOptionsItemSelected(item)
     }
 }

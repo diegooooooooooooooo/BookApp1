@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/dashboardLectorFragment"
+        android:icon="@android:drawable/ic_menu_today"
+        android:title="Inicio" />
+    <item
+        android:id="@+id/catalogoLibrosFragment"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="Libros" />
+    <item
+        android:id="@+id/calendarioPrestamosFragment"
+        android:icon="@android:drawable/ic_menu_month"
+        android:title="Mis Préstamos" />
+    <item
+        android:id="@+id/configuracionFragment"
+        android:icon="@android:drawable/ic_menu_preferences"
+        android:title="Ajustes" />
+</menu>

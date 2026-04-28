@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.bookapp.R
 import com.example.bookapp.databinding.FragmentDashboardBibliotecarioBinding
 
 /**
@@ -26,7 +28,19 @@ class DashboardBibliotecarioFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        
         // Configurar botones de acciones rápidas
+        binding.cardPrestamo.setOnClickListener {
+            findNavController().navigate(R.id.action_dashboardBibliotecarioFragment_to_registrarPrestamoFragment)
+        }
+
+        binding.cardDevolucion.setOnClickListener {
+            findNavController().navigate(R.id.action_dashboardBibliotecarioFragment_to_registrarDevolucionFragment)
+        }
+
+        binding.cardCatalogo.setOnClickListener {
+            findNavController().navigate(R.id.action_dashboardBibliotecarioFragment_to_catalogoLibrosFragment)
+        }
     }
 
     override fun onDestroyView() {

@@ -12,6 +12,9 @@ class BibliotecaViewModel(private val repository: BibliotecaRepository) : ViewMo
     val allLibros: LiveData<List<LibroEntity>> = repository.allLibros.asLiveData()
     val allSocios: LiveData<List<SocioEntity>> = repository.allSocios.asLiveData()
     val prestamosActivos: LiveData<List<PrestamoEntity>> = repository.prestamosActivos.asLiveData()
+    val prestamosActivosConDetalles: LiveData<List<com.example.bookapp.data.entities.PrestamoConDetalles>> = 
+        repository.prestamosActivosConDetalles.asLiveData()
+    val top5LibrosMasPrestados = repository.getTop5Libros().asLiveData()
 
     init {
         // Sincronización inicial al abrir la app
@@ -46,7 +49,11 @@ class BibliotecaViewModel(private val repository: BibliotecaRepository) : ViewMo
         repository.registrarDevolucion(prestamo)
     }
 
-    fun getIngresosMes(mes: String): LiveData<Double?> = repository.getMultasPorMes(mes).asLiveData()
+    suspend fun getPrestamoById(id: Int): PrestamoEntity? = repository.getPrestamoById(id)
+
+    fun getIngresosMes(mes: String): LiveData<Double?> = repository.getIngresosPorMes(mes).asLiveData()
+    
+    fun getIngresosAnio(anio: String): LiveData<Double?> = repository.getIngresosPorAnio(anio).asLiveData()
     
     fun getPrestamosMes(mes: String): LiveData<List<PrestamoEntity>> = repository.getPrestamosPorMes(mes).asLiveData()
 }

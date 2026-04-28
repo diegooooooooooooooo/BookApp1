@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
  */
 @Dao
 interface UsuarioDao {
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(usuario: UsuarioEntity): Long
 
     @Update

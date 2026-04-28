@@ -10,14 +10,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.bookapp.BookApplication
 import com.example.bookapp.R
 import com.example.bookapp.data.entities.LibroEntity
+import com.example.bookapp.data.entities.LibroEstado
 import com.example.bookapp.databinding.FragmentCatalogoLibrosBinding
-import com.example.bookapp.repository.BibliotecaRepository
 import com.example.bookapp.viewmodel.BibliotecaViewModel
 import com.example.bookapp.viewmodel.LoginViewModel
 import com.example.bookapp.viewmodel.ViewModelFactory
-import com.example.bookapp.data.database.AppDatabase
 
 class CatalogoLibrosFragment : Fragment() {
 
@@ -25,14 +25,14 @@ class CatalogoLibrosFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: BibliotecaViewModel by activityViewModels {
-        val database = AppDatabase.getDatabase(requireContext())
-        ViewModelFactory(BibliotecaRepository(database.libroDao(), database.usuarioDao(), database.prestamoDao(), database.socioDao()))
+        ViewModelFactory((requireActivity().application as BookApplication).repository)
     }
 
     private val loginViewModel: LoginViewModel by activityViewModels {
-        val database = AppDatabase.getDatabase(requireContext())
-        ViewModelFactory(BibliotecaRepository(database.libroDao(), database.usuarioDao(), database.prestamoDao(), database.socioDao()))
+        ViewModelFactory((requireActivity().application as BookApplication).repository)
     }
+
+    private var allLibrosList: List<LibroEntity> = emptyList()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,7 +47,10 @@ class CatalogoLibrosFragment : Fragment() {
 
         val adapter = LibroAdapter(
             onLibroClick = { libro ->
-                // Navegar al detalle si es necesario
+                val bundle = Bundle().apply {
+                    putInt("libroId", libro.id)
+                }
+                findNavController().navigate(R.id.action_catalogoLibrosFragment_to_detalleLibroFragment, bundle)
             },
             onEditClick = { libro ->
                 val bundle = Bundle().apply {
@@ -68,7 +71,12 @@ class CatalogoLibrosFragment : Fragment() {
         }
         
         viewModel.allLibros.observe(viewLifecycleOwner) { libros ->
-            adapter.submitList(libros)
+            allLibrosList = libros
+            applyFilters(adapter)
+        }
+
+        binding.chipGroupFiltros.setOnCheckedStateChangeListener { _, checkedIds ->
+            applyFilters(adapter)
         }
 
         loginViewModel.usuarioLogueado.observe(viewLifecycleOwner) { usuario ->
@@ -80,6 +88,16 @@ class CatalogoLibrosFragment : Fragment() {
                 adapter.setAdminMode(false)
             }
         }
+    }
+
+    private fun applyFilters(adapter: LibroAdapter) {
+        val filteredList = when (binding.chipGroupFiltros.checkedChipId) {
+            R.id.chipDisponible -> allLibrosList.filter { it.estado == LibroEstado.DISPONIBLE }
+            R.id.chipPrestado -> allLibrosList.filter { it.estado == LibroEstado.PRESTADO }
+            R.id.chipNoDisponible -> allLibrosList.filter { it.estado == LibroEstado.NO_DISPONIBLE }
+            else -> allLibrosList
+        }
+        adapter.submitList(filteredList)
     }
 
     private fun showDeleteConfirmation(libro: LibroEntity) {

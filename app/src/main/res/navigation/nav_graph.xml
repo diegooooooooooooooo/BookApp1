@@ -34,7 +34,21 @@
             app:destination="@id/dashboardAdminFragment"
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginFragment_to_dashboardLectorFragment"
+            app:destination="@id/dashboardLectorFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.bookapp.ui.login.SignUpFragment"
+        android:label="Crear Cuenta"
+        tools:layout="@layout/fragment_sign_up" />
 
     <!-- FLOW: ADMINISTRADOR -->
     <fragment
@@ -51,7 +65,25 @@
         <action
             android:id="@+id/action_dashboardAdminFragment_to_configuracionFragment"
             app:destination="@id/configuracionFragment" />
+        <action
+            android:id="@+id/action_dashboardAdminFragment_to_topLibrosFragment"
+            app:destination="@id/topLibrosFragment" />
+        <action
+            android:id="@+id/action_dashboardAdminFragment_to_listaPendientesFragment"
+            app:destination="@id/listaPendientesFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/listaPendientesFragment"
+        android:name="com.example.bookapp.ui.dashboard.ListaPendientesFragment"
+        android:label="Pendientes"
+        tools:layout="@layout/fragment_lista_pendientes" />
+
+    <fragment
+        android:id="@+id/topLibrosFragment"
+        android:name="com.example.bookapp.ui.reportes.TopLibrosFragment"
+        android:label="Top 5 Libros"
+        tools:layout="@layout/fragment_top_libros" />
 
     <fragment
         android:id="@+id/listaUsuariosFragment"
@@ -123,6 +155,9 @@
             android:id="@+id/action_dashboardBibliotecarioFragment_to_registrarPrestamoFragment"
             app:destination="@id/registrarPrestamoFragment" />
         <action
+            android:id="@+id/action_dashboardBibliotecarioFragment_to_registrarDevolucionFragment"
+            app:destination="@id/registrarDevolucionFragment" />
+        <action
             android:id="@+id/action_dashboardBibliotecarioFragment_to_configuracionFragment"
             app:destination="@id/configuracionFragment" />
     </fragment>
@@ -145,9 +180,13 @@
 
     <fragment
         android:id="@+id/detalleLibroFragment"
-        android:name="com.example.bookapp.ui.libros.DetalleLibroFragment"
+        android:name="com.example.bookapp.ui.libros.LibroDetalleFragment"
         android:label="Detalle Libro"
-        tools:layout="@layout/fragment_detalle_libro" />
+        tools:layout="@layout/fragment_detalle_libro">
+        <argument
+            android:name="libroId"
+            app:argType="integer" />
+    </fragment>
 
     <fragment
         android:id="@+id/registrarLibroFragment"
@@ -192,5 +231,28 @@
             app:popUpTo="@id/nav_graph"
             app:popUpToInclusive="true" />
     </fragment>
+
+    <!-- FLOW: LECTOR (USUARIO COMÚN) -->
+    <fragment
+        android:id="@+id/dashboardLectorFragment"
+        android:name="com.example.bookapp.ui.dashboard.DashboardLectorFragment"
+        android:label="Mi Biblioteca"
+        tools:layout="@layout/fragment_dashboard_lector">
+        <action
+            android:id="@+id/action_dashboardLectorFragment_to_catalogoLibrosFragment"
+            app:destination="@id/catalogoLibrosFragment" />
+        <action
+            android:id="@+id/action_dashboardLectorFragment_to_calendarioPrestamosFragment"
+            app:destination="@id/calendarioPrestamosFragment" />
+        <action
+            android:id="@+id/action_dashboardLectorFragment_to_configuracionFragment"
+            app:destination="@id/configuracionFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/calendarioPrestamosFragment"
+        android:name="com.example.bookapp.ui.dashboard.CalendarioPrestamosFragment"
+        android:label="Calendario"
+        tools:layout="@layout/fragment_calendario_prestamos" />
 
 </navigation>

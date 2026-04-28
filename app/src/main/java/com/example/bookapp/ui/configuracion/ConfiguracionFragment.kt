@@ -7,10 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.example.bookapp.BookApplication
 import com.example.bookapp.R
-import com.example.bookapp.data.database.AppDatabase
 import com.example.bookapp.databinding.FragmentConfiguracionBinding
-import com.example.bookapp.repository.BibliotecaRepository
 import com.example.bookapp.viewmodel.LoginViewModel
 import com.example.bookapp.viewmodel.ViewModelFactory
 
@@ -20,8 +19,7 @@ class ConfiguracionFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val loginViewModel: LoginViewModel by activityViewModels {
-        val database = AppDatabase.getDatabase(requireContext())
-        ViewModelFactory(BibliotecaRepository(database.libroDao(), database.usuarioDao(), database.prestamoDao(), database.socioDao()))
+        ViewModelFactory((requireActivity().application as BookApplication).repository)
     }
 
     override fun onCreateView(

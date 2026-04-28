@@ -14,11 +14,29 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Reporte Mensual de Ingresos"
+            android:text="Reporte de Ingresos"
             android:textColor="@color/jet_black"
             android:textSize="26sp"
             android:textStyle="bold"
-            android:layout_marginBottom="24dp" />
+            android:layout_marginBottom="16dp" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayoutReporte"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:tabIndicatorColor="@color/coral_glow"
+            app:tabSelectedTextColor="@color/coral_glow"
+            app:tabTextColor="@color/blue_slate">
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mensual" />
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Anual" />
+        </com.google.android.material.tabs.TabLayout>
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
@@ -36,9 +54,10 @@
                 android:padding="24dp">
 
                 <TextView
+                    android:id="@+id/tvLabelTotal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Total Acumulado Marzo"
+                    android:text="Total Acumulado"
                     android:textColor="@color/silver"
                     android:textSize="12sp"
                     android:textAllCaps="true"

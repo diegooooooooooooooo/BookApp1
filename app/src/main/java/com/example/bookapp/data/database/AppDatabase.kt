@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.bookapp.data.dao.LibroDao
 import com.example.bookapp.data.dao.PrestamoDao
@@ -20,7 +21,8 @@ import kotlinx.coroutines.launch
 /**
  * Base de datos principal de la aplicación utilizando Room.
  */
-@Database(entities = [UsuarioEntity::class, LibroEntity::class, PrestamoEntity::class, SocioEntity::class], version = 3, exportSchema = false)
+@Database(entities = [UsuarioEntity::class, LibroEntity::class, PrestamoEntity::class, SocioEntity::class], version = 5, exportSchema = false)
+@TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun usuarioDao(): UsuarioDao

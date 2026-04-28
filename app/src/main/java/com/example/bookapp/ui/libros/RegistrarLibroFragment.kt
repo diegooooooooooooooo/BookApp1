@@ -8,11 +8,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
-import com.example.bookapp.data.database.AppDatabase
+import com.example.bookapp.BookApplication
 import com.example.bookapp.data.entities.LibroEntity
 import com.example.bookapp.databinding.FragmentRegistrarLibroBinding
-import com.example.bookapp.repository.BibliotecaRepository
 import com.example.bookapp.viewmodel.BibliotecaViewModel
 import com.example.bookapp.viewmodel.ViewModelFactory
 
@@ -23,8 +21,7 @@ class RegistrarLibroFragment : Fragment() {
 
     // Usar activityViewModels para compartir el estado
     private val viewModel: BibliotecaViewModel by activityViewModels {
-        val database = AppDatabase.getDatabase(requireContext())
-        ViewModelFactory(BibliotecaRepository(database.libroDao(), database.usuarioDao(), database.prestamoDao(), database.socioDao()))
+        ViewModelFactory((requireActivity().application as BookApplication).repository)
     }
 
     private var libroAEditar: LibroEntity? = null
@@ -54,6 +51,7 @@ class RegistrarLibroFragment : Fragment() {
             val editorial = binding.etEditorial.text.toString().trim()
             val isbn = binding.etIsbn.text.toString().trim()
             val ejemplaresStr = binding.etEjemplares.text.toString().trim()
+            val valorStr = binding.etValor.text.toString().trim()
 
             if (titulo.isNotEmpty() && autor.isNotEmpty() && ejemplaresStr.isNotEmpty()) {
                 val libro = libroAEditar?.copy(
@@ -61,14 +59,16 @@ class RegistrarLibroFragment : Fragment() {
                     autor = autor,
                     editorial = editorial,
                     isbn = isbn,
-                    ejemplares = ejemplaresStr.toIntOrNull() ?: 1
+                    ejemplares = ejemplaresStr.toIntOrNull() ?: 1,
+                    valor = valorStr.toDoubleOrNull() ?: 0.0
                 ) ?: LibroEntity(
                     titulo = titulo,
                     autor = autor,
                     editorial = editorial,
                     isbn = isbn,
                     categoria = "",
-                    ejemplares = ejemplaresStr.toIntOrNull() ?: 1
+                    ejemplares = ejemplaresStr.toIntOrNull() ?: 1,
+                    valor = valorStr.toDoubleOrNull() ?: 0.0
                 )
 
                 if (libroAEditar != null) {
@@ -96,6 +96,7 @@ class RegistrarLibroFragment : Fragment() {
                 binding.etEditorial.setText(libro.editorial)
                 binding.etIsbn.setText(libro.isbn)
                 binding.etEjemplares.setText(libro.ejemplares.toString())
+                binding.etValor.setText(libro.valor.toString())
                 binding.btnGuardarLibro.text = "Actualizar Libro"
                 // Opcional: cambiar el título del fragmento
             }

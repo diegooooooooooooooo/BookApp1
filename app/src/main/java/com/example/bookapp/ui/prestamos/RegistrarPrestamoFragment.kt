@@ -9,11 +9,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.bookapp.BookApplication
 import com.example.bookapp.R
-import com.example.bookapp.data.database.AppDatabase
+import com.example.bookapp.data.entities.LibroEstado
 import com.example.bookapp.data.entities.PrestamoEntity
 import com.example.bookapp.databinding.FragmentRegistrarPrestamoBinding
-import com.example.bookapp.repository.BibliotecaRepository
 import com.example.bookapp.viewmodel.BibliotecaViewModel
 import com.example.bookapp.viewmodel.ViewModelFactory
 import com.google.android.material.datepicker.MaterialDatePicker
@@ -26,8 +26,7 @@ class RegistrarPrestamoFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: BibliotecaViewModel by viewModels {
-        val database = AppDatabase.getDatabase(requireContext())
-        ViewModelFactory(BibliotecaRepository(database.libroDao(), database.usuarioDao(), database.prestamoDao(), database.socioDao()))
+        ViewModelFactory((requireActivity().application as BookApplication).repository)
     }
 
     private var selectedSocioId: Int = -1
@@ -56,7 +55,7 @@ class RegistrarPrestamoFragment : Fragment() {
 
         // Observe Books from DB
         viewModel.allLibros.observe(viewLifecycleOwner) { libros ->
-            val librosDisponibles = libros.filter { it.disponible }
+            val librosDisponibles = libros.filter { it.estado == LibroEstado.DISPONIBLE }
             val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, librosDisponibles.map { it.titulo })
             binding.spinnerLibro.setAdapter(adapter)
             binding.spinnerLibro.setOnItemClickListener { _, _, position, _ ->

@@ -8,15 +8,14 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.example.bookapp.BookApplication
 import com.example.bookapp.R
-import com.example.bookapp.data.database.AppDatabase
 import com.example.bookapp.databinding.FragmentLoginBinding
-import com.example.bookapp.repository.BibliotecaRepository
 import com.example.bookapp.viewmodel.LoginViewModel
 import com.example.bookapp.viewmodel.ViewModelFactory
 
 /**
- * Pantalla de inicio de sesión. Permite al usuario elegir su rol.
+ * Pantalla de inicio de sesión.
  */
 class LoginFragment : Fragment() {
 
@@ -24,13 +23,7 @@ class LoginFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: LoginViewModel by activityViewModels {
-        val database = AppDatabase.getDatabase(requireContext())
-        ViewModelFactory(BibliotecaRepository(
-            database.libroDao(), 
-            database.usuarioDao(), 
-            database.prestamoDao(),
-            database.socioDao()
-        ))
+        ViewModelFactory((requireActivity().application as BookApplication).repository)
     }
 
     override fun onCreateView(
@@ -47,28 +40,32 @@ class LoginFragment : Fragment() {
         binding.btnLogin.setOnClickListener {
             val email = binding.etEmail.text.toString().trim()
             val password = binding.etPassword.text.toString().trim()
-            val role = if (binding.rbAdmin.isChecked) "ADMIN" else "BIBLIOTECARIO"
 
             if (email.isNotEmpty() && password.isNotEmpty()) {
-                viewModel.login(email, password, role)
+                viewModel.login(email, password)
             } else {
                 Toast.makeText(context, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show()
             }
         }
 
+        binding.btnGoToRegister.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
+        }
+
         // Observar carga
         viewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
             binding.btnLogin.isEnabled = !isLoading
-            // Podrías mostrar un ProgressBar aquí
+            binding.btnGoToRegister.isEnabled = !isLoading
         }
 
         // Observar cambios en el usuario logueado
         viewModel.usuarioLogueado.observe(viewLifecycleOwner) { usuario ->
             usuario?.let {
-                if (it.rol == "ADMIN") {
-                    findNavController().navigate(R.id.action_loginFragment_to_dashboardAdminFragment)
-                } else {
-                    findNavController().navigate(R.id.action_loginFragment_to_dashboardBibliotecarioFragment)
+                when (it.rol) {
+                    "ADMIN" -> findNavController().navigate(R.id.action_loginFragment_to_dashboardAdminFragment)
+                    "BIBLIOTECARIO" -> findNavController().navigate(R.id.action_loginFragment_to_dashboardBibliotecarioFragment)
+                    "LECTOR", "USUARIO" -> findNavController().navigate(R.id.action_loginFragment_to_dashboardLectorFragment)
+                    else -> Toast.makeText(context, "Rol no reconocido: ${it.rol}", Toast.LENGTH_SHORT).show()
                 }
             }
         }

@@ -25,4 +25,10 @@
     <string name="placeholder_autor_libro">Autor del Libro</string>
     <string name="desc_portada_libro">Portada del libro</string>
     <string name="estado_disponible">Disponible</string>
+    <string name="welcome_lector">¡Hola, Lector!</string>
+    <string name="subtitle_lector">Encuentra tu próxima lectura</string>
+    <string name="mis_prestamos">Mis Préstamos</string>
+    <string name="desc_mis_prestamos">Ver calendario y fechas de devolución</string>
+    <string name="configuracion">Configuración</string>
+    <string name="desc_configuracion">Ajustes de cuenta y aplicación</string>
 </resources>

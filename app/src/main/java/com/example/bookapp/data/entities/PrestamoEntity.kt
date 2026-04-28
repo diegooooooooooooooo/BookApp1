@@ -14,5 +14,16 @@ data class PrestamoEntity(
     val fechaPrestamo: Long = 0L,
     val fechaDevolucionEsperada: Long = 0L,
     val fechaEntregaReal: Long? = null,
-    val multa: Double = 0.0
+    val multa: Double = 0.0,
+    val valorPrestamo: Double = 0.0
+)
+
+data class PrestamoConDetalles(
+    val id: Int,
+    val socioNombre: String,
+    val libroTitulo: String,
+    val fechaPrestamo: Long,
+    val fechaDevolucionEsperada: Long,
+    val fechaEntregaReal: Long?,
+    val multa: Double
 )
