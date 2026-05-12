@@ -51,6 +51,16 @@ class RegistrarPrestamoFragment : Fragment() {
         viewModel.allSocios.observe(viewLifecycleOwner) { socios ->
             val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, socios.map { it.nombre })
             binding.spinnerUsuario.setAdapter(adapter)
+
+            // Auto-select socio if passed via Safe Args
+            if (args.socioId != -1 && selectedSocioId == -1) {
+                val socioPreseleccionado = socios.find { it.id == args.socioId }
+                socioPreseleccionado?.let {
+                    selectedSocioId = it.id
+                    binding.spinnerUsuario.setText(it.nombre, false)
+                }
+            }
+
             binding.spinnerUsuario.setOnItemClickListener { _, _, position, _ ->
                 selectedSocioId = socios[position].id
             }

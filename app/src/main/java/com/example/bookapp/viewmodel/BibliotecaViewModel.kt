@@ -70,6 +70,9 @@ class BibliotecaViewModel(private val repository: BibliotecaRepository) : ViewMo
 
     suspend fun getPrestamoById(id: Int): PrestamoEntity? = repository.getPrestamoById(id)
 
+    fun getPrestamosActivosPorSocio(socioId: Int): LiveData<List<com.example.bookapp.data.entities.PrestamoConDetalles>> =
+        repository.getPrestamosActivosPorSocio(socioId).asLiveData()
+
     fun getIngresosMes(mes: String): LiveData<Double?> = repository.getIngresosPorMes(mes).asLiveData()
     
     fun getIngresosAnio(anio: String): LiveData<Double?> = repository.getIngresosPorAnio(anio).asLiveData()

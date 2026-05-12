@@ -56,6 +56,17 @@ interface PrestamoDao {
         FROM prestamos 
         INNER JOIN socios ON prestamos.socioId = socios.id 
         INNER JOIN libros ON prestamos.libroId = libros.id 
+        WHERE prestamos.fechaEntregaReal IS NULL AND prestamos.socioId = :socioId
+    """)
+    fun getPrestamosActivosPorSocio(socioId: Int): Flow<List<com.example.bookapp.data.entities.PrestamoConDetalles>>
+
+    @Query("""
+        SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, 
+               prestamos.fechaPrestamo, prestamos.fechaDevolucionEsperada, 
+               prestamos.fechaEntregaReal, prestamos.multa, prestamos.valorPrestamo 
+        FROM prestamos 
+        INNER JOIN socios ON prestamos.socioId = socios.id 
+        INNER JOIN libros ON prestamos.libroId = libros.id 
         WHERE socios.correo = :correo
     """)
     fun getPrestamosPorCorreoSocio(correo: String): Flow<List<com.example.bookapp.data.entities.PrestamoConDetalles>>

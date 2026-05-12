@@ -6,36 +6,38 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bookapp.BookApplication
 import com.example.bookapp.data.entities.PrestamoConDetalles
-import com.example.bookapp.data.entities.PrestamoEntity
+import com.example.bookapp.data.entities.SocioEntity
 import com.example.bookapp.databinding.FragmentRegistrarDevolucionBinding
 import com.example.bookapp.viewmodel.BibliotecaViewModel
 import com.example.bookapp.viewmodel.ViewModelFactory
 import kotlinx.coroutines.launch
-import java.text.SimpleDateFormat
-import java.util.*
 
 /**
- * Fragmento para registrar la devolución de un libro.
- * Calcula multas si existen retrasos.
+ * Fragmento para registrar la devolución de uno o varios libros.
+ * El bibliotecario selecciona un usuario y luego los libros a devolver.
  */
 class RegistrarDevolucionFragment : Fragment() {
 
     private var _binding: FragmentRegistrarDevolucionBinding? = null
     private val binding get() = _binding!!
+    private val args: RegistrarDevolucionFragmentArgs by navArgs()
 
     private val viewModel: BibliotecaViewModel by viewModels {
         ViewModelFactory((requireActivity().application as BookApplication).repository)
     }
 
-    private var selectedPrestamo: PrestamoConDetalles? = null
-    private val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-    private val MULTA_DIARIA = 50.0 // Ejemplo: $50 por día de retraso
+    private lateinit var libroAdapter: LibroDevolucionAdapter
+    private var selectedSocio: SocioEntity? = null
+    private val MULTA_DIARIA = 50.0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,63 +50,103 @@ class RegistrarDevolucionFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.prestamosActivosConDetalles.observe(viewLifecycleOwner) { prestamos ->
-            val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, 
-                prestamos.map { "${it.libroTitulo} - ${it.socioNombre}" })
-            
-            binding.spinnerPrestamos.setAdapter(adapter)
-            binding.spinnerPrestamos.setOnItemClickListener { _, _, position, _ ->
-                selectedPrestamo = prestamos[position]
-                actualizarDetalles()
-            }
-        }
+        setupRecyclerView()
+        setupUserSelection()
 
         binding.btnConfirmarDevolucion.setOnClickListener {
-            selectedPrestamo?.let { prestamoDetalle ->
-                lifecycleScope.launch {
-                    val prestamoEntity = viewModel.getPrestamoById(prestamoDetalle.id)
-                    prestamoEntity?.let {
-                        val hoy = System.currentTimeMillis()
-                        val multa = calcularMulta(it.fechaDevolucionEsperada, hoy)
-                        
-                        val prestamoActualizado = it.copy(
-                            fechaEntregaReal = hoy,
-                            multa = multa
-                        )
-                        
-                        viewModel.registrarDevolucion(prestamoActualizado)
-                        Toast.makeText(context, "Devolución registrada. Multa: $$multa", Toast.LENGTH_LONG).show()
-                        findNavController().popBackStack()
-                    }
+            confirmarDevolucionMasiva()
+        }
+    }
+
+    private fun setupRecyclerView() {
+        libroAdapter = LibroDevolucionAdapter { selectedList ->
+            actualizarResumen(selectedList)
+        }
+        binding.rvLibrosDevolucion.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = libroAdapter
+        }
+    }
+
+    private fun setupUserSelection() {
+        viewModel.allSocios.observe(viewLifecycleOwner) { socios ->
+            val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line,
+                socios.map { "${it.nombre} (${it.dni})" })
+
+            binding.spinnerUsuarios.setAdapter(adapter)
+            
+            // Handle pre-selected user from args
+            if (args.socioId != -1 && selectedSocio == null) {
+                val socioPreseleccionado = socios.find { it.id == args.socioId }
+                socioPreseleccionado?.let {
+                    selectedSocio = it
+                    binding.spinnerUsuarios.setText("${it.nombre} (${it.dni})", false)
+                    cargarLibrosDeUsuario(it.id)
                 }
-            } ?: Toast.makeText(context, "Selecciona un préstamo", Toast.LENGTH_SHORT).show()
+            }
+
+            binding.spinnerUsuarios.setOnItemClickListener { _, _, position, _ ->
+                selectedSocio = socios[position]
+                cargarLibrosDeUsuario(socios[position].id)
+            }
         }
     }
 
-    private fun actualizarDetalles() {
-        selectedPrestamo?.let {
-            binding.tvDevolucionLibro.text = "Libro: ${it.libroTitulo}"
-            binding.tvDevolucionUsuario.text = "Usuario: ${it.socioNombre}"
-            binding.tvDevolucionFechaLimite.text = "Fecha Límite: ${dateFormat.format(Date(it.fechaDevolucionEsperada))}"
+    private fun cargarLibrosDeUsuario(socioId: Int) {
+        viewModel.getPrestamosActivosPorSocio(socioId).observe(viewLifecycleOwner) { prestamos ->
+            libroAdapter.submitList(prestamos)
+            binding.tvLibrosPrestadosTitle.isVisible = true
+            libroAdapter.clearSelection()
+            actualizarResumen(emptyList())
             
-            val hoy = System.currentTimeMillis()
-            val diasRetraso = calcularDiasRetraso(it.fechaDevolucionEsperada, hoy)
-            val multa = calcularMulta(it.fechaDevolucionEsperada, hoy)
-            
-            binding.tvDiasRetraso.text = "Días de retraso: $diasRetraso"
-            binding.tvMultaGenerada.text = "Multa: $${String.format("%.2f", multa)}"
+            if (prestamos.isEmpty()) {
+                Toast.makeText(context, "Este usuario no tiene préstamos activos", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
-    private fun calcularDiasRetraso(fechaEsperada: Long, fechaReal: Long): Int {
-        if (fechaReal <= fechaEsperada) return 0
-        val diff = fechaReal - fechaEsperada
-        return (diff / (1000 * 60 * 60 * 24)).toInt()
+    private fun actualizarResumen(selectedList: List<PrestamoConDetalles>) {
+        binding.cardResumenMulta.isVisible = selectedList.isNotEmpty()
+        binding.btnConfirmarDevolucion.isEnabled = selectedList.isNotEmpty()
+
+        if (selectedList.isNotEmpty()) {
+            val totalMulta = selectedList.sumOf { calcularMulta(it.fechaDevolucionEsperada, System.currentTimeMillis()) }
+            binding.tvLibrosSeleccionados.text = "Libros seleccionados: ${selectedList.size}"
+            binding.tvTotalMulta.text = "Total Multa: $${String.format("%.2f", totalMulta)}"
+        }
     }
 
     private fun calcularMulta(fechaEsperada: Long, fechaReal: Long): Double {
-        val dias = calcularDiasRetraso(fechaEsperada, fechaReal)
+        if (fechaReal <= fechaEsperada) return 0.0
+        val diff = fechaReal - fechaEsperada
+        val dias = (diff / (1000 * 60 * 60 * 24)).toInt()
         return dias * MULTA_DIARIA
+    }
+
+    private fun confirmarDevolucionMasiva() {
+        val selectedPrestamos = libroAdapter.getSelectedPrestamos()
+        if (selectedPrestamos.isEmpty()) return
+
+        lifecycleScope.launch {
+            val hoy = System.currentTimeMillis()
+            var procesados = 0
+            
+            selectedPrestamos.forEach { prestamoDetalle ->
+                val prestamoEntity = viewModel.getPrestamoById(prestamoDetalle.id)
+                prestamoEntity?.let {
+                    val multa = calcularMulta(it.fechaDevolucionEsperada, hoy)
+                    val prestamoActualizado = it.copy(
+                        fechaEntregaReal = hoy,
+                        multa = multa
+                    )
+                    viewModel.registrarDevolucion(prestamoActualizado)
+                    procesados++
+                }
+            }
+            
+            Toast.makeText(context, "$procesados devoluciones registradas con éxito", Toast.LENGTH_LONG).show()
+            findNavController().popBackStack()
+        }
     }
 
     override fun onDestroyView() {

@@ -55,11 +55,21 @@ class PerfilUsuarioFragment : Fragment() {
         }
 
         binding.btnPrestarLibroUser.setOnClickListener {
-            findNavController().navigate(R.id.registrarPrestamoFragment)
+            val socioIdToPass = if (socioId != -1) socioId else -1
+            // Use Bundle for manual navigation if Safe Args generation is failing
+            val bundle = Bundle().apply {
+                putInt("libroId", -1)
+                putInt("socioId", socioIdToPass)
+            }
+            findNavController().navigate(R.id.registrarPrestamoFragment, bundle)
         }
 
         binding.btnRegistrarDevolucionUser.setOnClickListener {
-            findNavController().navigate(R.id.registrarDevolucionFragment)
+            val socioIdToPass = if (socioId != -1) socioId else -1
+            val bundle = Bundle().apply {
+                putInt("socioId", socioIdToPass)
+            }
+            findNavController().navigate(R.id.registrarDevolucionFragment, bundle)
         }
     }
 

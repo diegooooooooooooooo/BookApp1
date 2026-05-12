@@ -145,6 +145,9 @@ class BibliotecaRepository(
     fun getPrestamosPorCorreoSocio(correo: String): Flow<List<com.example.bookapp.data.entities.PrestamoConDetalles>> = 
         prestamoRepository.getPrestamosPorCorreoSocio(correo)
 
+    fun getPrestamosActivosPorSocio(socioId: Int): Flow<List<com.example.bookapp.data.entities.PrestamoConDetalles>> =
+        prestamoRepository.getPrestamosActivosPorSocio(socioId)
+
     fun getTop5Libros() = prestamoRepository.getTop5Libros()
     
     private suspend fun ensureLectorIsSocio(usuario: UsuarioEntity) {

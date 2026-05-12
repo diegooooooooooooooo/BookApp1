@@ -221,6 +221,10 @@
             android:name="libroId"
             app:argType="integer"
             android:defaultValue="-1" />
+        <argument
+            android:name="socioId"
+            app:argType="integer"
+            android:defaultValue="-1" />
         <action
             android:id="@+id/action_registrarPrestamoFragment_to_confirmacionPrestamoFragment"
             app:destination="@id/confirmacionPrestamoFragment" />
@@ -239,7 +243,12 @@
         android:id="@+id/registrarDevolucionFragment"
         android:name="com.example.bookapp.ui.prestamos.RegistrarDevolucionFragment"
         android:label="Devolución"
-        tools:layout="@layout/fragment_registrar_devolucion" />
+        tools:layout="@layout/fragment_registrar_devolucion">
+        <argument
+            android:name="socioId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
 
     <!-- Pantalla de Configuración -->
     <fragment

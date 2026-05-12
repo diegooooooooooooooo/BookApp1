@@ -84,5 +84,6 @@ class PrestamoRepository(
     fun getIngresosPorAnio(anio: String): Flow<Double?> = prestamoDao.getTotalIngresosDelAnio(anio)
     fun getPrestamosPorMes(mes: String): Flow<List<PrestamoEntity>> = prestamoDao.getPrestamosDelMes(mes)
     fun getPrestamosPorCorreoSocio(correo: String): Flow<List<PrestamoConDetalles>> = prestamoDao.getPrestamosPorCorreoSocio(correo)
+    fun getPrestamosActivosPorSocio(socioId: Int): Flow<List<PrestamoConDetalles>> = prestamoDao.getPrestamosActivosPorSocio(socioId)
     fun getTop5Libros() = prestamoDao.getTop5LibrosMasPrestados()
 }
