@@ -20,10 +20,13 @@ import com.google.android.material.datepicker.MaterialDatePicker
 import java.text.SimpleDateFormat
 import java.util.*
 
+import androidx.navigation.fragment.navArgs
+
 class RegistrarPrestamoFragment : Fragment() {
 
     private var _binding: FragmentRegistrarPrestamoBinding? = null
     private val binding get() = _binding!!
+    private val args: RegistrarPrestamoFragmentArgs by navArgs()
 
     private val viewModel: BibliotecaViewModel by viewModels {
         ViewModelFactory((requireActivity().application as BookApplication).repository)
@@ -58,6 +61,16 @@ class RegistrarPrestamoFragment : Fragment() {
             val librosDisponibles = libros.filter { it.estado == LibroEstado.DISPONIBLE }
             val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, librosDisponibles.map { it.titulo })
             binding.spinnerLibro.setAdapter(adapter)
+            
+            // Auto-select book if passed via Safe Args
+            if (args.libroId != -1 && selectedLibroId == -1) {
+                val libroPreseleccionado = librosDisponibles.find { it.id == args.libroId }
+                libroPreseleccionado?.let {
+                    selectedLibroId = it.id
+                    binding.spinnerLibro.setText(it.titulo, false)
+                }
+            }
+
             binding.spinnerLibro.setOnItemClickListener { _, _, position, _ ->
                 selectedLibroId = librosDisponibles[position].id
             }

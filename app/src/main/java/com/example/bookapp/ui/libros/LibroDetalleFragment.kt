@@ -15,6 +15,8 @@ import com.example.bookapp.viewmodel.BibliotecaViewModel
 import com.example.bookapp.viewmodel.ViewModelFactory
 import java.util.*
 
+import androidx.navigation.fragment.navArgs
+
 /**
  * Fragmento para mostrar la información detallada de un libro.
  */
@@ -22,6 +24,7 @@ class LibroDetalleFragment : Fragment() {
 
     private var _binding: FragmentDetalleLibroBinding? = null
     private val binding get() = _binding!!
+    private val args: LibroDetalleFragmentArgs by navArgs()
 
     private val viewModel: BibliotecaViewModel by activityViewModels {
         ViewModelFactory((requireActivity().application as BookApplication).repository)
@@ -38,7 +41,7 @@ class LibroDetalleFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         
-        val libroId = arguments?.getInt("libroId") ?: -1
+        val libroId = args.libroId
         if (libroId != -1) {
             viewModel.allLibros.observe(viewLifecycleOwner) { libros ->
                 val libro = libros.find { it.id == libroId }
@@ -71,10 +74,8 @@ class LibroDetalleFragment : Fragment() {
         }
 
         binding.btnPrestarLibro.setOnClickListener {
-            val bundle = Bundle().apply {
-                putInt("libroId", libroId)
-            }
-            findNavController().navigate(R.id.registrarPrestamoFragment, bundle)
+            val action = LibroDetalleFragmentDirections.actionDetalleLibroFragmentToRegistrarPrestamoFragment(libroId)
+            findNavController().navigate(action)
         }
     }
 

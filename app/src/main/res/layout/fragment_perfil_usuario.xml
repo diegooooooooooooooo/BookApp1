@@ -36,22 +36,88 @@
             android:id="@+id/tvUserDetailId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Socio #12345"
+            android:text="ID: #12345"
             android:textAlignment="center"
             android:textColor="@color/blue_slate"
             app:layout_constraintTop_toBottomOf="@id/tvUserDetailName" />
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardUserStats"
+            android:id="@+id/cardAccountData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="24dp"
             app:cardCornerRadius="16dp"
             app:cardElevation="2dp"
             app:strokeWidth="1dp"
             app:strokeColor="@color/silver"
             app:cardBackgroundColor="@color/white"
             app:layout_constraintTop_toBottomOf="@id/tvUserDetailId">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Correo Electrónico"
+                    android:textColor="@color/blue_slate"
+                    android:textSize="12sp"
+                    android:textAllCaps="true"
+                    android:letterSpacing="0.1" />
+
+                <TextView
+                    android:id="@+id/tvUserDetailEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="usuario@ejemplo.com"
+                    android:textColor="@color/jet_black"
+                    android:textSize="16sp" />
+
+                <View
+                    android:id="@+id/roleDivider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="12dp"
+                    android:background="@color/silver" />
+
+                <TextView
+                    android:id="@+id/tvLabelRole"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rol"
+                    android:textColor="@color/blue_slate"
+                    android:textSize="12sp"
+                    android:textAllCaps="true"
+                    android:letterSpacing="0.1" />
+
+                <TextView
+                    android:id="@+id/tvUserDetailRole"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="ADMIN"
+                    android:textColor="@color/jet_black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardUserStats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/silver"
+            app:cardBackgroundColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/cardAccountData">
 
             <LinearLayout
                 android:layout_width="match_parent"

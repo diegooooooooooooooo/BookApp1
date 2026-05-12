@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.google.services)
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -63,6 +64,9 @@ dependencies {
     // Lifecycle
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.livedata.ktx)
+
+    // WorkManager
+    implementation(libs.androidx.work.runtime.ktx)
 
     // Firebase
     implementation(platform(libs.firebase.bom))

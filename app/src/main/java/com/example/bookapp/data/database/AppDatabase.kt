@@ -21,7 +21,7 @@ import kotlinx.coroutines.launch
 /**
  * Base de datos principal de la aplicación utilizando Room.
  */
-@Database(entities = [UsuarioEntity::class, LibroEntity::class, PrestamoEntity::class, SocioEntity::class], version = 5, exportSchema = false)
+@Database(entities = [UsuarioEntity::class, LibroEntity::class, PrestamoEntity::class, SocioEntity::class], version = 6, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
 

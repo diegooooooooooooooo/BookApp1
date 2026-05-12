@@ -13,6 +13,8 @@ import com.example.bookapp.databinding.FragmentRegistrarUsuarioBinding
 import com.example.bookapp.viewmodel.LoginViewModel
 import com.example.bookapp.viewmodel.ViewModelFactory
 
+import com.example.bookapp.data.model.UserRole
+
 /**
  * Fragmento para que el Administrador registre nuevos usuarios (Admin o Bibliotecario).
  */
@@ -40,7 +42,7 @@ class RegistrarUsuarioFragment : Fragment() {
             val nombre = binding.etNombre.text.toString().trim()
             val email = binding.etEmail.text.toString().trim()
             val password = binding.etPassword.text.toString().trim()
-            val role = if (binding.rbAdmin.isChecked) "ADMIN" else "BIBLIOTECARIO"
+            val role = if (binding.rbAdmin.isChecked) UserRole.ADMIN else UserRole.BIBLIOTECARIO
 
             if (nombre.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
                 viewModel.register(nombre, email, password, role)

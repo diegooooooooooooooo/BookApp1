@@ -120,7 +120,16 @@
         android:id="@+id/perfilUsuarioFragment"
         android:name="com.example.bookapp.ui.usuarios.PerfilUsuarioFragment"
         android:label="Detalle"
-        tools:layout="@layout/fragment_perfil_usuario" />
+        tools:layout="@layout/fragment_perfil_usuario">
+        <argument
+            android:name="usuarioId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <argument
+            android:name="socioId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
 
     <fragment
         android:id="@+id/reporteMensualFragment"
@@ -185,20 +194,33 @@
         tools:layout="@layout/fragment_detalle_libro">
         <argument
             android:name="libroId"
-            app:argType="integer" />
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <action
+            android:id="@+id/action_detalleLibroFragment_to_registrarPrestamoFragment"
+            app:destination="@id/registrarPrestamoFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/registrarLibroFragment"
         android:name="com.example.bookapp.ui.libros.RegistrarLibroFragment"
         android:label="Agregar Libro"
-        tools:layout="@layout/fragment_registrar_libro" />
+        tools:layout="@layout/fragment_registrar_libro">
+        <argument
+            android:name="libroId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
 
     <fragment
         android:id="@+id/registrarPrestamoFragment"
         android:name="com.example.bookapp.ui.prestamos.RegistrarPrestamoFragment"
         android:label="Nuevo Préstamo"
         tools:layout="@layout/fragment_registrar_prestamo">
+        <argument
+            android:name="libroId"
+            app:argType="integer"
+            android:defaultValue="-1" />
         <action
             android:id="@+id/action_registrarPrestamoFragment_to_confirmacionPrestamoFragment"
             app:destination="@id/confirmacionPrestamoFragment" />
@@ -230,7 +252,16 @@
             app:destination="@id/loginFragment"
             app:popUpTo="@id/nav_graph"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_configuracionFragment_to_miPerfilFragment"
+            app:destination="@id/miPerfilFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/miPerfilFragment"
+        android:name="com.example.bookapp.ui.configuracion.MiPerfilFragment"
+        android:label="Mis Datos"
+        tools:layout="@layout/fragment_mi_perfil" />
 
     <!-- FLOW: LECTOR (USUARIO COMÚN) -->
     <fragment

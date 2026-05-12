@@ -43,27 +43,18 @@ class DashboardAdminFragment : Fragment() {
             findNavController().navigate(R.id.action_dashboardAdminFragment_to_listaPendientesFragment)
         }
 
-        // Observar datos reales
-        viewModel.prestamosActivosConDetalles.observe(viewLifecycleOwner) { prestamos ->
-            binding.tvTotalPrestamos.text = prestamos.size.toString()
-            
-            val currentTime = System.currentTimeMillis()
-            val pendientesList = prestamos.filter { it.fechaDevolucionEsperada < currentTime }
-                .map { prestamo ->
-                    val diasRetraso = ((currentTime - prestamo.fechaDevolucionEsperada) / (1000 * 60 * 60 * 24)).toInt()
-                    PrestamoPendiente(
-                        socioNombre = prestamo.socioNombre,
-                        libroTitulo = prestamo.libroTitulo,
-                        fechaVencimiento = prestamo.fechaDevolucionEsperada,
-                        diasRetraso = diasRetraso
-                    )
-                }
-
+        // Observar datos reales optimizados desde el ViewModel
+        viewModel.prestamosPendientesCalculados.observe(viewLifecycleOwner) { pendientesList ->
             binding.rvMorosos.adapter = PrestamosPendientesAdapter(pendientesList)
 
             val countPendientes = pendientesList.size
             binding.badgeError.text = "$countPendientes con retraso"
             binding.badgeMorososCount.text = "$countPendientes pendientes"
+        }
+
+        viewModel.prestamosActivosConDetalles.observe(viewLifecycleOwner) { prestamos ->
+            binding.tvTotalPrestamos.text = prestamos.size.toString()
+            val countPendientes = binding.badgeMorososCount.text.toString().split(" ")[0].toIntOrNull() ?: 0
             binding.badgeSuccess.text = "${prestamos.size - countPendientes} al día"
         }
     }

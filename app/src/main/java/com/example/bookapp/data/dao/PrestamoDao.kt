@@ -41,7 +41,7 @@ interface PrestamoDao {
     @Query("""
         SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, 
                prestamos.fechaPrestamo, prestamos.fechaDevolucionEsperada, 
-               prestamos.fechaEntregaReal, prestamos.multa 
+               prestamos.fechaEntregaReal, prestamos.multa, prestamos.valorPrestamo 
         FROM prestamos 
         INNER JOIN socios ON prestamos.socioId = socios.id 
         INNER JOIN libros ON prestamos.libroId = libros.id 
@@ -52,13 +52,24 @@ interface PrestamoDao {
     @Query("""
         SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, 
                prestamos.fechaPrestamo, prestamos.fechaDevolucionEsperada, 
-               prestamos.fechaEntregaReal, prestamos.multa 
+               prestamos.fechaEntregaReal, prestamos.multa, prestamos.valorPrestamo 
         FROM prestamos 
         INNER JOIN socios ON prestamos.socioId = socios.id 
         INNER JOIN libros ON prestamos.libroId = libros.id 
         WHERE socios.correo = :correo
     """)
     fun getPrestamosPorCorreoSocio(correo: String): Flow<List<com.example.bookapp.data.entities.PrestamoConDetalles>>
+
+    @Query("""
+        SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, 
+               prestamos.fechaPrestamo, prestamos.fechaDevolucionEsperada, 
+               prestamos.fechaEntregaReal, prestamos.multa, prestamos.valorPrestamo 
+        FROM prestamos 
+        INNER JOIN socios ON prestamos.socioId = socios.id 
+        INNER JOIN libros ON prestamos.libroId = libros.id 
+        ORDER BY prestamos.fechaPrestamo DESC
+    """)
+    fun getHistorialPrestamosConDetalles(): Flow<List<com.example.bookapp.data.entities.PrestamoConDetalles>>
 
     @Query("""
         SELECT libros.*, COUNT(prestamos.id) as prestamosCount 

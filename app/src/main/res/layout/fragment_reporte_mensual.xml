@@ -95,92 +95,18 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Origen de Ingresos"
+            android:text="Historial de Libros Prestados"
             android:textColor="@color/blue_slate"
             android:textStyle="bold"
             android:textSize="18sp"
             android:layout_marginBottom="12dp" />
 
-        <com.google.android.material.card.MaterialCardView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvHistorial"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="2dp"
-            app:strokeWidth="1dp"
-            app:strokeColor="@color/silver"
-            app:cardBackgroundColor="@color/white">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="20dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Multas"
-                        android:textColor="@color/jet_black" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="$1,250.00"
-                        android:textColor="@color/jet_black"
-                        android:textStyle="bold"
-                        android:layout_alignParentEnd="true" />
-                </RelativeLayout>
-
-                <com.google.android.material.divider.MaterialDivider
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="12dp"
-                    app:dividerColor="@color/silver" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Membresías"
-                        android:textColor="@color/jet_black" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="$2,000.00"
-                        android:textColor="@color/jet_black"
-                        android:textStyle="bold"
-                        android:layout_alignParentEnd="true" />
-                </RelativeLayout>
-
-                <com.google.android.material.divider.MaterialDivider
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="12dp"
-                    app:dividerColor="@color/silver" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Reposiciones"
-                        android:textColor="@color/jet_black" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="$1,000.00"
-                        android:textColor="@color/jet_black"
-                        android:textStyle="bold"
-                        android:layout_alignParentEnd="true" />
-                </RelativeLayout>
-
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
+            android:nestedScrollingEnabled="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

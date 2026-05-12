@@ -44,7 +44,7 @@ class RegistrarSocioFragment : Fragment() {
                     nombre = nombre,
                     dni = dni,
                     telefono = telefono,
-                    correo = "" // Opcional
+                    correo = null // Opcional
                 )
                 viewModel.insertSocio(socio)
                 Toast.makeText(context, "Lector registrado exitosamente", Toast.LENGTH_SHORT).show()

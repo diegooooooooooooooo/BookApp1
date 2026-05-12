@@ -16,8 +16,6 @@ import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.utils.ColorTemplate
-import java.util.*
-
 import com.google.android.material.tabs.TabLayout
 import java.util.*
 
@@ -33,6 +31,8 @@ class ReporteMensualFragment : Fragment() {
         ViewModelFactory((requireActivity().application as BookApplication).repository)
     }
 
+    private lateinit var historialAdapter: HistorialIngresosAdapter
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -44,8 +44,18 @@ class ReporteMensualFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         
+        setupRecyclerView()
         setupTabs()
         loadMonthlyData()
+    }
+
+    private fun setupRecyclerView() {
+        historialAdapter = HistorialIngresosAdapter(emptyList())
+        binding.rvHistorial.adapter = historialAdapter
+        
+        viewModel.historialPrestamos.observe(viewLifecycleOwner) { lista ->
+            historialAdapter.updateList(lista)
+        }
     }
 
     private fun setupTabs() {

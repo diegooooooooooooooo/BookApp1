@@ -14,10 +14,13 @@ import com.example.bookapp.databinding.FragmentRegistrarLibroBinding
 import com.example.bookapp.viewmodel.BibliotecaViewModel
 import com.example.bookapp.viewmodel.ViewModelFactory
 
+import androidx.navigation.fragment.navArgs
+
 class RegistrarLibroFragment : Fragment() {
 
     private var _binding: FragmentRegistrarLibroBinding? = null
     private val binding get() = _binding!!
+    private val args: RegistrarLibroFragmentArgs by navArgs()
 
     // Usar activityViewModels para compartir el estado
     private val viewModel: BibliotecaViewModel by activityViewModels {
@@ -37,12 +40,10 @@ class RegistrarLibroFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Recuperar argumentos si existen (para edición)
-        arguments?.let {
-            val libroId = it.getInt("libroId", -1)
-            if (libroId != -1) {
-                setupEditMode(libroId)
-            }
+        // Recuperar argumentos si existen (para edición) - Safe Args
+        val libroId = args.libroId
+        if (libroId != -1) {
+            setupEditMode(libroId)
         }
 
         binding.btnGuardarLibro.setOnClickListener {

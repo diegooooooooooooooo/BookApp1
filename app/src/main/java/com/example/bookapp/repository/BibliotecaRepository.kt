@@ -11,6 +11,7 @@ import com.example.bookapp.data.entities.UsuarioEntity
 import com.example.bookapp.data.entities.SocioEntity
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.DocumentChange
+import com.example.bookapp.data.model.UserRole
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -27,7 +28,13 @@ class BibliotecaRepository(
     private val firestore = FirebaseFirestore.getInstance()
     private val repositoryScope = CoroutineScope(Dispatchers.IO)
     
-    // --- Firestore Collections ---
+    // Delegated repositories for internal use if needed, but the public API should eventually migrate
+    val libroRepository = LibroRepository(libroDao)
+    val usuarioRepository = UsuarioRepository(usuarioDao, socioDao)
+    val prestamoRepository = PrestamoRepository(prestamoDao, libroDao)
+    val socioRepository = SocioRepository(socioDao)
+
+    // Keep collections for the realtime sync logic which is still centralized here for now
     private val librosCollection = firestore.collection("libros")
     private val usuariosCollection = firestore.collection("usuarios")
     private val sociosCollection = firestore.collection("socios")
@@ -99,83 +106,49 @@ class BibliotecaRepository(
     }
 
     // --- Libros ---
-    val allLibros: Flow<List<LibroEntity>> = libroDao.getAllLibros()
+    val allLibros: Flow<List<LibroEntity>> = libroRepository.allLibros
     
-    suspend fun insertLibro(libro: LibroEntity) {
-        // Ajustar estado según ejemplares
-        val libroAjustado = if (libro.ejemplares <= 0) {
-            libro.copy(estado = LibroEstado.NO_DISPONIBLE)
-        } else if (libro.estado == LibroEstado.NO_DISPONIBLE) {
-            libro.copy(estado = LibroEstado.DISPONIBLE)
-        } else {
-            libro
-        }
-
-        // 1. Guardar en Room
-        val id = libroDao.insert(libroAjustado).toInt()
-        // 2. Sincronizar con Firestore
-        try {
-            val libroConId = libroAjustado.copy(id = id)
-            withTimeoutOrNull(3000) {
-                librosCollection.document(id.toString()).set(libroConId).await()
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-    }
-    
-    suspend fun updateLibro(libro: LibroEntity) {
-        // Ajustar estado según ejemplares
-        val libroAjustado = if (libro.ejemplares <= 0) {
-            libro.copy(estado = LibroEstado.NO_DISPONIBLE)
-        } else if (libro.estado == LibroEstado.NO_DISPONIBLE) {
-            libro.copy(estado = LibroEstado.DISPONIBLE)
-        } else {
-            libro
-        }
-
-        libroDao.update(libroAjustado)
-        try {
-            withTimeoutOrNull(3000) {
-                librosCollection.document(libroAjustado.id.toString()).set(libroAjustado).await()
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-    }
-
-    suspend fun deleteLibro(libro: LibroEntity) {
-        libroDao.delete(libro)
-        try {
-            withTimeoutOrNull(3000) {
-                librosCollection.document(libro.id.toString()).delete().await()
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-    }
+    suspend fun insertLibro(libro: LibroEntity) = libroRepository.insertLibro(libro)
+    suspend fun updateLibro(libro: LibroEntity) = libroRepository.updateLibro(libro)
+    suspend fun deleteLibro(libro: LibroEntity) = libroRepository.deleteLibro(libro)
     
     fun searchLibros(query: String) = libroDao.searchLibros(query)
-    suspend fun getLibroById(id: Int) = libroDao.getLibroById(id)
+    suspend fun getLibroById(id: Int) = libroRepository.getLibroById(id)
 
     // --- Usuarios (App accounts) ---
-    val allUsuarios: Flow<List<UsuarioEntity>> = usuarioDao.getAllUsuarios()
+    val allUsuarios: Flow<List<UsuarioEntity>> = usuarioRepository.allUsuarios
     
-    suspend fun insertUsuario(usuario: UsuarioEntity) {
-        val id = usuarioDao.insert(usuario).toInt()
-        val usuarioConId = usuario.copy(id = id)
-        ensureLectorIsSocio(usuarioConId)
-        try {
-            withTimeoutOrNull(3000) {
-                usuariosCollection.document(id.toString()).set(usuarioConId).await()
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-    }
+    suspend fun insertUsuario(usuario: UsuarioEntity) = usuarioRepository.insertUsuario(usuario)
+    suspend fun getUsuarioByCorreo(correo: String) = usuarioRepository.getUsuarioByCorreo(correo)
+    suspend fun updateUsuario(usuario: UsuarioEntity) = usuarioRepository.updateUsuario(usuario)
+    suspend fun syncUsuariosFromFirestore() = usuarioRepository.syncUsuariosFromFirestore()
 
+    // --- Socios (Readers) ---
+    val allSocios: Flow<List<SocioEntity>> = socioRepository.allSocios
+    suspend fun insertSocio(socio: SocioEntity) = socioRepository.insertSocio(socio)
+
+    // --- Préstamos ---
+    val allPrestamos: Flow<List<PrestamoEntity>> = prestamoRepository.allPrestamos
+    val prestamosActivos: Flow<List<PrestamoEntity>> = prestamoRepository.prestamosActivos
+    val prestamosActivosConDetalles: Flow<List<com.example.bookapp.data.entities.PrestamoConDetalles>> = 
+        prestamoRepository.prestamosActivosConDetalles
+    
+    suspend fun registrarPrestamo(prestamo: PrestamoEntity) = prestamoRepository.registrarPrestamo(prestamo)
+    suspend fun getPrestamoById(id: Int): PrestamoEntity? = prestamoRepository.getPrestamoById(id)
+    suspend fun registrarDevolucion(prestamo: PrestamoEntity) = prestamoRepository.registrarDevolucion(prestamo)
+
+    fun getHistorialPrestamosConDetalles() = prestamoRepository.getHistorialPrestamosConDetalles()
+    fun getIngresosPorMes(mes: String): Flow<Double?> = prestamoRepository.getIngresosPorMes(mes)
+    fun getIngresosPorAnio(anio: String): Flow<Double?> = prestamoRepository.getIngresosPorAnio(anio)
+    fun getPrestamosPorMes(mes: String): Flow<List<PrestamoEntity>> = prestamoRepository.getPrestamosPorMes(mes)
+
+    fun getPrestamosPorCorreoSocio(correo: String): Flow<List<com.example.bookapp.data.entities.PrestamoConDetalles>> = 
+        prestamoRepository.getPrestamosPorCorreoSocio(correo)
+
+    fun getTop5Libros() = prestamoRepository.getTop5Libros()
+    
     private suspend fun ensureLectorIsSocio(usuario: UsuarioEntity) {
-        if (usuario.rol == "LECTOR" || usuario.rol == "USUARIO") {
+        if (usuario.rol == UserRole.LECTOR || usuario.rol == UserRole.USUARIO) {
             val existingSocio = socioDao.getSocioByCorreo(usuario.correo)
             if (existingSocio == null) {
                 socioDao.insert(SocioEntity(nombre = usuario.nombre, correo = usuario.correo))
@@ -184,136 +157,7 @@ class BibliotecaRepository(
             }
         }
     }
-    
-    suspend fun getUsuarioByCorreo(correo: String) = usuarioDao.getUsuarioByCorreo(correo)
 
-    suspend fun syncUsuariosFromFirestore() {
-        try {
-            val snapshot = withTimeoutOrNull(5000) {
-                usuariosCollection.get().await()
-            }
-            val usuarios = snapshot?.toObjects(UsuarioEntity::class.java)
-            usuarios?.forEach { usuario ->
-                val local = usuarioDao.getUsuarioByCorreo(usuario.correo)
-                if (local == null) {
-                    usuarioDao.insert(usuario)
-                    ensureLectorIsSocio(usuario)
-                } else {
-                    val updated = usuario.copy(id = local.id)
-                    usuarioDao.update(updated)
-                    ensureLectorIsSocio(updated)
-                }
-            }
-        } catch (e: Exception) {
-            // Manejar error de sincronización
-        }
-    }
-
-    // --- Socios (Readers) ---
-    val allSocios: Flow<List<SocioEntity>> = socioDao.getAllSocios()
-    
-    suspend fun insertSocio(socio: SocioEntity) {
-        val id = socioDao.insert(socio).toInt()
-        try {
-            val socioConId = socio.copy(id = id)
-            withTimeoutOrNull(3000) {
-                sociosCollection.document(id.toString()).set(socioConId).await()
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-    }
-
-    // --- Préstamos ---
-    val allPrestamos: Flow<List<PrestamoEntity>> = prestamoDao.getAllPrestamos()
-    val prestamosActivos: Flow<List<PrestamoEntity>> = prestamoDao.getPrestamosActivos()
-    val prestamosActivosConDetalles: Flow<List<com.example.bookapp.data.entities.PrestamoConDetalles>> = 
-        prestamoDao.getPrestamosActivosConDetalles()
-    
-    suspend fun registrarPrestamo(prestamo: PrestamoEntity) {
-        // Verificar disponibilidad del libro
-        val libro = libroDao.getLibroById(prestamo.libroId)
-        if (libro == null || libro.ejemplares <= 0) {
-            // No hay ejemplares disponibles para préstamo
-            return
-        }
-
-        val id = prestamoDao.insert(prestamo).toInt()
-        val prestamoConId = prestamo.copy(
-            id = id,
-            valorPrestamo = libro.valor * 0.1 // Ejemplo: costo de préstamo es 10% del valor del libro
-        )
-        
-        // Actualizar ejemplares y estado del libro localmente
-        val nuevosEjemplares = libro.ejemplares - 1
-        val libroActualizado = libro.copy(
-            ejemplares = nuevosEjemplares,
-            estado = if (nuevosEjemplares <= 0) LibroEstado.PRESTADO else LibroEstado.DISPONIBLE
-        )
-        
-        libroDao.update(libroActualizado)
-        // Sincronizar libro en Firestore
-        try {
-            withTimeoutOrNull(3000) {
-                librosCollection.document(libroActualizado.id.toString()).set(libroActualizado).await()
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        
-        // Guardar de nuevo con el valor calculado
-        prestamoDao.update(prestamoConId)
-        
-        // Sincronizar préstamo en Firestore
-        try {
-            withTimeoutOrNull(3000) {
-                prestamosCollection.document(id.toString()).set(prestamoConId).await()
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-    }
-
-    suspend fun getPrestamoById(id: Int): PrestamoEntity? = prestamoDao.getPrestamoById(id)
-
-    suspend fun registrarDevolucion(prestamo: PrestamoEntity) {
-        prestamoDao.update(prestamo)
-        try {
-            withTimeoutOrNull(3000) {
-                prestamosCollection.document(prestamo.id.toString()).set(prestamo).await()
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        
-        val libro = libroDao.getLibroById(prestamo.libroId)
-        libro?.let {
-            // Al devolver, incrementamos los ejemplares y aseguramos que esté disponible
-            val libroActualizado = it.copy(
-                ejemplares = it.ejemplares + 1,
-                estado = LibroEstado.DISPONIBLE
-            )
-            libroDao.update(libroActualizado)
-            // Sincronizar libro en Firestore
-            try {
-                withTimeoutOrNull(3000) {
-                    librosCollection.document(libroActualizado.id.toString()).set(libroActualizado).await()
-                }
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-        }
-    }
-
-    fun getIngresosPorMes(mes: String): Flow<Double?> = prestamoDao.getTotalIngresosDelMes(mes)
-    fun getIngresosPorAnio(anio: String): Flow<Double?> = prestamoDao.getTotalIngresosDelAnio(anio)
-    fun getPrestamosPorMes(mes: String): Flow<List<PrestamoEntity>> = prestamoDao.getPrestamosDelMes(mes)
-
-    fun getPrestamosPorCorreoSocio(correo: String): Flow<List<com.example.bookapp.data.entities.PrestamoConDetalles>> = 
-        prestamoDao.getPrestamosPorCorreoSocio(correo)
-
-    fun getTop5Libros() = prestamoDao.getTop5LibrosMasPrestados()
-    
     /**
      * Función para descargar datos de Firestore a Room (Sincronización inicial o manual)
      */

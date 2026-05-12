@@ -12,5 +12,6 @@ data class UsuarioEntity(
     val nombre: String = "",
     val correo: String = "",
     val contrasena: String = "",
-    val rol: String = "" // "ADMIN" o "BIBLIOTECARIO"
+    val rol: String = "", // "ADMIN", "BIBLIOTECARIO" o "LECTOR"
+    val fotoId: String? = null
 )

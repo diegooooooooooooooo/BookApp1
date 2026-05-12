@@ -19,6 +19,8 @@ import com.example.bookapp.viewmodel.BibliotecaViewModel
 import com.example.bookapp.viewmodel.LoginViewModel
 import com.example.bookapp.viewmodel.ViewModelFactory
 
+import com.example.bookapp.data.model.UserRole
+
 class CatalogoLibrosFragment : Fragment() {
 
     private var _binding: FragmentCatalogoLibrosBinding? = null
@@ -47,16 +49,12 @@ class CatalogoLibrosFragment : Fragment() {
 
         val adapter = LibroAdapter(
             onLibroClick = { libro ->
-                val bundle = Bundle().apply {
-                    putInt("libroId", libro.id)
-                }
-                findNavController().navigate(R.id.action_catalogoLibrosFragment_to_detalleLibroFragment, bundle)
+                val action = CatalogoLibrosFragmentDirections.actionCatalogoLibrosFragmentToDetalleLibroFragment(libro.id)
+                findNavController().navigate(action)
             },
             onEditClick = { libro ->
-                val bundle = Bundle().apply {
-                    putInt("libroId", libro.id)
-                }
-                findNavController().navigate(R.id.registrarLibroFragment, bundle)
+                val action = CatalogoLibrosFragmentDirections.actionCatalogoLibrosFragmentToRegistrarLibroFragment(libro.id)
+                findNavController().navigate(action)
             },
             onDeleteClick = { libro ->
                 showDeleteConfirmation(libro)
@@ -80,7 +78,7 @@ class CatalogoLibrosFragment : Fragment() {
         }
 
         loginViewModel.usuarioLogueado.observe(viewLifecycleOwner) { usuario ->
-            if (usuario?.rol == "ADMIN") {
+            if (usuario?.rol == UserRole.ADMIN) {
                 binding.fabAddLibro.visibility = View.VISIBLE
                 adapter.setAdminMode(true)
             } else {

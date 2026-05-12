@@ -18,6 +18,8 @@ import com.example.bookapp.viewmodel.BibliotecaViewModel
 import com.example.bookapp.viewmodel.LoginViewModel
 import com.example.bookapp.viewmodel.ViewModelFactory
 
+import com.example.bookapp.data.model.UserRole
+
 class ListaUsuariosFragment : Fragment() {
 
     private var _binding: FragmentListaUsuariosBinding? = null
@@ -45,7 +47,7 @@ class ListaUsuariosFragment : Fragment() {
         binding.rvUsuarios.layoutManager = LinearLayoutManager(requireContext())
 
         loginViewModel.usuarioLogueado.observe(viewLifecycleOwner) { usuario ->
-            if (usuario?.rol == "ADMIN") {
+            if (usuario?.rol == UserRole.ADMIN) {
                 setupAdminView()
             } else {
                 setupBibliotecarioView()
@@ -54,7 +56,13 @@ class ListaUsuariosFragment : Fragment() {
     }
 
     private fun setupAdminView() {
-        val adapter = SocioAdapter { /* Admin detail view */ }
+        val adapter = SocioAdapter { socio ->
+            val action = ListaUsuariosFragmentDirections.actionListaUsuariosFragmentToPerfilUsuarioFragment(
+                usuarioId = socio.id,
+                socioId = -1
+            )
+            findNavController().navigate(action)
+        }
         binding.rvUsuarios.adapter = adapter
         
         binding.fabAddUsuario.setOnClickListener {
@@ -68,7 +76,13 @@ class ListaUsuariosFragment : Fragment() {
     }
 
     private fun setupBibliotecarioView() {
-        val adapter = SocioAdapter { /* Reader detail view */ }
+        val adapter = SocioAdapter { socio ->
+            val action = ListaUsuariosFragmentDirections.actionListaUsuariosFragmentToPerfilUsuarioFragment(
+                usuarioId = -1,
+                socioId = socio.id
+            )
+            findNavController().navigate(action)
+        }
         binding.rvUsuarios.adapter = adapter
 
         binding.fabAddUsuario.setOnClickListener {

@@ -4,6 +4,9 @@ import androidx.lifecycle.*
 import com.example.bookapp.data.entities.UsuarioEntity
 import com.example.bookapp.repository.BibliotecaRepository
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthInvalidUserException
+import com.google.firebase.FirebaseNetworkException
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import java.util.Locale
@@ -112,6 +115,12 @@ class LoginViewModel(private val repository: BibliotecaRepository) : ViewModel()
                         _error.postValue("Error crítico: No se pudo crear el perfil local.")
                     }
                 }
+            } catch (e: FirebaseAuthInvalidUserException) {
+                _error.postValue("La cuenta no existe o ha sido deshabilitada.")
+            } catch (e: FirebaseAuthInvalidCredentialsException) {
+                _error.postValue("La contraseña es incorrecta o el correo está mal escrito.")
+            } catch (e: FirebaseNetworkException) {
+                _error.postValue("Error de conexión. Revisa tu internet.")
             } catch (e: Exception) {
                 _error.postValue("Error de autenticación: ${e.message}")
             } finally {
@@ -148,5 +157,10 @@ class LoginViewModel(private val repository: BibliotecaRepository) : ViewModel()
     fun logout() {
         auth.signOut()
         _usuarioLogueado.value = null
+    }
+
+    fun updateUsuario(usuario: UsuarioEntity) = viewModelScope.launch {
+        repository.updateUsuario(usuario)
+        _usuarioLogueado.postValue(usuario)
     }
 }

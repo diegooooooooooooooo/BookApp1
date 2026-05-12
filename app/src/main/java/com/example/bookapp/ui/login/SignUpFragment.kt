@@ -13,6 +13,8 @@ import com.example.bookapp.databinding.FragmentSignUpBinding
 import com.example.bookapp.viewmodel.LoginViewModel
 import com.example.bookapp.viewmodel.ViewModelFactory
 
+import com.example.bookapp.data.model.UserRole
+
 class SignUpFragment : Fragment() {
 
     private var _binding: FragmentSignUpBinding? = null
@@ -42,9 +44,9 @@ class SignUpFragment : Fragment() {
             val email = binding.etEmail.text.toString().trim()
             val password = binding.etPassword.text.toString().trim()
             val role = when {
-                binding.rbAdmin.isChecked -> "ADMIN"
-                binding.rbBibliotecario.isChecked -> "BIBLIOTECARIO"
-                else -> "LECTOR"
+                binding.rbAdmin.isChecked -> UserRole.ADMIN
+                binding.rbBibliotecario.isChecked -> UserRole.BIBLIOTECARIO
+                else -> UserRole.LECTOR
             }
 
             if (nombre.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {

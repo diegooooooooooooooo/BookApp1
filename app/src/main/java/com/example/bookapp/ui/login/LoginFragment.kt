@@ -14,6 +14,8 @@ import com.example.bookapp.databinding.FragmentLoginBinding
 import com.example.bookapp.viewmodel.LoginViewModel
 import com.example.bookapp.viewmodel.ViewModelFactory
 
+import com.example.bookapp.data.model.UserRole
+
 /**
  * Pantalla de inicio de sesión.
  */
@@ -41,9 +43,15 @@ class LoginFragment : Fragment() {
             val email = binding.etEmail.text.toString().trim()
             val password = binding.etPassword.text.toString().trim()
 
+            // Limpiar errores previos
+            binding.tilEmail.error = null
+            binding.tilPassword.error = null
+
             if (email.isNotEmpty() && password.isNotEmpty()) {
                 viewModel.login(email, password)
             } else {
+                if (email.isEmpty()) binding.tilEmail.error = "Ingresa tu correo"
+                if (password.isEmpty()) binding.tilPassword.error = "Ingresa tu contraseña"
                 Toast.makeText(context, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show()
             }
         }
@@ -62,9 +70,9 @@ class LoginFragment : Fragment() {
         viewModel.usuarioLogueado.observe(viewLifecycleOwner) { usuario ->
             usuario?.let {
                 when (it.rol) {
-                    "ADMIN" -> findNavController().navigate(R.id.action_loginFragment_to_dashboardAdminFragment)
-                    "BIBLIOTECARIO" -> findNavController().navigate(R.id.action_loginFragment_to_dashboardBibliotecarioFragment)
-                    "LECTOR", "USUARIO" -> findNavController().navigate(R.id.action_loginFragment_to_dashboardLectorFragment)
+                    UserRole.ADMIN -> findNavController().navigate(R.id.action_loginFragment_to_dashboardAdminFragment)
+                    UserRole.BIBLIOTECARIO -> findNavController().navigate(R.id.action_loginFragment_to_dashboardBibliotecarioFragment)
+                    UserRole.LECTOR, UserRole.USUARIO -> findNavController().navigate(R.id.action_loginFragment_to_dashboardLectorFragment)
                     else -> Toast.makeText(context, "Rol no reconocido: ${it.rol}", Toast.LENGTH_SHORT).show()
                 }
             }
@@ -72,7 +80,11 @@ class LoginFragment : Fragment() {
 
         viewModel.error.observe(viewLifecycleOwner) { errorMsg ->
             errorMsg?.let {
-                Toast.makeText(context, it, Toast.LENGTH_LONG).show()
+                when {
+                    it.contains("cuenta", ignoreCase = true) -> binding.tilEmail.error = it
+                    it.contains("contraseña", ignoreCase = true) -> binding.tilPassword.error = it
+                    else -> Toast.makeText(context, it, Toast.LENGTH_LONG).show()
+                }
             }
         }
     }

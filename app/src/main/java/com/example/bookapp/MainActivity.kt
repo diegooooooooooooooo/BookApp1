@@ -14,6 +14,8 @@ import com.example.bookapp.databinding.ActivityMainBinding
 import com.example.bookapp.viewmodel.LoginViewModel
 import com.example.bookapp.viewmodel.ViewModelFactory
 
+import com.example.bookapp.data.model.UserRole
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -56,8 +58,8 @@ class MainActivity : AppCompatActivity() {
             if (usuario != null) {
                 binding.bottomNavigation.menu.clear()
                 when (usuario.rol) {
-                    "ADMIN" -> binding.bottomNavigation.inflateMenu(R.menu.admin_bottom_nav_menu)
-                    "LECTOR" -> binding.bottomNavigation.inflateMenu(R.menu.lector_bottom_nav_menu)
+                    UserRole.ADMIN -> binding.bottomNavigation.inflateMenu(R.menu.admin_bottom_nav_menu)
+                    UserRole.LECTOR, UserRole.USUARIO -> binding.bottomNavigation.inflateMenu(R.menu.lector_bottom_nav_menu)
                     else -> binding.bottomNavigation.inflateMenu(R.menu.bottom_nav_menu)
                 }
                 

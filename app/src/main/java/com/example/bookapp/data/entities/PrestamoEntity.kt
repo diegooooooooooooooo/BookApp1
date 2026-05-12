@@ -25,5 +25,6 @@ data class PrestamoConDetalles(
     val fechaPrestamo: Long,
     val fechaDevolucionEsperada: Long,
     val fechaEntregaReal: Long?,
-    val multa: Double
+    val multa: Double,
+    val valorPrestamo: Double
 )

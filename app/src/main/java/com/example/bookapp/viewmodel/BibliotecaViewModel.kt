@@ -12,9 +12,28 @@ class BibliotecaViewModel(private val repository: BibliotecaRepository) : ViewMo
     val allLibros: LiveData<List<LibroEntity>> = repository.allLibros.asLiveData()
     val allSocios: LiveData<List<SocioEntity>> = repository.allSocios.asLiveData()
     val prestamosActivos: LiveData<List<PrestamoEntity>> = repository.prestamosActivos.asLiveData()
+    
     val prestamosActivosConDetalles: LiveData<List<com.example.bookapp.data.entities.PrestamoConDetalles>> = 
         repository.prestamosActivosConDetalles.asLiveData()
+
+    // Performance Optimization: Perform mapping/filtering in ViewModel, not in Fragment
+    val prestamosPendientesCalculados: LiveData<List<com.example.bookapp.data.model.PrestamoPendiente>> = 
+        prestamosActivosConDetalles.map { prestamos ->
+            val currentTime = System.currentTimeMillis()
+            prestamos.filter { it.fechaDevolucionEsperada < currentTime }
+                .map { prestamo ->
+                    val diasRetraso = ((currentTime - prestamo.fechaDevolucionEsperada) / (1000 * 60 * 60 * 24)).toInt()
+                    com.example.bookapp.data.model.PrestamoPendiente(
+                        socioNombre = prestamo.socioNombre,
+                        libroTitulo = prestamo.libroTitulo,
+                        fechaVencimiento = prestamo.fechaDevolucionEsperada,
+                        diasRetraso = diasRetraso
+                    )
+                }
+        }
+
     val top5LibrosMasPrestados = repository.getTop5Libros().asLiveData()
+    val historialPrestamos = repository.getHistorialPrestamosConDetalles().asLiveData()
 
     init {
         // Sincronización inicial al abrir la app

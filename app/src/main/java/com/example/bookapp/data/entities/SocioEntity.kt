@@ -16,5 +16,5 @@ data class SocioEntity(
     val nombre: String = "",
     val dni: String = "",
     val telefono: String = "",
-    val correo: String = ""
+    val correo: String? = null
 )
