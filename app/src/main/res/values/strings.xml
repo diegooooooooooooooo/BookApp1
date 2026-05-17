@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">BookApp</string>
+    <string name="buscar_hint">Buscar libros...</string>
+    <string name="desc_add_libro">Agregar nuevo libro</string>
+    <string name="admin_dashboard">Panel de Administración</string>
+    <string name="ingresos_mes">Ingresos del mes</string>
+    <string name="default_money">$0.00</string>
+    <string name="libros_prestados">Libros prestados</string>
+    <string name="default_zero">0</string>
+    <string name="usuarios_activos">Usuarios activos</string>
+    <string name="ver_reportes">Ver reportes detallados</string>
+    <string name="welcome_bibliotecario">¡Hola, Bibliotecario!</string>
+    <string name="subtitle_bibliotecario">¿Qué deseas hacer hoy?</string>
+    <string name="nuevo_prestamo">Nuevo Préstamo</string>
+    <string name="desc_nuevo_prestamo">Registrar un nuevo préstamo de libro</string>
+    <string name="explorar_catalogo">Explorar Catálogo</string>
+    <string name="desc_explorar_catalogo">Ver y buscar libros en el sistema</string>
+    <string name="devolucion">Devolución</string>
+    <string name="desc_devolucion">Registrar devolución de libro</string>
+    <string name="desc_flecha_ir">Ir a sección</string>
+    <string name="placeholder_nombre_usuario">Nombre del Usuario</string>
+    <string name="placeholder_email_usuario">usuario@ejemplo.com</string>
+    <string name="desc_avatar_usuario">Avatar del usuario</string>
+    <string name="placeholder_titulo_libro">Título del Libro</string>
+    <string name="placeholder_autor_libro">Autor del Libro</string>
+    <string name="desc_portada_libro">Portada del libro</string>
+    <string name="estado_disponible">Disponible</string>
+    <string name="welcome_lector">¡Hola, Lector!</string>
+    <string name="subtitle_lector">Encuentra tu próxima lectura</string>
+    <string name="mis_prestamos">Mis Préstamos</string>
+    <string name="desc_mis_prestamos">Ver calendario y fechas de devolución</string>
+    <string name="configuracion">Configuración</string>
+    <string name="desc_configuracion">Ajustes de cuenta y aplicación</string>
+</resources>

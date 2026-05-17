@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="primary_brown">#8D6E63</color>
+    <color name="primary_light_brown">#D7CCC8</color>
+    <color name="primary_dark_brown">#5D4037</color>
+    <color name="tan">#F5F5DC</color>
+    <color name="light_tan">#FFF8E1</color>
+
+    <!-- Added missing colors -->
+    <color name="jet_black">#212121</color>
+    <color name="blue_slate">#455A64</color>
+    <color name="silver">#BDBDBD</color>
+    <color name="coral_glow">#FF8A65</color>
+
+    <!-- New UI Colors -->
+    <color name="header_blue">#1B3D72</color>
+    <color name="header_blue_badge">#3C5A8B</color>
+    <color name="bg_cream">#FDF8ED</color>
+    <color name="mora_red">#C62828</color>
+    <color name="mora_red_light">#FFEBEE</color>
+    <color name="success_green">#2E7D32</color>
+    <color name="success_green_light">#E8F5E9</color>
+    <color name="gold_yellow">#D4AF37</color>
+    <color name="text_blue_dark">#1A237E</color>
+    <color name="user_initials_bg">#EF9A9A</color>
+    <color name="card_white">#FFFFFF</color>
+</resources>
