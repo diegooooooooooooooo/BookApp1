@@ -1,0 +1,250 @@
+[
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/layout_item_libro_devolucion.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/item_libro_devolucion.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/layout_item_prestamo_lector.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/item_prestamo_lector.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/layout_fragment_registrar_socio.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/fragment_registrar_socio.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/layout_fragment_registrar_devolucion.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/fragment_registrar_devolucion.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/menu_drawer_menu.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/menu/drawer_menu.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/layout_fragment_reporte_mensual.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/fragment_reporte_mensual.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/layout_fragment_perfil_usuario.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/fragment_perfil_usuario.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/xml_data_extraction_rules.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/drawable_bg_pill_red.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/drawable/bg_pill_red.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/layout_fragment_lista_usuarios.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/fragment_lista_usuarios.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.bookapp-debug-67:/layout_fragment_registrar_prestamo.xml.flat",
+        "source": "com.example.bookapp-main-69:/layout/fragment_registrar_prestamo.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/layout_fragment_detalle_libro.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/fragment_detalle_libro.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/layout_fragment_confirmacion_prestamo.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/fragment_confirmacion_prestamo.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/layout_item_historial_ingresos.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/item_historial_ingresos.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/drawable_bg_header_badge.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/drawable/bg_header_badge.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/drawable_ic_back.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/drawable/ic_back.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/drawable_ic_book.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/drawable/ic_book.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/layout_item_prestamo_pendiente.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/item_prestamo_pendiente.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/layout_fragment_dashboard_admin.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/fragment_dashboard_admin.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/drawable_bg_pill_green.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/drawable/bg_pill_green.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/layout_fragment_mi_perfil.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/fragment_mi_perfil.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/layout_fragment_registrar_usuario.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/fragment_registrar_usuario.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/layout_fragment_configuracion.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/fragment_configuracion.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/layout_fragment_calendario_prestamos.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/fragment_calendario_prestamos.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/navigation_nav_graph.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/navigation/nav_graph.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/layout_fragment_dashboard_lector.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/fragment_dashboard_lector.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/layout_item_libro_top.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/item_libro_top.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/layout_fragment_login.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/fragment_login.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/layout_activity_main.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/layout_fragment_sign_up.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/fragment_sign_up.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/layout_fragment_top_libros.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/fragment_top_libros.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/layout_fragment_dashboard_bibliotecario.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/fragment_dashboard_bibliotecario.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/drawable_bg_pill_gray.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/drawable/bg_pill_gray.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/layout_fragment_lista_pendientes.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/fragment_lista_pendientes.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/layout_fragment_splash.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/fragment_splash.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/layout_fragment_registrar_prestamo.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/fragment_registrar_prestamo.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/menu_admin_bottom_nav_menu.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/menu/admin_bottom_nav_menu.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/layout_item_usuario.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/item_usuario.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/drawable_bg_avatar_circle.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/drawable/bg_avatar_circle.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/menu_lector_bottom_nav_menu.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/menu/lector_bottom_nav_menu.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/layout_item_libro.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/item_libro.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/layout_nav_header.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/nav_header.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/layout_fragment_catalogo_libros.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/fragment_catalogo_libros.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/layout_fragment_comparacion_mensual.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/fragment_comparacion_mensual.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/layout_fragment_registrar_libro.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/fragment_registrar_libro.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/drawable_ic_launcher_background.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/xml_backup_rules.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/drawable_bg_header_dashboard.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/drawable/bg_header_dashboard.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-debug-67:/menu_bottom_nav_menu.xml.flat",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/menu/bottom_nav_menu.xml"
+    }
+]

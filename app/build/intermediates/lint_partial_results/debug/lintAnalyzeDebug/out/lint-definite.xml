@@ -1,0 +1,4444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.7.3" type="incidents">
+
+    <incident
+        id="DefaultLocale"
+        severity="warning"
+        message="Implicitly using the default locale is a common source of bugs: Use `String.format(Locale, ...)` instead">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/prestamos/RegistrarDevolucionFragment.kt"
+            line="95"
+            column="55"
+            startOffset="4146"
+            endLine="95"
+            endColumn="83"
+            endOffset="4174"/>
+    </incident>
+
+    <incident
+        id="DefaultLocale"
+        severity="warning"
+        message="Implicitly using the default locale is a common source of bugs: Use `String.format(Locale, ...)` instead">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/prestamos/RegistrarDevolucionFragment.kt"
+            line="95"
+            column="55"
+            startOffset="4146"
+            endLine="95"
+            endColumn="83"
+            endOffset="4174"/>
+    </incident>
+
+    <incident
+        id="OldTargetApi"
+        severity="warning"
+        message="Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the `android.os.Build.VERSION_CODES` javadoc for details.">
+        <fix-replace
+            description="Update targetSdkVersion to 36"
+            oldString="35"
+            replacement="36"
+            priority="0"/>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="15"
+            column="9"
+            startOffset="335"
+            endLine="15"
+            endColumn="23"
+            endOffset="349"/>
+    </incident>
+
+    <incident
+        id="UnknownIdInLayout"
+        severity="warning"
+        message="The id &quot;`tvRoleLabel`&quot; is not referring to any views in this layout">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_login.xml"
+            line="67"
+            column="9"
+            startOffset="2850"
+            endLine="67"
+            endColumn="63"
+            endOffset="2904"/>
+    </incident>
+
+    <incident
+        id="AndroidGradlePluginVersion"
+        severity="warning"
+        message="A newer version of com.android.application than 8.7.3 is available: 9.2.1">
+        <fix-replace
+            description="Change to 9.2.1"
+            family="Update versions"
+            oldString="8.7.3"
+            replacement="9.2.1"
+            priority="0"/>
+        <location
+            file="../gradle/libs.versions.toml"
+            line="2"
+            column="7"
+            startOffset="17"
+            endLine="2"
+            endColumn="14"
+            endOffset="24"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of com.google.android.gms:play-services-auth than 21.3.0 is available: 21.5.1">
+        <fix-replace
+            description="Change to 21.5.1"
+            family="Update versions"
+            oldString="21.3.0"
+            replacement="21.5.1"
+            priority="0"/>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="71"
+            column="20"
+            startOffset="1836"
+            endLine="71"
+            endColumn="70"
+            endOffset="1886"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.core:core-ktx than 1.15.0 is available: 1.18.0">
+        <fix-replace
+            description="Change to 1.18.0"
+            family="Update versions"
+            oldString="1.15.0"
+            replacement="1.18.0"
+            priority="0"/>
+        <location
+            file="../gradle/libs.versions.toml"
+            line="4"
+            column="11"
+            startOffset="53"
+            endLine="4"
+            endColumn="19"
+            endOffset="61"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.test.ext:junit than 1.2.1 is available: 1.3.0">
+        <fix-replace
+            description="Change to 1.3.0"
+            family="Update versions"
+            oldString="1.2.1"
+            replacement="1.3.0"
+            priority="0"/>
+        <location
+            file="../gradle/libs.versions.toml"
+            line="6"
+            column="16"
+            startOffset="94"
+            endLine="6"
+            endColumn="23"
+            endOffset="101"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.test.espresso:espresso-core than 3.6.1 is available: 3.7.0">
+        <fix-replace
+            description="Change to 3.7.0"
+            family="Update versions"
+            oldString="3.6.1"
+            replacement="3.7.0"
+            priority="0"/>
+        <location
+            file="../gradle/libs.versions.toml"
+            line="7"
+            column="16"
+            startOffset="117"
+            endLine="7"
+            endColumn="23"
+            endOffset="124"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.appcompat:appcompat than 1.7.0 is available: 1.7.1">
+        <fix-replace
+            description="Change to 1.7.1"
+            family="Update versions"
+            oldString="1.7.0"
+            replacement="1.7.1"
+            priority="0"/>
+        <location
+            file="../gradle/libs.versions.toml"
+            line="8"
+            column="13"
+            startOffset="137"
+            endLine="8"
+            endColumn="20"
+            endOffset="144"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of com.google.android.material:material than 1.12.0 is available: 1.13.0">
+        <fix-replace
+            description="Change to 1.13.0"
+            family="Update versions"
+            oldString="1.12.0"
+            replacement="1.13.0"
+            priority="0"/>
+        <location
+            file="../gradle/libs.versions.toml"
+            line="9"
+            column="12"
+            startOffset="156"
+            endLine="9"
+            endColumn="20"
+            endOffset="164"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.activity:activity than 1.9.3 is available: 1.13.0">
+        <fix-replace
+            description="Change to 1.13.0"
+            family="Update versions"
+            oldString="1.9.3"
+            replacement="1.13.0"
+            priority="0"/>
+        <location
+            file="../gradle/libs.versions.toml"
+            line="10"
+            column="12"
+            startOffset="176"
+            endLine="10"
+            endColumn="19"
+            endOffset="183"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.constraintlayout:constraintlayout than 2.2.0 is available: 2.2.1">
+        <fix-replace
+            description="Change to 2.2.1"
+            family="Update versions"
+            oldString="2.2.0"
+            replacement="2.2.1"
+            priority="0"/>
+        <location
+            file="../gradle/libs.versions.toml"
+            line="11"
+            column="20"
+            startOffset="203"
+            endLine="11"
+            endColumn="27"
+            endOffset="210"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.navigation:navigation-fragment-ktx than 2.8.5 is available: 2.9.8">
+        <fix-replace
+            description="Change to 2.9.8"
+            family="Update versions"
+            oldString="2.8.5"
+            replacement="2.9.8"
+            priority="0"/>
+        <location
+            file="../gradle/libs.versions.toml"
+            line="12"
+            column="14"
+            startOffset="224"
+            endLine="12"
+            endColumn="21"
+            endOffset="231"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.navigation:navigation-ui-ktx than 2.8.5 is available: 2.9.8">
+        <fix-replace
+            description="Change to 2.9.8"
+            family="Update versions"
+            oldString="2.8.5"
+            replacement="2.9.8"
+            priority="0"/>
+        <location
+            file="../gradle/libs.versions.toml"
+            line="12"
+            column="14"
+            startOffset="224"
+            endLine="12"
+            endColumn="21"
+            endOffset="231"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.room:room-compiler than 2.6.1 is available: 2.8.4">
+        <fix-replace
+            description="Change to 2.8.4"
+            family="Update versions"
+            oldString="2.6.1"
+            replacement="2.8.4"
+            priority="0"/>
+        <location
+            file="../gradle/libs.versions.toml"
+            line="13"
+            column="8"
+            startOffset="239"
+            endLine="13"
+            endColumn="15"
+            endOffset="246"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.room:room-ktx than 2.6.1 is available: 2.8.4">
+        <fix-replace
+            description="Change to 2.8.4"
+            family="Update versions"
+            oldString="2.6.1"
+            replacement="2.8.4"
+            priority="0"/>
+        <location
+            file="../gradle/libs.versions.toml"
+            line="13"
+            column="8"
+            startOffset="239"
+            endLine="13"
+            endColumn="15"
+            endOffset="246"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.room:room-runtime than 2.6.1 is available: 2.8.4">
+        <fix-replace
+            description="Change to 2.8.4"
+            family="Update versions"
+            oldString="2.6.1"
+            replacement="2.8.4"
+            priority="0"/>
+        <location
+            file="../gradle/libs.versions.toml"
+            line="13"
+            column="8"
+            startOffset="239"
+            endLine="13"
+            endColumn="15"
+            endOffset="246"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.lifecycle:lifecycle-livedata-ktx than 2.8.7 is available: 2.10.0">
+        <fix-replace
+            description="Change to 2.10.0"
+            family="Update versions"
+            oldString="2.8.7"
+            replacement="2.10.0"
+            priority="0"/>
+        <location
+            file="../gradle/libs.versions.toml"
+            line="14"
+            column="13"
+            startOffset="259"
+            endLine="14"
+            endColumn="20"
+            endOffset="266"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.lifecycle:lifecycle-viewmodel-ktx than 2.8.7 is available: 2.10.0">
+        <fix-replace
+            description="Change to 2.10.0"
+            family="Update versions"
+            oldString="2.8.7"
+            replacement="2.10.0"
+            priority="0"/>
+        <location
+            file="../gradle/libs.versions.toml"
+            line="14"
+            column="13"
+            startOffset="259"
+            endLine="14"
+            endColumn="20"
+            endOffset="266"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of com.google.firebase:firebase-bom than 33.7.0 is available: 34.13.0">
+        <fix-replace
+            description="Change to 34.13.0"
+            family="Update versions"
+            oldString="33.7.0"
+            replacement="34.13.0"
+            priority="0"/>
+        <location
+            file="../gradle/libs.versions.toml"
+            line="15"
+            column="15"
+            startOffset="281"
+            endLine="15"
+            endColumn="23"
+            endOffset="289"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of com.google.gms.google-services than 4.4.2 is available: 4.4.4">
+        <fix-replace
+            description="Change to 4.4.4"
+            family="Update versions"
+            oldString="4.4.2"
+            replacement="4.4.4"
+            priority="0"/>
+        <location
+            file="../gradle/libs.versions.toml"
+            line="53"
+            column="70"
+            startOffset="2676"
+            endLine="53"
+            endColumn="77"
+            endOffset="2683"/>
+    </incident>
+
+    <incident
+        id="Typos"
+        severity="warning"
+        message="&quot;Autor&quot; is a common misspelling; did you mean &quot;Author&quot;?">
+        <fix-replace
+            description="Replace with &quot;Author&quot;"
+            oldString="Autor"
+            replacement="Author"
+            priority="0"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="25"
+            column="44"
+            startOffset="1529"
+            endLine="25"
+            endColumn="44"
+            endOffset="1534"/>
+    </incident>
+
+    <incident
+        id="NotifyDataSetChanged"
+        severity="warning"
+        message="It will always be more efficient to use more specific change events if you can. Rely on `notifyDataSetChanged` as a last resort.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/reportes/HistorialIngresosAdapter.kt"
+            line="35"
+            column="9"
+            startOffset="1340"
+            endLine="35"
+            endColumn="31"
+            endOffset="1362"/>
+    </incident>
+
+    <incident
+        id="NotifyDataSetChanged"
+        severity="warning"
+        message="It will always be more efficient to use more specific change events if you can. Rely on `notifyDataSetChanged` as a last resort.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/libros/LibroAdapter.kt"
+            line="23"
+            column="9"
+            startOffset="811"
+            endLine="23"
+            endColumn="31"
+            endOffset="833"/>
+    </incident>
+
+    <incident
+        id="NotifyDataSetChanged"
+        severity="warning"
+        message="It will always be more efficient to use more specific change events if you can. Rely on `notifyDataSetChanged` as a last resort.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/reportes/TopLibrosAdapter.kt"
+            line="33"
+            column="9"
+            startOffset="1209"
+            endLine="33"
+            endColumn="31"
+            endOffset="1231"/>
+    </incident>
+
+    <incident
+        id="UseCompoundDrawables"
+        severity="warning"
+        message="This tag and its children can be replaced by one `&lt;TextView/>` and a compound drawable">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_configuracion.xml"
+            line="33"
+            column="10"
+            startOffset="1270"
+            endLine="33"
+            endColumn="22"
+            endOffset="1282"/>
+    </incident>
+
+    <incident
+        id="UseCompoundDrawables"
+        severity="warning"
+        message="This tag and its children can be replaced by one `&lt;TextView/>` and a compound drawable">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_configuracion.xml"
+            line="74"
+            column="10"
+            startOffset="2876"
+            endLine="74"
+            endColumn="22"
+            endOffset="2888"/>
+    </incident>
+
+    <incident
+        id="UseCompoundDrawables"
+        severity="warning"
+        message="This tag and its children can be replaced by one `&lt;TextView/>` and a compound drawable">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_dashboard_bibliotecario.xml"
+            line="50"
+            column="14"
+            startOffset="2091"
+            endLine="50"
+            endColumn="26"
+            endOffset="2103"/>
+    </incident>
+
+    <incident
+        id="UseCompoundDrawables"
+        severity="warning"
+        message="This tag and its children can be replaced by one `&lt;TextView/>` and a compound drawable">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_dashboard_bibliotecario.xml"
+            line="88"
+            column="14"
+            startOffset="3851"
+            endLine="88"
+            endColumn="26"
+            endOffset="3863"/>
+    </incident>
+
+    <incident
+        id="KaptUsageInsteadOfKsp"
+        severity="warning"
+        message="This library supports using KSP instead of kapt, which greatly improves performance. Learn more: https://developer.android.com/studio/build/migrate-to-ksp">
+        <show-url
+            description="Learn about how to enable KSP and use the KSP processor for this dependency instead"
+            url="https://developer.android.com/studio/build/migrate-to-ksp"/>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="61"
+            column="5"
+            startOffset="1494"
+            endLine="61"
+            endColumn="38"
+            endOffset="1527"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/white` with a theme that also paints a background (inferred theme is `@style/Theme.BookApp`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_calendario_prestamos.xml"
+            line="7"
+            column="5"
+            startOffset="341"
+            endLine="7"
+            endColumn="38"
+            endOffset="374"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/white` with a theme that also paints a background (inferred theme is `@style/Theme.BookApp`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_catalogo_libros.xml"
+            line="7"
+            column="5"
+            startOffset="341"
+            endLine="7"
+            endColumn="38"
+            endOffset="374"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/white` with a theme that also paints a background (inferred theme is `@style/Theme.BookApp`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_configuracion.xml"
+            line="6"
+            column="5"
+            startOffset="290"
+            endLine="6"
+            endColumn="38"
+            endOffset="323"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/bg_cream` with a theme that also paints a background (inferred theme is `@style/Theme.BookApp`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_dashboard_admin.xml"
+            line="7"
+            column="5"
+            startOffset="343"
+            endLine="7"
+            endColumn="41"
+            endOffset="379"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/white` with a theme that also paints a background (inferred theme is `@style/Theme.BookApp`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_dashboard_bibliotecario.xml"
+            line="6"
+            column="5"
+            startOffset="278"
+            endLine="6"
+            endColumn="38"
+            endOffset="311"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/white` with a theme that also paints a background (inferred theme is `@style/Theme.BookApp`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_dashboard_lector.xml"
+            line="6"
+            column="5"
+            startOffset="278"
+            endLine="6"
+            endColumn="38"
+            endOffset="311"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/white` with a theme that also paints a background (inferred theme is `@style/Theme.BookApp`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_detalle_libro.xml"
+            line="6"
+            column="5"
+            startOffset="278"
+            endLine="6"
+            endColumn="38"
+            endOffset="311"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/bg_cream` with a theme that also paints a background (inferred theme is `@style/Theme.BookApp`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_lista_pendientes.xml"
+            line="7"
+            column="5"
+            startOffset="341"
+            endLine="7"
+            endColumn="41"
+            endOffset="377"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/white` with a theme that also paints a background (inferred theme is `@style/Theme.BookApp`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_lista_usuarios.xml"
+            line="7"
+            column="5"
+            startOffset="341"
+            endLine="7"
+            endColumn="38"
+            endOffset="374"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/white` with a theme that also paints a background (inferred theme is `@style/Theme.BookApp`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_login.xml"
+            line="7"
+            column="5"
+            startOffset="317"
+            endLine="7"
+            endColumn="38"
+            endOffset="350"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/white` with a theme that also paints a background (inferred theme is `@style/Theme.BookApp`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_perfil_usuario.xml"
+            line="6"
+            column="5"
+            startOffset="278"
+            endLine="6"
+            endColumn="38"
+            endOffset="311"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/white` with a theme that also paints a background (inferred theme is `@style/Theme.BookApp`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_devolucion.xml"
+            line="6"
+            column="5"
+            startOffset="278"
+            endLine="6"
+            endColumn="38"
+            endOffset="311"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/white` with a theme that also paints a background (inferred theme is `@style/Theme.BookApp`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_libro.xml"
+            line="6"
+            column="5"
+            startOffset="278"
+            endLine="6"
+            endColumn="38"
+            endOffset="311"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/white` with a theme that also paints a background (inferred theme is `@style/Theme.BookApp`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_prestamo.xml"
+            line="6"
+            column="5"
+            startOffset="278"
+            endLine="6"
+            endColumn="38"
+            endOffset="311"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/white` with a theme that also paints a background (inferred theme is `@style/Theme.BookApp`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_socio.xml"
+            line="6"
+            column="5"
+            startOffset="290"
+            endLine="6"
+            endColumn="38"
+            endOffset="323"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/white` with a theme that also paints a background (inferred theme is `@style/Theme.BookApp`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_usuario.xml"
+            line="6"
+            column="5"
+            startOffset="290"
+            endLine="6"
+            endColumn="38"
+            endOffset="323"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/white` with a theme that also paints a background (inferred theme is `@style/Theme.BookApp`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_reporte_mensual.xml"
+            line="6"
+            column="5"
+            startOffset="278"
+            endLine="6"
+            endColumn="38"
+            endOffset="311"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/white` with a theme that also paints a background (inferred theme is `@style/Theme.BookApp`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_sign_up.xml"
+            line="7"
+            column="5"
+            startOffset="317"
+            endLine="7"
+            endColumn="38"
+            endOffset="350"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/white` with a theme that also paints a background (inferred theme is `@style/Theme.BookApp`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_splash.xml"
+            line="6"
+            column="5"
+            startOffset="290"
+            endLine="6"
+            endColumn="38"
+            endOffset="323"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/white` with a theme that also paints a background (inferred theme is `@style/Theme.BookApp`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_top_libros.xml"
+            line="7"
+            column="5"
+            startOffset="341"
+            endLine="7"
+            endColumn="38"
+            endOffset="374"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/blue_slate` with a theme that also paints a background (inferred theme is `@style/Theme.BookApp`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/nav_header.xml"
+            line="6"
+            column="5"
+            startOffset="246"
+            endLine="6"
+            endColumn="43"
+            endOffset="284"/>
+    </incident>
+
+    <incident
+        id="TypographyEllipsis"
+        severity="warning"
+        message="Replace &quot;...&quot; with ellipsis character (…, &amp;#8230;) ?">
+        <fix-replace
+            description="Replace with …"
+            oldString="..."
+            replacement="…"
+            priority="0"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="3"
+            column="32"
+            startOffset="88"
+            endLine="3"
+            endColumn="48"
+            endOffset="104"/>
+    </incident>
+
+    <incident
+        id="SmallSp"
+        severity="warning"
+        message="Avoid using sizes smaller than `11sp`: `10sp`">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_dashboard_admin.xml"
+            line="36"
+            column="17"
+            startOffset="1498"
+            endLine="36"
+            endColumn="40"
+            endOffset="1521"/>
+    </incident>
+
+    <incident
+        id="SmallSp"
+        severity="warning"
+        message="Avoid using sizes smaller than `11sp`: `10sp`">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_prestamo_pendiente.xml"
+            line="82"
+            column="13"
+            startOffset="3491"
+            endLine="82"
+            endColumn="36"
+            endOffset="3514"/>
+    </incident>
+
+    <incident
+        id="SmallSp"
+        severity="warning"
+        message="Avoid using sizes smaller than `11sp`: `10sp`">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_prestamo_pendiente.xml"
+            line="97"
+            column="13"
+            startOffset="4105"
+            endLine="97"
+            endColumn="36"
+            endOffset="4128"/>
+    </incident>
+
+    <incident
+        id="UseTomlInstead"
+        severity="warning"
+        message="Use version catalog instead">
+        <fix-composite
+            description="Replace with new library catalog declaration for play-services-auth"
+            robot="true">
+            <fix-replace
+                description="Replace with playServicesAuth = &quot;21.3.0&quot;..."
+                robot="true"
+                oldString="_lint_insert_begin_"
+                replacement="playServicesAuth = &quot;21.3.0&quot;&#xA;"
+                priority="0">
+                <range
+                    file="../gradle/libs.versions.toml"
+                    startOffset="232"
+                    endOffset="232"/>
+            </fix-replace>
+            <fix-replace
+                description="Replace with play-services-auth = { module = &quot;com.google.android.gms:play-services-auth&quot;, version.ref = &quot;playServicesAuth&quot; }..."
+                robot="true"
+                oldString="_lint_insert_begin_"
+                replacement="play-services-auth = { module = &quot;com.google.android.gms:play-services-auth&quot;, version.ref = &quot;playServicesAuth&quot; }&#xA;"
+                priority="0">
+                <range
+                    file="../gradle/libs.versions.toml"
+                    startOffset="2362"
+                    endOffset="2362"/>
+            </fix-replace>
+            <fix-replace
+                description="Replace with libs.play.services.auth"
+                robot="true"
+                replacement="libs.play.services.auth"
+                priority="0">
+                <range
+                    file="${:app*projectDir}/build.gradle.kts"
+                    startOffset="1836"
+                    endOffset="1886"/>
+            </fix-replace>
+        </fix-composite>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="71"
+            column="20"
+            startOffset="1836"
+            endLine="71"
+            endColumn="70"
+            endOffset="1886"/>
+    </incident>
+
+    <incident
+        id="UseTomlInstead"
+        severity="warning"
+        message="Use version catalog instead">
+        <fix-composite
+            description="Replace with new library catalog declaration for kotlinx-coroutines-play-services"
+            robot="true">
+            <fix-replace
+                description="Replace with kotlinxCoroutinesPlayServices = &quot;1.9.0&quot;..."
+                robot="true"
+                oldString="_lint_insert_begin_"
+                replacement="kotlinxCoroutinesPlayServices = &quot;1.9.0&quot;&#xA;"
+                priority="0">
+                <range
+                    file="../gradle/libs.versions.toml"
+                    startOffset="145"
+                    endOffset="145"/>
+            </fix-replace>
+            <fix-replace
+                description="Replace with kotlinx-coroutines-play-services = { module = &quot;org.jetbrains.kotlinx:kotlinx-coroutines-play-services&quot;, version.ref = &quot;kotlinxCoroutinesPlayServices&quot; }..."
+                robot="true"
+                oldString="_lint_insert_begin_"
+                replacement="kotlinx-coroutines-play-services = { module = &quot;org.jetbrains.kotlinx:kotlinx-coroutines-play-services&quot;, version.ref = &quot;kotlinxCoroutinesPlayServices&quot; }&#xA;"
+                priority="0">
+                <range
+                    file="../gradle/libs.versions.toml"
+                    startOffset="800"
+                    endOffset="800"/>
+            </fix-replace>
+            <fix-replace
+                description="Replace with libs.kotlinx.coroutines.play.services"
+                robot="true"
+                replacement="libs.kotlinx.coroutines.play.services"
+                priority="0">
+                <range
+                    file="${:app*projectDir}/build.gradle.kts"
+                    startOffset="1907"
+                    endOffset="1969"/>
+            </fix-replace>
+        </fix-composite>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="72"
+            column="20"
+            startOffset="1907"
+            endLine="72"
+            endColumn="82"
+            endOffset="1969"/>
+    </incident>
+
+    <incident
+        id="ContentDescription"
+        severity="warning"
+        message="Missing `contentDescription` attribute on image">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set contentDescription"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="contentDescription"
+                value="TODO"
+                point="4"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAccessibility=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAccessibility"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_configuracion.xml"
+            line="44"
+            column="14"
+            startOffset="1699"
+            endLine="44"
+            endColumn="23"
+            endOffset="1708"/>
+    </incident>
+
+    <incident
+        id="ContentDescription"
+        severity="warning"
+        message="Missing `contentDescription` attribute on image">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set contentDescription"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="contentDescription"
+                value="TODO"
+                point="4"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAccessibility=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAccessibility"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_configuracion.xml"
+            line="85"
+            column="14"
+            startOffset="3311"
+            endLine="85"
+            endColumn="23"
+            endOffset="3320"/>
+    </incident>
+
+    <incident
+        id="ContentDescription"
+        severity="warning"
+        message="Missing `contentDescription` attribute on image">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set contentDescription"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="contentDescription"
+                value="TODO"
+                point="4"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAccessibility=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAccessibility"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_confirmacion_prestamo.xml"
+            line="24"
+            column="14"
+            startOffset="941"
+            endLine="24"
+            endColumn="23"
+            endOffset="950"/>
+    </incident>
+
+    <incident
+        id="ContentDescription"
+        severity="warning"
+        message="Missing `contentDescription` attribute on image">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set contentDescription"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="contentDescription"
+                value="TODO"
+                point="4"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAccessibility=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAccessibility"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_dashboard_admin.xml"
+            line="42"
+            column="14"
+            startOffset="1758"
+            endLine="42"
+            endColumn="23"
+            endOffset="1767"/>
+    </incident>
+
+    <incident
+        id="ContentDescription"
+        severity="warning"
+        message="Missing `contentDescription` attribute on image">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set contentDescription"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="contentDescription"
+                value="TODO"
+                point="4"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAccessibility=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAccessibility"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_dashboard_admin.xml"
+            line="55"
+            column="14"
+            startOffset="2354"
+            endLine="55"
+            endColumn="23"
+            endOffset="2363"/>
+    </incident>
+
+    <incident
+        id="ContentDescription"
+        severity="warning"
+        message="Missing `contentDescription` attribute on image">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set contentDescription"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="contentDescription"
+                value="TODO"
+                point="4"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAccessibility=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAccessibility"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_dashboard_admin.xml"
+            line="139"
+            column="22"
+            startOffset="6189"
+            endLine="139"
+            endColumn="31"
+            endOffset="6198"/>
+    </incident>
+
+    <incident
+        id="ContentDescription"
+        severity="warning"
+        message="Missing `contentDescription` attribute on image">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set contentDescription"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="contentDescription"
+                value="TODO"
+                point="4"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAccessibility=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAccessibility"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_dashboard_admin.xml"
+            line="209"
+            column="14"
+            startOffset="9929"
+            endLine="209"
+            endColumn="23"
+            endOffset="9938"/>
+    </incident>
+
+    <incident
+        id="ContentDescription"
+        severity="warning"
+        message="Missing `contentDescription` attribute on image">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set contentDescription"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="contentDescription"
+                value="TODO"
+                point="4"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAccessibility=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAccessibility"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_dashboard_admin.xml"
+            line="275"
+            column="14"
+            startOffset="13158"
+            endLine="275"
+            endColumn="23"
+            endOffset="13167"/>
+    </incident>
+
+    <incident
+        id="ContentDescription"
+        severity="warning"
+        message="Missing `contentDescription` attribute on image">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set contentDescription"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="contentDescription"
+                value="TODO"
+                point="4"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAccessibility=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAccessibility"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_dashboard_admin.xml"
+            line="332"
+            column="22"
+            startOffset="15791"
+            endLine="332"
+            endColumn="31"
+            endOffset="15800"/>
+    </incident>
+
+    <incident
+        id="ContentDescription"
+        severity="warning"
+        message="Missing `contentDescription` attribute on image">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set contentDescription"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="contentDescription"
+                value="TODO"
+                point="4"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAccessibility=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAccessibility"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_dashboard_admin.xml"
+            line="339"
+            column="22"
+            startOffset="16106"
+            endLine="339"
+            endColumn="31"
+            endOffset="16115"/>
+    </incident>
+
+    <incident
+        id="ContentDescription"
+        severity="warning"
+        message="Missing `contentDescription` attribute on image">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set contentDescription"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="contentDescription"
+                value="TODO"
+                point="4"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAccessibility=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAccessibility"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_dashboard_admin.xml"
+            line="346"
+            column="22"
+            startOffset="16421"
+            endLine="346"
+            endColumn="31"
+            endOffset="16430"/>
+    </incident>
+
+    <incident
+        id="ContentDescription"
+        severity="warning"
+        message="Missing `contentDescription` attribute on image">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set contentDescription"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="contentDescription"
+                value="TODO"
+                point="4"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAccessibility=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAccessibility"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_lista_usuarios.xml"
+            line="30"
+            column="6"
+            startOffset="1218"
+            endLine="30"
+            endColumn="75"
+            endOffset="1287"/>
+    </incident>
+
+    <incident
+        id="ContentDescription"
+        severity="warning"
+        message="Missing `contentDescription` attribute on image">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set contentDescription"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="contentDescription"
+                value="TODO"
+                point="4"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAccessibility=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAccessibility"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_login.xml"
+            line="9"
+            column="6"
+            startOffset="358"
+            endLine="9"
+            endColumn="15"
+            endOffset="367"/>
+    </incident>
+
+    <incident
+        id="ContentDescription"
+        severity="warning"
+        message="Missing `contentDescription` attribute on image">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set contentDescription"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="contentDescription"
+                value="TODO"
+                point="4"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAccessibility=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAccessibility"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_perfil_usuario.xml"
+            line="13"
+            column="10"
+            startOffset="496"
+            endLine="13"
+            endColumn="19"
+            endOffset="505"/>
+    </incident>
+
+    <incident
+        id="ContentDescription"
+        severity="warning"
+        message="Missing `contentDescription` attribute on image">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set contentDescription"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="contentDescription"
+                value="TODO"
+                point="4"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAccessibility=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAccessibility"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_sign_up.xml"
+            line="9"
+            column="6"
+            startOffset="358"
+            endLine="9"
+            endColumn="15"
+            endOffset="367"/>
+    </incident>
+
+    <incident
+        id="ContentDescription"
+        severity="warning"
+        message="Missing `contentDescription` attribute on image">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set contentDescription"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="contentDescription"
+                value="TODO"
+                point="4"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAccessibility=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAccessibility"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_splash.xml"
+            line="8"
+            column="6"
+            startOffset="331"
+            endLine="8"
+            endColumn="15"
+            endOffset="340"/>
+    </incident>
+
+    <incident
+        id="ContentDescription"
+        severity="warning"
+        message="Missing `contentDescription` attribute on image">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set contentDescription"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="contentDescription"
+                value="TODO"
+                point="4"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAccessibility=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAccessibility"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_libro.xml"
+            line="87"
+            column="14"
+            startOffset="3638"
+            endLine="87"
+            endColumn="25"
+            endOffset="3649"/>
+    </incident>
+
+    <incident
+        id="ContentDescription"
+        severity="warning"
+        message="Missing `contentDescription` attribute on image">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set contentDescription"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="contentDescription"
+                value="TODO"
+                point="4"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAccessibility=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAccessibility"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_libro.xml"
+            line="95"
+            column="14"
+            startOffset="3987"
+            endLine="95"
+            endColumn="25"
+            endOffset="3998"/>
+    </incident>
+
+    <incident
+        id="ContentDescription"
+        severity="warning"
+        message="Missing `contentDescription` attribute on image">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set contentDescription"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="contentDescription"
+                value="TODO"
+                point="4"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAccessibility=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAccessibility"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/nav_header.xml"
+            line="11"
+            column="6"
+            startOffset="383"
+            endLine="11"
+            endColumn="15"
+            endOffset="392"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/configuracion/ConfiguracionFragment.kt"
+            line="55"
+            column="52"
+            startOffset="2364"
+            endLine="55"
+            endColumn="77"
+            endOffset="2389"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Number formatting does not take into account locale settings. Consider using `String.format` instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/dashboard/DashboardAdminFragment.kt"
+            line="48"
+            column="45"
+            startOffset="1847"
+            endLine="48"
+            endColumn="70"
+            endOffset="1872"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/dashboard/DashboardAdminFragment.kt"
+            line="65"
+            column="39"
+            startOffset="2697"
+            endLine="65"
+            endColumn="69"
+            endOffset="2727"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/dashboard/DashboardAdminFragment.kt"
+            line="65"
+            column="56"
+            startOffset="2714"
+            endLine="65"
+            endColumn="68"
+            endOffset="2726"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/dashboard/DashboardAdminFragment.kt"
+            line="66"
+            column="46"
+            startOffset="2773"
+            endLine="66"
+            endColumn="75"
+            endOffset="2802"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/dashboard/DashboardAdminFragment.kt"
+            line="66"
+            column="63"
+            startOffset="2790"
+            endLine="66"
+            endColumn="74"
+            endOffset="2801"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/dashboard/DashboardAdminFragment.kt"
+            line="67"
+            column="41"
+            startOffset="2843"
+            endLine="67"
+            endColumn="85"
+            endOffset="2887"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/dashboard/DashboardAdminFragment.kt"
+            line="67"
+            column="77"
+            startOffset="2879"
+            endLine="67"
+            endColumn="84"
+            endOffset="2886"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/dashboard/DashboardLectorFragment.kt"
+            line="41"
+            column="42"
+            startOffset="1480"
+            endLine="41"
+            endColumn="62"
+            endOffset="1500"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/dashboard/DashboardLectorFragment.kt"
+            line="41"
+            column="43"
+            startOffset="1481"
+            endLine="41"
+            endColumn="49"
+            endOffset="1487"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/libros/LibroAdapter.kt"
+            line="44"
+            column="48"
+            startOffset="1601"
+            endLine="44"
+            endColumn="58"
+            endOffset="1611"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/libros/LibroAdapter.kt"
+            line="48"
+            column="48"
+            startOffset="1824"
+            endLine="48"
+            endColumn="56"
+            endOffset="1832"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/libros/LibroAdapter.kt"
+            line="52"
+            column="48"
+            startOffset="2048"
+            endLine="52"
+            endColumn="61"
+            endOffset="2061"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/libros/LibroDetalleFragment.kt"
+            line="54"
+            column="63"
+            startOffset="2167"
+            endLine="54"
+            endColumn="73"
+            endOffset="2177"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/libros/LibroDetalleFragment.kt"
+            line="59"
+            column="63"
+            startOffset="2505"
+            endLine="59"
+            endColumn="71"
+            endOffset="2513"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/libros/LibroDetalleFragment.kt"
+            line="64"
+            column="63"
+            startOffset="2845"
+            endLine="64"
+            endColumn="76"
+            endOffset="2858"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/dashboard/PrestamosLectorAdapter.kt"
+            line="24"
+            column="42"
+            startOffset="1113"
+            endLine="24"
+            endColumn="50"
+            endOffset="1121"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/dashboard/PrestamosLectorAdapter.kt"
+            line="27"
+            column="42"
+            startOffset="1339"
+            endLine="27"
+            endColumn="50"
+            endOffset="1347"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/dashboard/PrestamosLectorAdapter.kt"
+            line="30"
+            column="42"
+            startOffset="1519"
+            endLine="30"
+            endColumn="51"
+            endOffset="1528"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/dashboard/PrestamosPendientesAdapter.kt"
+            line="28"
+            column="39"
+            startOffset="1191"
+            endLine="28"
+            endColumn="70"
+            endOffset="1222"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/dashboard/PrestamosPendientesAdapter.kt"
+            line="28"
+            column="40"
+            startOffset="1192"
+            endLine="28"
+            endColumn="53"
+            endOffset="1205"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/dashboard/PrestamosPendientesAdapter.kt"
+            line="30"
+            column="33"
+            startOffset="1268"
+            endLine="30"
+            endColumn="70"
+            endOffset="1305"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/dashboard/PrestamosPendientesAdapter.kt"
+            line="30"
+            column="53"
+            startOffset="1288"
+            endLine="30"
+            endColumn="69"
+            endOffset="1304"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/prestamos/RegistrarDevolucionFragment.kt"
+            line="86"
+            column="46"
+            startOffset="3565"
+            endLine="86"
+            endColumn="72"
+            endOffset="3591"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/prestamos/RegistrarDevolucionFragment.kt"
+            line="86"
+            column="47"
+            startOffset="3566"
+            endLine="86"
+            endColumn="54"
+            endOffset="3573"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/prestamos/RegistrarDevolucionFragment.kt"
+            line="87"
+            column="48"
+            startOffset="3639"
+            endLine="87"
+            endColumn="76"
+            endOffset="3667"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/prestamos/RegistrarDevolucionFragment.kt"
+            line="87"
+            column="49"
+            startOffset="3640"
+            endLine="87"
+            endColumn="58"
+            endOffset="3649"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/prestamos/RegistrarDevolucionFragment.kt"
+            line="88"
+            column="52"
+            startOffset="3719"
+            endLine="88"
+            endColumn="122"
+            endOffset="3789"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/prestamos/RegistrarDevolucionFragment.kt"
+            line="88"
+            column="53"
+            startOffset="3720"
+            endLine="88"
+            endColumn="67"
+            endOffset="3734"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/prestamos/RegistrarDevolucionFragment.kt"
+            line="94"
+            column="42"
+            startOffset="4060"
+            endLine="94"
+            endColumn="73"
+            endOffset="4091"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/prestamos/RegistrarDevolucionFragment.kt"
+            line="94"
+            column="43"
+            startOffset="4061"
+            endLine="94"
+            endColumn="60"
+            endOffset="4078"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/prestamos/RegistrarDevolucionFragment.kt"
+            line="95"
+            column="44"
+            startOffset="4135"
+            endLine="95"
+            endColumn="85"
+            endOffset="4176"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/prestamos/RegistrarDevolucionFragment.kt"
+            line="95"
+            column="45"
+            startOffset="4136"
+            endLine="95"
+            endColumn="52"
+            endOffset="4143"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Number formatting does not take into account locale settings. Consider using `String.format` instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/libros/RegistrarLibroFragment.kt"
+            line="98"
+            column="46"
+            startOffset="4092"
+            endLine="98"
+            endColumn="73"
+            endOffset="4119"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Number formatting does not take into account locale settings. Consider using `String.format` instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/libros/RegistrarLibroFragment.kt"
+            line="99"
+            column="41"
+            startOffset="4161"
+            endLine="99"
+            endColumn="63"
+            endOffset="4183"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/libros/RegistrarLibroFragment.kt"
+            line="100"
+            column="49"
+            startOffset="4233"
+            endLine="100"
+            endColumn="65"
+            endOffset="4249"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/reportes/ReporteMensualFragment.kt"
+            line="81"
+            column="37"
+            startOffset="2944"
+            endLine="81"
+            endColumn="65"
+            endOffset="2972"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/reportes/ReporteMensualFragment.kt"
+            line="81"
+            column="38"
+            startOffset="2945"
+            endLine="81"
+            endColumn="54"
+            endOffset="2961"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/reportes/ReporteMensualFragment.kt"
+            line="93"
+            column="37"
+            startOffset="3439"
+            endLine="93"
+            endColumn="67"
+            endOffset="3469"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/reportes/ReporteMensualFragment.kt"
+            line="93"
+            column="38"
+            startOffset="3440"
+            endLine="93"
+            endColumn="54"
+            endOffset="3456"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/reportes/TopLibrosAdapter.kt"
+            line="22"
+            column="27"
+            startOffset="888"
+            endLine="22"
+            endColumn="45"
+            endOffset="906"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/reportes/TopLibrosAdapter.kt"
+            line="22"
+            column="31"
+            startOffset="892"
+            endLine="22"
+            endColumn="43"
+            endOffset="904"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/reportes/TopLibrosAdapter.kt"
+            line="25"
+            column="28"
+            startOffset="1024"
+            endLine="25"
+            endColumn="62"
+            endOffset="1058"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/bookapp/ui/reportes/TopLibrosAdapter.kt"
+            line="25"
+            column="51"
+            startOffset="1047"
+            endLine="25"
+            endColumn="61"
+            endOffset="1057"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Inicio&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/menu/admin_bottom_nav_menu.xml"
+            line="6"
+            column="9"
+            startOffset="227"
+            endLine="6"
+            endColumn="31"
+            endOffset="249"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Libros&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/menu/admin_bottom_nav_menu.xml"
+            line="10"
+            column="9"
+            startOffset="376"
+            endLine="10"
+            endColumn="31"
+            endOffset="398"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Usuarios&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/menu/admin_bottom_nav_menu.xml"
+            line="14"
+            column="9"
+            startOffset="526"
+            endLine="14"
+            endColumn="33"
+            endOffset="550"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Reportes&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/menu/admin_bottom_nav_menu.xml"
+            line="18"
+            column="9"
+            startOffset="683"
+            endLine="18"
+            endColumn="33"
+            endOffset="707"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Ajustes&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/menu/admin_bottom_nav_menu.xml"
+            line="22"
+            column="9"
+            startOffset="838"
+            endLine="22"
+            endColumn="32"
+            endOffset="861"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Inicio&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/menu/bottom_nav_menu.xml"
+            line="6"
+            column="9"
+            startOffset="235"
+            endLine="6"
+            endColumn="31"
+            endOffset="257"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Libros&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/menu/bottom_nav_menu.xml"
+            line="10"
+            column="9"
+            startOffset="384"
+            endLine="10"
+            endColumn="31"
+            endOffset="406"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Préstamo&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/menu/bottom_nav_menu.xml"
+            line="14"
+            column="9"
+            startOffset="534"
+            endLine="14"
+            endColumn="33"
+            endOffset="558"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Ajustes&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/menu/bottom_nav_menu.xml"
+            line="18"
+            column="9"
+            startOffset="689"
+            endLine="18"
+            endColumn="32"
+            endOffset="712"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Dashboard&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/menu/drawer_menu.xml"
+            line="6"
+            column="9"
+            startOffset="227"
+            endLine="6"
+            endColumn="34"
+            endOffset="252"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Catálogo&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/menu/drawer_menu.xml"
+            line="10"
+            column="9"
+            startOffset="379"
+            endLine="10"
+            endColumn="33"
+            endOffset="403"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Usuarios&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/menu/drawer_menu.xml"
+            line="14"
+            column="9"
+            startOffset="531"
+            endLine="14"
+            endColumn="33"
+            endOffset="555"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Reportes&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/menu/drawer_menu.xml"
+            line="18"
+            column="9"
+            startOffset="688"
+            endLine="18"
+            endColumn="33"
+            endOffset="712"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Ajustes&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/menu/drawer_menu.xml"
+            line="22"
+            column="9"
+            startOffset="843"
+            endLine="22"
+            endColumn="32"
+            endOffset="866"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Cerrar Sesión&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/menu/drawer_menu.xml"
+            line="26"
+            column="9"
+            startOffset="987"
+            endLine="26"
+            endColumn="38"
+            endOffset="1016"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Mis Préstamos&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_calendario_prestamos.xml"
+            line="14"
+            column="9"
+            startOffset="549"
+            endLine="14"
+            endColumn="37"
+            endOffset="577"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Detalle del día seleccionado:&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_calendario_prestamos.xml"
+            line="34"
+            column="9"
+            startOffset="1297"
+            endLine="34"
+            endColumn="53"
+            endOffset="1341"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Todos&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_catalogo_libros.xml"
+            line="41"
+            column="17"
+            startOffset="1678"
+            endLine="41"
+            endColumn="37"
+            endOffset="1698"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Disponible&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_catalogo_libros.xml"
+            line="49"
+            column="17"
+            startOffset="2023"
+            endLine="49"
+            endColumn="42"
+            endOffset="2048"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Prestado&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_catalogo_libros.xml"
+            line="56"
+            column="17"
+            startOffset="2332"
+            endLine="56"
+            endColumn="40"
+            endOffset="2355"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;No Disponible&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_catalogo_libros.xml"
+            line="63"
+            column="17"
+            startOffset="2643"
+            endLine="63"
+            endColumn="45"
+            endOffset="2671"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Comparación con Mes Anterior&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_comparacion_mensual.xml"
+            line="16"
+            column="13"
+            startOffset="578"
+            endLine="16"
+            endColumn="56"
+            endOffset="621"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Mes Actual&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_comparacion_mensual.xml"
+            line="38"
+            column="104"
+            startOffset="1590"
+            endLine="38"
+            endColumn="129"
+            endOffset="1615"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;$4,250&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_comparacion_mensual.xml"
+            line="39"
+            column="134"
+            startOffset="1752"
+            endLine="39"
+            endColumn="155"
+            endOffset="1773"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Mes Anterior&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_comparacion_mensual.xml"
+            line="54"
+            column="104"
+            startOffset="2560"
+            endLine="54"
+            endColumn="131"
+            endOffset="2587"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;$3,100&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_comparacion_mensual.xml"
+            line="55"
+            column="136"
+            startOffset="2726"
+            endLine="55"
+            endColumn="157"
+            endOffset="2747"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Crecimiento&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_comparacion_mensual.xml"
+            line="72"
+            column="100"
+            startOffset="3588"
+            endLine="72"
+            endColumn="126"
+            endOffset="3614"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;↑ +37%&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_comparacion_mensual.xml"
+            line="73"
+            column="142"
+            startOffset="3759"
+            endLine="73"
+            endColumn="163"
+            endOffset="3780"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Configuración&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_configuracion.xml"
+            line="13"
+            column="9"
+            startOffset="506"
+            endLine="13"
+            endColumn="37"
+            endOffset="534"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Escanear ID&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_configuracion.xml"
+            line="55"
+            column="17"
+            startOffset="2152"
+            endLine="55"
+            endColumn="43"
+            endOffset="2178"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Cerrar Sesión&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_configuracion.xml"
+            line="95"
+            column="17"
+            startOffset="3708"
+            endLine="95"
+            endColumn="45"
+            endOffset="3736"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Versión 1.0.0&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_configuracion.xml"
+            line="105"
+            column="9"
+            startOffset="4058"
+            endLine="105"
+            endColumn="37"
+            endOffset="4086"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;¡Préstamo Exitoso!&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_confirmacion_prestamo.xml"
+            line="35"
+            column="17"
+            startOffset="1400"
+            endLine="35"
+            endColumn="50"
+            endOffset="1433"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Usuario:&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_confirmacion_prestamo.xml"
+            line="48"
+            column="17"
+            startOffset="1936"
+            endLine="48"
+            endColumn="40"
+            endOffset="1959"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Juan Pérez&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_confirmacion_prestamo.xml"
+            line="55"
+            column="17"
+            startOffset="2198"
+            endLine="55"
+            endColumn="42"
+            endOffset="2223"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Libro:&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_confirmacion_prestamo.xml"
+            line="61"
+            column="17"
+            startOffset="2418"
+            endLine="61"
+            endColumn="38"
+            endOffset="2439"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;El Principito&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_confirmacion_prestamo.xml"
+            line="68"
+            column="17"
+            startOffset="2676"
+            endLine="68"
+            endColumn="45"
+            endOffset="2704"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Fecha Límite:&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_confirmacion_prestamo.xml"
+            line="74"
+            column="17"
+            startOffset="2900"
+            endLine="74"
+            endColumn="45"
+            endOffset="2928"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;15/04/2024&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_confirmacion_prestamo.xml"
+            line="82"
+            column="17"
+            startOffset="3236"
+            endLine="82"
+            endColumn="42"
+            endOffset="3261"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Finalizar y Volver&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_confirmacion_prestamo.xml"
+            line="91"
+            column="9"
+            startOffset="3539"
+            endLine="91"
+            endColumn="42"
+            endOffset="3572"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;SOLO LIBROS · NO HERRAMIENTAS&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_dashboard_admin.xml"
+            line="34"
+            column="17"
+            startOffset="1388"
+            endLine="34"
+            endColumn="61"
+            endOffset="1432"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Biblioteca&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_dashboard_admin.xml"
+            line="74"
+            column="17"
+            startOffset="3200"
+            endLine="74"
+            endColumn="42"
+            endOffset="3225"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Préstamo de Libros&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_dashboard_admin.xml"
+            line="85"
+            column="17"
+            startOffset="3668"
+            endLine="85"
+            endColumn="50"
+            endOffset="3701"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Panel de Administrador&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_dashboard_admin.xml"
+            line="100"
+            column="17"
+            startOffset="4365"
+            endLine="100"
+            endColumn="54"
+            endOffset="4402"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Abril 2026&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_dashboard_admin.xml"
+            line="113"
+            column="17"
+            startOffset="4946"
+            endLine="113"
+            endColumn="42"
+            endOffset="4971"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Total préstamos activos hoy&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_dashboard_admin.xml"
+            line="155"
+            column="25"
+            startOffset="7015"
+            endLine="155"
+            endColumn="67"
+            endOffset="7057"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;12&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_dashboard_admin.xml"
+            line="165"
+            column="25"
+            startOffset="7562"
+            endLine="165"
+            endColumn="42"
+            endOffset="7579"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;9 al día&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_dashboard_admin.xml"
+            line="180"
+            column="25"
+            startOffset="8371"
+            endLine="180"
+            endColumn="48"
+            endOffset="8394"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;3 en mora&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_dashboard_admin.xml"
+            line="197"
+            column="25"
+            startOffset="9314"
+            endLine="197"
+            endColumn="49"
+            endOffset="9338"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Préstamos con retraso&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_dashboard_admin.xml"
+            line="225"
+            column="17"
+            startOffset="10652"
+            endLine="225"
+            endColumn="53"
+            endOffset="10688"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;3 pendientes&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_dashboard_admin.xml"
+            line="241"
+            column="17"
+            startOffset="11450"
+            endLine="241"
+            endColumn="44"
+            endOffset="11477"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Ver todos los pendientes&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_dashboard_admin.xml"
+            line="266"
+            column="17"
+            startOffset="12754"
+            endLine="266"
+            endColumn="56"
+            endOffset="12793"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Libro más solicitado&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_dashboard_admin.xml"
+            line="291"
+            column="17"
+            startOffset="13899"
+            endLine="291"
+            endColumn="52"
+            endOffset="13934"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;#1 DEL MES · ABRIL 2026&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_dashboard_admin.xml"
+            line="322"
+            column="25"
+            startOffset="15390"
+            endLine="322"
+            endColumn="63"
+            endOffset="15428"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Portada del libro&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_detalle_libro.xml"
+            line="23"
+            column="13"
+            startOffset="946"
+            endLine="23"
+            endColumn="59"
+            endOffset="992"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Título del Libro&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_detalle_libro.xml"
+            line="30"
+            column="13"
+            startOffset="1214"
+            endLine="30"
+            endColumn="44"
+            endOffset="1245"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Autor del Libro&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_detalle_libro.xml"
+            line="41"
+            column="13"
+            startOffset="1658"
+            endLine="41"
+            endColumn="43"
+            endOffset="1688"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;ISBN:&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_detalle_libro.xml"
+            line="59"
+            column="13"
+            startOffset="2424"
+            endLine="59"
+            endColumn="33"
+            endOffset="2444"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;978-3-16-148410-0&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_detalle_libro.xml"
+            line="70"
+            column="13"
+            startOffset="2872"
+            endLine="70"
+            endColumn="45"
+            endOffset="2904"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Categoría:&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_detalle_libro.xml"
+            line="80"
+            column="13"
+            startOffset="3304"
+            endLine="80"
+            endColumn="38"
+            endOffset="3329"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Ficción&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_detalle_libro.xml"
+            line="91"
+            column="13"
+            startOffset="3766"
+            endLine="91"
+            endColumn="35"
+            endOffset="3788"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Valor:&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_detalle_libro.xml"
+            line="101"
+            column="13"
+            startOffset="4194"
+            endLine="101"
+            endColumn="34"
+            endOffset="4215"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;$0.00&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_detalle_libro.xml"
+            line="112"
+            column="13"
+            startOffset="4653"
+            endLine="112"
+            endColumn="33"
+            endOffset="4673"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Disponible&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_detalle_libro.xml"
+            line="122"
+            column="13"
+            startOffset="5105"
+            endLine="122"
+            endColumn="38"
+            endOffset="5130"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Prestar libro&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_detalle_libro.xml"
+            line="134"
+            column="13"
+            startOffset="5667"
+            endLine="134"
+            endColumn="41"
+            endOffset="5695"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Todos los Pendientes&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_lista_pendientes.xml"
+            line="15"
+            column="9"
+            startOffset="607"
+            endLine="15"
+            endColumn="44"
+            endOffset="642"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Ordenar por:&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_lista_pendientes.xml"
+            line="27"
+            column="9"
+            startOffset="1053"
+            endLine="27"
+            endColumn="36"
+            endOffset="1080"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Nombre&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_lista_pendientes.xml"
+            line="48"
+            column="13"
+            startOffset="2003"
+            endLine="48"
+            endColumn="34"
+            endOffset="2024"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Retraso&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_lista_pendientes.xml"
+            line="55"
+            column="13"
+            startOffset="2313"
+            endLine="55"
+            endColumn="35"
+            endOffset="2335"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Buscar usuario...&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_lista_usuarios.xml"
+            line="13"
+            column="9"
+            startOffset="568"
+            endLine="13"
+            endColumn="41"
+            endOffset="600"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;BookNook&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_login.xml"
+            line="25"
+            column="9"
+            startOffset="977"
+            endLine="25"
+            endColumn="32"
+            endOffset="1000"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Correo Electrónico&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_login.xml"
+            line="41"
+            column="9"
+            startOffset="1676"
+            endLine="41"
+            endColumn="42"
+            endOffset="1709"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Contraseña&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_login.xml"
+            line="61"
+            column="9"
+            startOffset="2591"
+            endLine="61"
+            endColumn="34"
+            endOffset="2616"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Iniciar Sesión&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_login.xml"
+            line="84"
+            column="9"
+            startOffset="3587"
+            endLine="84"
+            endColumn="38"
+            endOffset="3616"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;¿No tienes cuenta? Regístrate&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_login.xml"
+            line="95"
+            column="9"
+            startOffset="4067"
+            endLine="95"
+            endColumn="53"
+            endOffset="4111"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Nombre del Socio&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_perfil_usuario.xml"
+            line="28"
+            column="13"
+            startOffset="1128"
+            endLine="28"
+            endColumn="44"
+            endOffset="1159"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Socio #12345&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_perfil_usuario.xml"
+            line="39"
+            column="13"
+            startOffset="1574"
+            endLine="39"
+            endColumn="40"
+            endOffset="1601"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Libros Activos&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_perfil_usuario.xml"
+            line="65"
+            column="21"
+            startOffset="2668"
+            endLine="65"
+            endColumn="50"
+            endOffset="2697"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;2 libros&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_perfil_usuario.xml"
+            line="76"
+            column="21"
+            startOffset="3161"
+            endLine="76"
+            endColumn="44"
+            endOffset="3184"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Multas Pendientes&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_perfil_usuario.xml"
+            line="91"
+            column="21"
+            startOffset="3841"
+            endLine="91"
+            endColumn="53"
+            endOffset="3873"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;$0.00&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_perfil_usuario.xml"
+            line="102"
+            column="21"
+            startOffset="4330"
+            endLine="102"
+            endColumn="41"
+            endOffset="4350"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Prestar libro&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_perfil_usuario.xml"
+            line="115"
+            column="13"
+            startOffset="4903"
+            endLine="115"
+            endColumn="41"
+            endOffset="4931"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Registrar devolución&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_perfil_usuario.xml"
+            line="128"
+            column="13"
+            startOffset="5510"
+            endLine="128"
+            endColumn="48"
+            endOffset="5545"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Registrar Devolución&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_devolucion.xml"
+            line="17"
+            column="13"
+            startOffset="616"
+            endLine="17"
+            endColumn="48"
+            endOffset="651"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Seleccionar Préstamo Activo&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_devolucion.xml"
+            line="27"
+            column="13"
+            startOffset="1089"
+            endLine="27"
+            endColumn="55"
+            endOffset="1131"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Datos del Préstamo&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_devolucion.xml"
+            line="59"
+            column="21"
+            startOffset="2472"
+            endLine="59"
+            endColumn="54"
+            endOffset="2505"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Libro: El Principito&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_devolucion.xml"
+            line="71"
+            column="21"
+            startOffset="3019"
+            endLine="71"
+            endColumn="56"
+            endOffset="3054"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Usuario: Juan Pérez&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_devolucion.xml"
+            line="81"
+            column="21"
+            startOffset="3473"
+            endLine="81"
+            endColumn="55"
+            endOffset="3507"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Fecha Límite: 15/03/2024&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_devolucion.xml"
+            line="89"
+            column="21"
+            startOffset="3842"
+            endLine="89"
+            endColumn="60"
+            endOffset="3881"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Cálculo de Multa&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_devolucion.xml"
+            line="114"
+            column="21"
+            startOffset="4821"
+            endLine="114"
+            endColumn="52"
+            endOffset="4852"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Días de retraso: 5&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_devolucion.xml"
+            line="126"
+            column="21"
+            startOffset="5362"
+            endLine="126"
+            endColumn="54"
+            endOffset="5395"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Multa: $250.00&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_devolucion.xml"
+            line="133"
+            column="21"
+            startOffset="5670"
+            endLine="133"
+            endColumn="50"
+            endOffset="5699"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Confirmar Devolución&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_devolucion.xml"
+            line="146"
+            column="13"
+            startOffset="6196"
+            endLine="146"
+            endColumn="48"
+            endOffset="6231"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Registrar Nuevo Libro&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_libro.xml"
+            line="17"
+            column="13"
+            startOffset="620"
+            endLine="17"
+            endColumn="49"
+            endOffset="656"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Título&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_libro.xml"
+            line="27"
+            column="13"
+            startOffset="1074"
+            endLine="27"
+            endColumn="34"
+            endOffset="1095"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Autor&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_libro.xml"
+            line="43"
+            column="13"
+            startOffset="1878"
+            endLine="43"
+            endColumn="33"
+            endOffset="1898"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Editorial&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_libro.xml"
+            line="59"
+            column="13"
+            startOffset="2680"
+            endLine="59"
+            endColumn="37"
+            endOffset="2704"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Código ISBN&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_libro.xml"
+            line="75"
+            column="13"
+            startOffset="3490"
+            endLine="75"
+            endColumn="39"
+            endOffset="3516"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Número de ejemplares&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_libro.xml"
+            line="91"
+            column="13"
+            startOffset="4297"
+            endLine="91"
+            endColumn="48"
+            endOffset="4332"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Valor / Precio&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_libro.xml"
+            line="108"
+            column="13"
+            startOffset="5162"
+            endLine="108"
+            endColumn="42"
+            endOffset="5191"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Guardar Libro&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_libro.xml"
+            line="127"
+            column="13"
+            startOffset="6059"
+            endLine="127"
+            endColumn="41"
+            endOffset="6087"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Registrar Nuevo Préstamo&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_prestamo.xml"
+            line="17"
+            column="13"
+            startOffset="616"
+            endLine="17"
+            endColumn="52"
+            endOffset="655"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Seleccionar Usuario&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_prestamo.xml"
+            line="27"
+            column="13"
+            startOffset="1093"
+            endLine="27"
+            endColumn="47"
+            endOffset="1127"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Seleccionar Libro&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_prestamo.xml"
+            line="44"
+            column="13"
+            startOffset="1942"
+            endLine="44"
+            endColumn="45"
+            endOffset="1974"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Fecha de Devolución&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_prestamo.xml"
+            line="61"
+            column="13"
+            startOffset="2767"
+            endLine="61"
+            endColumn="47"
+            endOffset="2801"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Confirmar Préstamo&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_prestamo.xml"
+            line="83"
+            column="13"
+            startOffset="3843"
+            endLine="83"
+            endColumn="46"
+            endOffset="3876"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Registrar Nuevo Lector (Socio)&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_socio.xml"
+            line="13"
+            column="9"
+            startOffset="498"
+            endLine="13"
+            endColumn="54"
+            endOffset="543"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Nombre Completo&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_socio.xml"
+            line="26"
+            column="9"
+            startOffset="1062"
+            endLine="26"
+            endColumn="39"
+            endOffset="1092"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;DNI / Identificación&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_socio.xml"
+            line="44"
+            column="9"
+            startOffset="1903"
+            endLine="44"
+            endColumn="44"
+            endOffset="1938"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Teléfono&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_socio.xml"
+            line="62"
+            column="9"
+            startOffset="2753"
+            endLine="62"
+            endColumn="32"
+            endOffset="2776"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Registrar Lector&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_socio.xml"
+            line="81"
+            column="9"
+            startOffset="3594"
+            endLine="81"
+            endColumn="40"
+            endOffset="3625"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Registrar Nuevo Usuario&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_usuario.xml"
+            line="13"
+            column="9"
+            startOffset="498"
+            endLine="13"
+            endColumn="47"
+            endOffset="536"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Nombre Completo&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_usuario.xml"
+            line="26"
+            column="9"
+            startOffset="1055"
+            endLine="26"
+            endColumn="39"
+            endOffset="1085"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Correo Electrónico&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_usuario.xml"
+            line="46"
+            column="9"
+            startOffset="1946"
+            endLine="46"
+            endColumn="42"
+            endOffset="1979"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Contraseña&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_usuario.xml"
+            line="66"
+            column="9"
+            startOffset="2846"
+            endLine="66"
+            endColumn="34"
+            endOffset="2871"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Asignar Rol:&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_usuario.xml"
+            line="84"
+            column="9"
+            startOffset="3583"
+            endLine="84"
+            endColumn="36"
+            endOffset="3610"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Bibliotecario&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_usuario.xml"
+            line="102"
+            column="13"
+            startOffset="4275"
+            endLine="102"
+            endColumn="41"
+            endOffset="4303"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Administrador&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_usuario.xml"
+            line="112"
+            column="13"
+            startOffset="4655"
+            endLine="112"
+            endColumn="41"
+            endOffset="4683"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Crear Cuenta&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_registrar_usuario.xml"
+            line="121"
+            column="9"
+            startOffset="4968"
+            endLine="121"
+            endColumn="36"
+            endOffset="4995"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Reporte de Ingresos&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_reporte_mensual.xml"
+            line="17"
+            column="13"
+            startOffset="616"
+            endLine="17"
+            endColumn="47"
+            endOffset="650"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Mensual&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_reporte_mensual.xml"
+            line="34"
+            column="17"
+            startOffset="1403"
+            endLine="34"
+            endColumn="39"
+            endOffset="1425"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Anual&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_reporte_mensual.xml"
+            line="38"
+            column="17"
+            startOffset="1604"
+            endLine="38"
+            endColumn="37"
+            endOffset="1624"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Total Acumulado&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_reporte_mensual.xml"
+            line="60"
+            column="21"
+            startOffset="2483"
+            endLine="60"
+            endColumn="51"
+            endOffset="2513"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;$4,250.00&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_reporte_mensual.xml"
+            line="70"
+            column="21"
+            startOffset="2923"
+            endLine="70"
+            endColumn="45"
+            endOffset="2947"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Historial de Libros Prestados&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_reporte_mensual.xml"
+            line="98"
+            column="13"
+            startOffset="4082"
+            endLine="98"
+            endColumn="57"
+            endOffset="4126"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Crear Cuenta&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_sign_up.xml"
+            line="23"
+            column="9"
+            startOffset="861"
+            endLine="23"
+            endColumn="36"
+            endOffset="888"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Nombre Completo&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_sign_up.xml"
+            line="36"
+            column="9"
+            startOffset="1416"
+            endLine="36"
+            endColumn="39"
+            endOffset="1446"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Correo Electrónico&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_sign_up.xml"
+            line="56"
+            column="9"
+            startOffset="2308"
+            endLine="56"
+            endColumn="42"
+            endOffset="2341"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Contraseña&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_sign_up.xml"
+            line="76"
+            column="9"
+            startOffset="3209"
+            endLine="76"
+            endColumn="34"
+            endOffset="3234"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Seleccionar Rol:&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_sign_up.xml"
+            line="96"
+            column="9"
+            startOffset="4033"
+            endLine="96"
+            endColumn="40"
+            endOffset="4064"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Bibliotecario&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_sign_up.xml"
+            line="113"
+            column="13"
+            startOffset="4691"
+            endLine="113"
+            endColumn="41"
+            endOffset="4719"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Administrador&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_sign_up.xml"
+            line="122"
+            column="13"
+            startOffset="5038"
+            endLine="122"
+            endColumn="41"
+            endOffset="5066"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Lector&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_sign_up.xml"
+            line="131"
+            column="13"
+            startOffset="5387"
+            endLine="131"
+            endColumn="34"
+            endOffset="5408"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Registrarse&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_sign_up.xml"
+            line="143"
+            column="9"
+            startOffset="5825"
+            endLine="143"
+            endColumn="35"
+            endOffset="5851"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;BookNook&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_splash.xml"
+            line="25"
+            column="9"
+            startOffset="1002"
+            endLine="25"
+            endColumn="32"
+            endOffset="1025"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Top 5 Libros más Prestados&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_top_libros.xml"
+            line="14"
+            column="9"
+            startOffset="549"
+            endLine="14"
+            endColumn="50"
+            endOffset="590"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Título del Libro&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_historial_ingresos.xml"
+            line="21"
+            column="13"
+            startOffset="787"
+            endLine="21"
+            endColumn="44"
+            endOffset="818"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Nombre del Socio&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_historial_ingresos.xml"
+            line="33"
+            column="13"
+            startOffset="1284"
+            endLine="33"
+            endColumn="44"
+            endOffset="1315"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;$15.00&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_historial_ingresos.xml"
+            line="44"
+            column="13"
+            startOffset="1776"
+            endLine="44"
+            endColumn="34"
+            endOffset="1797"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Portada&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_libro.xml"
+            line="37"
+            column="17"
+            startOffset="1504"
+            endLine="37"
+            endColumn="53"
+            endOffset="1540"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Título del Libro&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_libro.xml"
+            line="45"
+            column="13"
+            startOffset="1809"
+            endLine="45"
+            endColumn="44"
+            endOffset="1840"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Autor&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_libro.xml"
+            line="57"
+            column="13"
+            startOffset="2309"
+            endLine="57"
+            endColumn="33"
+            endOffset="2329"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Disponible&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_libro.xml"
+            line="70"
+            column="13"
+            startOffset="2912"
+            endLine="70"
+            endColumn="38"
+            endOffset="2937"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;#1&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_libro_top.xml"
+            line="21"
+            column="13"
+            startOffset="789"
+            endLine="21"
+            endColumn="30"
+            endOffset="806"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Título del Libro&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_libro_top.xml"
+            line="33"
+            column="13"
+            startOffset="1249"
+            endLine="33"
+            endColumn="44"
+            endOffset="1280"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Autor del Libro&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_libro_top.xml"
+            line="45"
+            column="13"
+            startOffset="1739"
+            endLine="45"
+            endColumn="43"
+            endOffset="1769"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;10 préstamos&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_libro_top.xml"
+            line="56"
+            column="13"
+            startOffset="2212"
+            endLine="56"
+            endColumn="40"
+            endOffset="2239"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Título del Libro&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_prestamo_lector.xml"
+            line="26"
+            column="13"
+            startOffset="965"
+            endLine="26"
+            endColumn="44"
+            endOffset="996"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Devolver el: &quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_prestamo_lector.xml"
+            line="37"
+            column="17"
+            startOffset="1353"
+            endLine="37"
+            endColumn="45"
+            endOffset="1381"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;dd/mm/aaaa&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_prestamo_lector.xml"
+            line="45"
+            column="17"
+            startOffset="1676"
+            endLine="45"
+            endColumn="42"
+            endOffset="1701"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Pendiente&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_prestamo_lector.xml"
+            line="55"
+            column="13"
+            startOffset="2034"
+            endLine="55"
+            endColumn="37"
+            endOffset="2058"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;CM&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_prestamo_pendiente.xml"
+            line="23"
+            column="13"
+            startOffset="887"
+            endLine="23"
+            endColumn="30"
+            endOffset="904"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Carlos Mendoza&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_prestamo_pendiente.xml"
+            line="36"
+            column="13"
+            startOffset="1405"
+            endLine="36"
+            endColumn="42"
+            endOffset="1434"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;El Quijote&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_prestamo_pendiente.xml"
+            line="49"
+            column="13"
+            startOffset="1960"
+            endLine="49"
+            endColumn="38"
+            endOffset="1985"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Vencimiento: 10/04/2026&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_prestamo_pendiente.xml"
+            line="64"
+            column="13"
+            startOffset="2653"
+            endLine="64"
+            endColumn="51"
+            endOffset="2691"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;PENDIENTE&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_prestamo_pendiente.xml"
+            line="80"
+            column="13"
+            startOffset="3409"
+            endLine="80"
+            endColumn="37"
+            endOffset="3433"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;4 días tarde&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_prestamo_pendiente.xml"
+            line="95"
+            column="13"
+            startOffset="4017"
+            endLine="95"
+            endColumn="40"
+            endOffset="4044"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Inicio&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/menu/lector_bottom_nav_menu.xml"
+            line="6"
+            column="9"
+            startOffset="228"
+            endLine="6"
+            endColumn="31"
+            endOffset="250"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Libros&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/menu/lector_bottom_nav_menu.xml"
+            line="10"
+            column="9"
+            startOffset="377"
+            endLine="10"
+            endColumn="31"
+            endOffset="399"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Mis Préstamos&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/menu/lector_bottom_nav_menu.xml"
+            line="14"
+            column="9"
+            startOffset="530"
+            endLine="14"
+            endColumn="38"
+            endOffset="559"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;Ajustes&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/menu/lector_bottom_nav_menu.xml"
+            line="18"
+            column="9"
+            startOffset="690"
+            endLine="18"
+            endColumn="32"
+            endOffset="713"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;BookNook Admin&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/nav_header.xml"
+            line="21"
+            column="9"
+            startOffset="689"
+            endLine="21"
+            endColumn="38"
+            endOffset="718"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;admin@booknook.com&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/nav_header.xml"
+            line="30"
+            column="9"
+            startOffset="979"
+            endLine="30"
+            endColumn="42"
+            endOffset="1012"/>
+    </incident>
+
+</incidents>

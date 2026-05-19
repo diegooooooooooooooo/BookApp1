@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.example.bookapp-mergeReleaseResources-60:/values-watch-v21/values-watch-v21.xml",
+            "map": [
+                {
+                    "source": "/home/dknw/.gradle/caches/9.2.1/transforms/4858f84c23733a7d0f0288a247d24308/transformed/appcompat-1.7.0/res/values-watch-v21/values-watch-v21.xml",
+                    "from": {
+                        "startLines": "2,6,10",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,271,499",
+                        "endLines": "5,9,13",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "266,494,724"
+                    }
+                }
+            ]
+        }
+    ]
+}

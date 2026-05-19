@@ -1,0 +1,6 @@
+com.example.bookapp.test.app-core-1.6.1-0 /home/dknw/.gradle/caches/9.2.1/transforms/a2aa1eee37f092b44125866c9c2da15b/transformed/core-1.6.1/res
+com.example.bookapp.test.app-tracing-1.2.0-1 /home/dknw/.gradle/caches/9.2.1/transforms/d8f288ec4648b3ef99515758e5af3e90/transformed/tracing-1.2.0/res
+com.example.bookapp.test.app-androidTest-2 /run/media/dknw/Quartz/AS Proyectos/BookApp1/app/build/generated/res/resValues/androidTest/debug
+com.example.bookapp.test.app-mergeDebugAndroidTestResources-3 /run/media/dknw/Quartz/AS Proyectos/BookApp1/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/merged.dir
+com.example.bookapp.test.app-mergeDebugAndroidTestResources-4 /run/media/dknw/Quartz/AS Proyectos/BookApp1/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/stripped.dir
+com.example.bookapp.test.app-debugAndroidTest-5 /run/media/dknw/Quartz/AS Proyectos/BookApp1/app/build/intermediates/merged_res/debugAndroidTest/mergeDebugAndroidTestResources

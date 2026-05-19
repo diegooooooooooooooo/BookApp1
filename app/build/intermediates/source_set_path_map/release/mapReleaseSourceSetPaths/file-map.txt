@@ -1,0 +1,65 @@
+com.example.bookapp-core-1.15.0-0 /home/dknw/.gradle/caches/9.2.1/transforms/047ab85f7f595d5ff7c6950b9a6031c7/transformed/core-1.15.0/res
+com.example.bookapp-navigation-ui-ktx-2.8.5-1 /home/dknw/.gradle/caches/9.2.1/transforms/05dc92192f9a75e8b495f702d97e27c8/transformed/navigation-ui-ktx-2.8.5/res
+com.example.bookapp-viewpager2-1.0.0-2 /home/dknw/.gradle/caches/9.2.1/transforms/0eae46a15561ea3eada9e08bb2005039/transformed/viewpager2-1.0.0/res
+com.example.bookapp-slidingpanelayout-1.2.0-3 /home/dknw/.gradle/caches/9.2.1/transforms/0eecc4aa6814bfd9398f95312655941d/transformed/slidingpanelayout-1.2.0/res
+com.example.bookapp-activity-1.9.3-4 /home/dknw/.gradle/caches/9.2.1/transforms/1285fab269fffb2eff2bb07ee5c4a3ee/transformed/activity-1.9.3/res
+com.example.bookapp-navigation-runtime-2.8.5-5 /home/dknw/.gradle/caches/9.2.1/transforms/13ddff34506b268070037b0f1c7ab25f/transformed/navigation-runtime-2.8.5/res
+com.example.bookapp-coordinatorlayout-1.1.0-6 /home/dknw/.gradle/caches/9.2.1/transforms/1a5eb3f7a5b2fb52f82df2ed06cadf56/transformed/coordinatorlayout-1.1.0/res
+com.example.bookapp-lifecycle-runtime-ktx-release-7 /home/dknw/.gradle/caches/9.2.1/transforms/1c6e33ca9da6fd3912ec6994f6a3aab6/transformed/lifecycle-runtime-ktx-release/res
+com.example.bookapp-sqlite-2.4.0-8 /home/dknw/.gradle/caches/9.2.1/transforms/21a86a327eb0418b2d1ed9e923c93b5f/transformed/sqlite-2.4.0/res
+com.example.bookapp-tracing-1.2.0-9 /home/dknw/.gradle/caches/9.2.1/transforms/229669b35b0dc2c4c2025765a2858a37/transformed/tracing-1.2.0/res
+com.example.bookapp-core-common-2.0.3-10 /home/dknw/.gradle/caches/9.2.1/transforms/23d4e1100405a9a58823c22f953d6bd3/transformed/core-common-2.0.3/res
+com.example.bookapp-annotation-experimental-1.4.1-11 /home/dknw/.gradle/caches/9.2.1/transforms/263f2cfe981ac45e9536e29f35ffb0bb/transformed/annotation-experimental-1.4.1/res
+com.example.bookapp-savedstate-1.2.1-12 /home/dknw/.gradle/caches/9.2.1/transforms/2943046501ad132416dd96307cd937ef/transformed/savedstate-1.2.1/res
+com.example.bookapp-browser-1.4.0-13 /home/dknw/.gradle/caches/9.2.1/transforms/29cb803ba69942dcfc0ed7660c7224aa/transformed/browser-1.4.0/res
+com.example.bookapp-sqlite-framework-2.4.0-14 /home/dknw/.gradle/caches/9.2.1/transforms/2a85053bc1299055f719a14c491c305e/transformed/sqlite-framework-2.4.0/res
+com.example.bookapp-credentials-1.2.0-rc01-15 /home/dknw/.gradle/caches/9.2.1/transforms/304dcf09dc2ce0b84155460e19eb8ea5/transformed/credentials-1.2.0-rc01/res
+com.example.bookapp-emoji2-views-helper-1.3.0-16 /home/dknw/.gradle/caches/9.2.1/transforms/350105886f724de1712e10abfc5f7057/transformed/emoji2-views-helper-1.3.0/res
+com.example.bookapp-savedstate-ktx-1.2.1-17 /home/dknw/.gradle/caches/9.2.1/transforms/35f753394689ae98a9daf7ad7a156d27/transformed/savedstate-ktx-1.2.1/res
+com.example.bookapp-fragment-ktx-1.6.2-18 /home/dknw/.gradle/caches/9.2.1/transforms/43fabfb2ec284a38565a98b04273143e/transformed/fragment-ktx-1.6.2/res
+com.example.bookapp-lifecycle-livedata-core-ktx-2.8.7-19 /home/dknw/.gradle/caches/9.2.1/transforms/44e1cfa167cbb34868199c7852462bbd/transformed/lifecycle-livedata-core-ktx-2.8.7/res
+com.example.bookapp-appcompat-1.7.0-20 /home/dknw/.gradle/caches/9.2.1/transforms/4858f84c23733a7d0f0288a247d24308/transformed/appcompat-1.7.0/res
+com.example.bookapp-lifecycle-livedata-core-2.8.7-21 /home/dknw/.gradle/caches/9.2.1/transforms/514685f38c3038e0358782d6425bc19f/transformed/lifecycle-livedata-core-2.8.7/res
+com.example.bookapp-profileinstaller-1.4.0-22 /home/dknw/.gradle/caches/9.2.1/transforms/53244d4eb87cde851185fa7c414067c7/transformed/profileinstaller-1.4.0/res
+com.example.bookapp-fragment-1.6.2-23 /home/dknw/.gradle/caches/9.2.1/transforms/54cc5ca165c071e21fb8ca7eba08173c/transformed/fragment-1.6.2/res
+com.example.bookapp-lifecycle-runtime-release-24 /home/dknw/.gradle/caches/9.2.1/transforms/5a5be3ceb51d0d5b5d97452980b7e9c1/transformed/lifecycle-runtime-release/res
+com.example.bookapp-play-services-auth-21.3.0-25 /home/dknw/.gradle/caches/9.2.1/transforms/5e9d04cae7cee5e332e3fd0d8d12ab82/transformed/play-services-auth-21.3.0/res
+com.example.bookapp-navigation-fragment-2.8.5-26 /home/dknw/.gradle/caches/9.2.1/transforms/6aebdf4a6fc6ac4a763ceb6c1b877481/transformed/navigation-fragment-2.8.5/res
+com.example.bookapp-transition-1.5.0-27 /home/dknw/.gradle/caches/9.2.1/transforms/6ef9e0b0bf9a902e1d30b68dbb5ac9d5/transformed/transition-1.5.0/res
+com.example.bookapp-play-services-base-18.5.0-28 /home/dknw/.gradle/caches/9.2.1/transforms/717b09a7a9c55c59fdafe8c6bb7875fd/transformed/play-services-base-18.5.0/res
+com.example.bookapp-play-services-basement-18.4.0-29 /home/dknw/.gradle/caches/9.2.1/transforms/72d2423976a37bec1aaada7dd190e8fe/transformed/play-services-basement-18.4.0/res
+com.example.bookapp-lifecycle-viewmodel-release-30 /home/dknw/.gradle/caches/9.2.1/transforms/74293c1b548f7bc025467015994e047a/transformed/lifecycle-viewmodel-release/res
+com.example.bookapp-lifecycle-viewmodel-ktx-2.8.7-31 /home/dknw/.gradle/caches/9.2.1/transforms/757e4a70123e075e7a53b3aabfda431f/transformed/lifecycle-viewmodel-ktx-2.8.7/res
+com.example.bookapp-recyclerview-1.1.0-32 /home/dknw/.gradle/caches/9.2.1/transforms/78d2ce85b9377a64055d2f40a3dba3b7/transformed/recyclerview-1.1.0/res
+com.example.bookapp-activity-ktx-1.9.3-33 /home/dknw/.gradle/caches/9.2.1/transforms/7c482aaf89fc08c7814430cbe80297c4/transformed/activity-ktx-1.9.3/res
+com.example.bookapp-navigation-common-2.8.5-34 /home/dknw/.gradle/caches/9.2.1/transforms/94df809ee37d87cbae869d82158858f0/transformed/navigation-common-2.8.5/res
+com.example.bookapp-appcompat-resources-1.7.0-35 /home/dknw/.gradle/caches/9.2.1/transforms/97f96c18f7d766f797340bd5287527cd/transformed/appcompat-resources-1.7.0/res
+com.example.bookapp-room-ktx-2.6.1-36 /home/dknw/.gradle/caches/9.2.1/transforms/a24fe33e52b2ee0283b80a5067b383c5/transformed/room-ktx-2.6.1/res
+com.example.bookapp-material-1.12.0-37 /home/dknw/.gradle/caches/9.2.1/transforms/aadfec1002a4bb81a102d419f920f40c/transformed/material-1.12.0/res
+com.example.bookapp-core-ktx-1.15.0-38 /home/dknw/.gradle/caches/9.2.1/transforms/ae37432261aba2a0aa014250fad43609/transformed/core-ktx-1.15.0/res
+com.example.bookapp-lifecycle-viewmodel-savedstate-2.8.7-39 /home/dknw/.gradle/caches/9.2.1/transforms/ae41e830e97bea63e241fa3d43dae058/transformed/lifecycle-viewmodel-savedstate-2.8.7/res
+com.example.bookapp-navigation-runtime-ktx-2.8.5-40 /home/dknw/.gradle/caches/9.2.1/transforms/b3067bb5cea23dddd766b145e8069922/transformed/navigation-runtime-ktx-2.8.5/res
+com.example.bookapp-window-1.0.0-41 /home/dknw/.gradle/caches/9.2.1/transforms/b7347a1d9d60d4e9a482e4b9f0dc34b0/transformed/window-1.0.0/res
+com.example.bookapp-credentials-play-services-auth-1.2.0-rc01-42 /home/dknw/.gradle/caches/9.2.1/transforms/ba95354a04ebd67707a0e3768334f4d7/transformed/credentials-play-services-auth-1.2.0-rc01/res
+com.example.bookapp-cardview-1.0.0-43 /home/dknw/.gradle/caches/9.2.1/transforms/bb84d77d699e23d434e2e6d4fd4fde8d/transformed/cardview-1.0.0/res
+com.example.bookapp-firebase-common-21.0.0-44 /home/dknw/.gradle/caches/9.2.1/transforms/be5231e37df006571432133638a061e3/transformed/firebase-common-21.0.0/res
+com.example.bookapp-core-runtime-2.2.0-45 /home/dknw/.gradle/caches/9.2.1/transforms/bf3d0567c38837768f565d27ac24896f/transformed/core-runtime-2.2.0/res
+com.example.bookapp-constraintlayout-2.2.0-46 /home/dknw/.gradle/caches/9.2.1/transforms/bfc7694f701d44dd8c4e252b491eeee7/transformed/constraintlayout-2.2.0/res
+com.example.bookapp-lifecycle-process-2.8.7-47 /home/dknw/.gradle/caches/9.2.1/transforms/c10fe1dad326d18f9597bdcf350364fa/transformed/lifecycle-process-2.8.7/res
+com.example.bookapp-room-runtime-2.6.1-48 /home/dknw/.gradle/caches/9.2.1/transforms/c4c9dab962fa52d3a4a002911594c8f1/transformed/room-runtime-2.6.1/res
+com.example.bookapp-emoji2-1.3.0-49 /home/dknw/.gradle/caches/9.2.1/transforms/c9c7b47e2a32d1763214fa37f43a4613/transformed/emoji2-1.3.0/res
+com.example.bookapp-lifecycle-livedata-ktx-2.8.7-50 /home/dknw/.gradle/caches/9.2.1/transforms/d3fe1a811e7eb902d1158fe35444a9b7/transformed/lifecycle-livedata-ktx-2.8.7/res
+com.example.bookapp-navigation-fragment-ktx-2.8.5-51 /home/dknw/.gradle/caches/9.2.1/transforms/db15d1b766d7c8fdff77a3076135aeed/transformed/navigation-fragment-ktx-2.8.5/res
+com.example.bookapp-navigation-common-ktx-2.8.5-52 /home/dknw/.gradle/caches/9.2.1/transforms/dfcf09ca4f7464fa34b44696d92d7324/transformed/navigation-common-ktx-2.8.5/res
+com.example.bookapp-navigation-ui-2.8.5-53 /home/dknw/.gradle/caches/9.2.1/transforms/e647091272c79893a0bc346c09b8efca/transformed/navigation-ui-2.8.5/res
+com.example.bookapp-startup-runtime-1.1.1-54 /home/dknw/.gradle/caches/9.2.1/transforms/f219673bcb5bb8fb2e34c8ea4aee254b/transformed/startup-runtime-1.1.1/res
+com.example.bookapp-lifecycle-livedata-2.8.7-55 /home/dknw/.gradle/caches/9.2.1/transforms/f2f4791ec7114790d71bc7d39f2ef043/transformed/lifecycle-livedata-2.8.7/res
+com.example.bookapp-drawerlayout-1.1.1-56 /home/dknw/.gradle/caches/9.2.1/transforms/fe81e35561dd8c77064b7bc9e65b424d/transformed/drawerlayout-1.1.1/res
+com.example.bookapp-pngs-57 /run/media/dknw/Quartz/AS Proyectos/BookApp1/app/build/generated/res/pngs/release
+com.example.bookapp-res-58 /run/media/dknw/Quartz/AS Proyectos/BookApp1/app/build/generated/res/processReleaseGoogleServices
+com.example.bookapp-resValues-59 /run/media/dknw/Quartz/AS Proyectos/BookApp1/app/build/generated/res/resValues/release
+com.example.bookapp-packageReleaseResources-60 /run/media/dknw/Quartz/AS Proyectos/BookApp1/app/build/intermediates/incremental/release/packageReleaseResources/merged.dir
+com.example.bookapp-packageReleaseResources-61 /run/media/dknw/Quartz/AS Proyectos/BookApp1/app/build/intermediates/incremental/release/packageReleaseResources/stripped.dir
+com.example.bookapp-release-62 /run/media/dknw/Quartz/AS Proyectos/BookApp1/app/build/intermediates/merged_res/release/mergeReleaseResources
+com.example.bookapp-main-63 /run/media/dknw/Quartz/AS Proyectos/BookApp1/app/src/main/res
+com.example.bookapp-release-64 /run/media/dknw/Quartz/AS Proyectos/BookApp1/app/src/release/res
