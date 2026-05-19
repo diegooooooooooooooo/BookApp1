@@ -6,18 +6,25 @@ import android.view.View
 import android.view.ViewGroup
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 7ae96b5 (Versión más acutual)
 import android.widget.ImageView
 import android.widget.ImageButton
 import androidx.appcompat.app.AlertDialog
 import com.example.bookapp.R
+<<<<<<< HEAD
 >>>>>>> experimental
+=======
+>>>>>>> 7ae96b5 (Versión más acutual)
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import coil.load
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -25,10 +32,13 @@ import androidx.navigation.fragment.findNavController
 >>>>>>> 0800574 (Versión más acutual)
 =======
 >>>>>>> experimental
+=======
+>>>>>>> 7ae96b5 (Versión más acutual)
 import com.example.bookapp.BookApplication
 import com.example.bookapp.databinding.FragmentMiPerfilBinding
 import com.example.bookapp.viewmodel.LoginViewModel
 import com.example.bookapp.viewmodel.ViewModelFactory
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 import java.io.File
@@ -37,6 +47,9 @@ import java.io.File
 =======
 import java.io.File
 >>>>>>> experimental
+=======
+import java.io.File
+>>>>>>> 7ae96b5 (Versión más acutual)
 
 class MiPerfilFragment : Fragment() {
 
@@ -65,8 +78,11 @@ class MiPerfilFragment : Fragment() {
                 binding.tvProfilePassword.text = it.contrasena
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> experimental
+=======
+>>>>>>> 7ae96b5 (Versión más acutual)
                 
                 if (it.fotoId != null) {
                     val file = File(it.fotoId)
@@ -77,15 +93,21 @@ class MiPerfilFragment : Fragment() {
                             crossfade(true)
                             // Remove tint when image is loaded
 <<<<<<< HEAD
+<<<<<<< HEAD
                             listener(onSuccess = { _, _ -> binding.ivProfileId.imageTintList = null })
 =======
+=======
+>>>>>>> 7ae96b5 (Versión más acutual)
                             listener(onSuccess = { _, _ -> 
                                 binding.ivProfileId.imageTintList = null 
                                 binding.ivProfileId.setOnClickListener {
                                     showFullScreenImage(file)
                                 }
                             })
+<<<<<<< HEAD
 >>>>>>> experimental
+=======
+>>>>>>> 7ae96b5 (Versión más acutual)
                         }
                     } else {
                         binding.ivProfileId.isVisible = false
@@ -98,11 +120,14 @@ class MiPerfilFragment : Fragment() {
                     binding.tvProfileIdStatus.text = "No disponible"
                 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 binding.tvProfileIdStatus.text = it.fotoId ?: "No disponible"
 >>>>>>> 0800574 (Versión más acutual)
 =======
 >>>>>>> experimental
+=======
+>>>>>>> 7ae96b5 (Versión más acutual)
             }
         }
 
@@ -112,7 +137,10 @@ class MiPerfilFragment : Fragment() {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 7ae96b5 (Versión más acutual)
     private fun showFullScreenImage(file: File) {
         val dialogView = LayoutInflater.from(requireContext()).inflate(R.layout.dialog_full_image, null)
         val imageView = dialogView.findViewById<ImageView>(R.id.ivFullImage)
@@ -137,7 +165,10 @@ class MiPerfilFragment : Fragment() {
         dialog.show()
     }
 
+<<<<<<< HEAD
 >>>>>>> experimental
+=======
+>>>>>>> 7ae96b5 (Versión más acutual)
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

@@ -198,17 +198,23 @@
             android:defaultValue="-1" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> experimental
+=======
+>>>>>>> 7ae96b5 (Versión más acutual)
         <argument
             android:name="ocultarBotonPrestar"
             app:argType="boolean"
             android:defaultValue="false" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 0800574 (Versión más acutual)
 =======
 >>>>>>> experimental
+=======
+>>>>>>> 7ae96b5 (Versión más acutual)
         <action
             android:id="@+id/action_detalleLibroFragment_to_registrarPrestamoFragment"
             app:destination="@id/registrarPrestamoFragment" />
@@ -252,8 +258,11 @@
         android:label="Ticket"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> experimental
+=======
+>>>>>>> 7ae96b5 (Versión más acutual)
         tools:layout="@layout/fragment_confirmacion_prestamo" >
         <argument
             android:name="socioNombre"
@@ -281,11 +290,14 @@
             app:popUpToInclusive="true" />
     </fragment>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         tools:layout="@layout/fragment_confirmacion_prestamo" />
 >>>>>>> 0800574 (Versión más acutual)
 =======
 >>>>>>> experimental
+=======
+>>>>>>> 7ae96b5 (Versión más acutual)
 
     <fragment
         android:id="@+id/registrarDevolucionFragment"
@@ -337,6 +349,7 @@
             app:destination="@id/configuracionFragment" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <action
             android:id="@+id/action_dashboardLectorFragment_to_detalleLibroFragment"
             app:destination="@id/detalleLibroFragment" />
@@ -347,6 +360,11 @@
             android:id="@+id/action_dashboardLectorFragment_to_detalleLibroFragment"
             app:destination="@id/detalleLibroFragment" />
 >>>>>>> experimental
+=======
+        <action
+            android:id="@+id/action_dashboardLectorFragment_to_detalleLibroFragment"
+            app:destination="@id/detalleLibroFragment" />
+>>>>>>> 7ae96b5 (Versión más acutual)
     </fragment>
 
     <fragment
@@ -355,18 +373,24 @@
         android:label="Calendario"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> experimental
+=======
+>>>>>>> 7ae96b5 (Versión más acutual)
         tools:layout="@layout/fragment_calendario_prestamos" >
         <action
             android:id="@+id/action_calendarioPrestamosFragment_to_detalleLibroFragment"
             app:destination="@id/detalleLibroFragment" />
     </fragment>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         tools:layout="@layout/fragment_calendario_prestamos" />
 >>>>>>> 0800574 (Versión más acutual)
 =======
 >>>>>>> experimental
+=======
+>>>>>>> 7ae96b5 (Versión más acutual)
 
 </navigation>

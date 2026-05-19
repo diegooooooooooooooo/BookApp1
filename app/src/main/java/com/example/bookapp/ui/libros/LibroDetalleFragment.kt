@@ -6,12 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import androidx.core.view.isVisible
 =======
 >>>>>>> 0800574 (Versión más acutual)
 =======
 import androidx.core.view.isVisible
 >>>>>>> experimental
+=======
+import androidx.core.view.isVisible
+>>>>>>> 7ae96b5 (Versión más acutual)
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -52,18 +56,24 @@ class LibroDetalleFragment : Fragment() {
         
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> experimental
+=======
+>>>>>>> 7ae96b5 (Versión más acutual)
         // Hide "Prestar" button if requested via args (e.g., when coming from My Loans)
         if (args.ocultarBotonPrestar) {
             binding.btnPrestarLibro.isVisible = false
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 0800574 (Versión más acutual)
 =======
 >>>>>>> experimental
+=======
+>>>>>>> 7ae96b5 (Versión más acutual)
         val libroId = args.libroId
         if (libroId != -1) {
             viewModel.allLibrosCombined.observe(viewLifecycleOwner) { libros ->
@@ -81,6 +91,7 @@ class LibroDetalleFragment : Fragment() {
                         placeholder(R.drawable.ic_book)
                         error(R.drawable.ic_book)
 <<<<<<< HEAD
+<<<<<<< HEAD
                     }
 
 <<<<<<< HEAD
@@ -93,6 +104,15 @@ class LibroDetalleFragment : Fragment() {
                     }
 
 >>>>>>> experimental
+=======
+                        listener(
+                            onSuccess = { _, _ -> 
+                                binding.ivDetallePortada.imageTintList = null 
+                            }
+                        )
+                    }
+
+>>>>>>> 7ae96b5 (Versión más acutual)
                     if (it.isPlaceholder) {
                         binding.chipDetalleEstado.text = "Disponible (Online)"
                         binding.chipDetalleEstado.setChipBackgroundColorResource(android.R.color.holo_blue_light)
@@ -117,6 +137,7 @@ class LibroDetalleFragment : Fragment() {
                                 binding.btnPrestarLibro.isEnabled = false
                             }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                     when (it.estado) {
                         LibroEstado.DISPONIBLE -> {
@@ -136,6 +157,8 @@ class LibroDetalleFragment : Fragment() {
 >>>>>>> 0800574 (Versión más acutual)
 =======
 >>>>>>> experimental
+=======
+>>>>>>> 7ae96b5 (Versión más acutual)
                         }
                     }
                 }

@@ -4,12 +4,16 @@ import android.content.Context
 import android.content.pm.PackageManager
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import android.graphics.Bitmap
 =======
 >>>>>>> 0800574 (Versión más acutual)
 =======
 import android.graphics.Bitmap
 >>>>>>> experimental
+=======
+import android.graphics.Bitmap
+>>>>>>> 7ae96b5 (Versión más acutual)
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -31,6 +35,7 @@ import com.example.bookapp.viewmodel.ViewModelFactory
 import com.example.bookapp.worker.LoanNotificationWorker
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.io.File
 import java.io.FileOutputStream
 =======
@@ -39,6 +44,10 @@ import java.io.FileOutputStream
 import java.io.File
 import java.io.FileOutputStream
 >>>>>>> experimental
+=======
+import java.io.File
+import java.io.FileOutputStream
+>>>>>>> 7ae96b5 (Versión más acutual)
 import java.util.concurrent.TimeUnit
 
 class ConfiguracionFragment : Fragment() {
@@ -71,8 +80,11 @@ class ConfiguracionFragment : Fragment() {
             if (usuarioActual != null) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> experimental
+=======
+>>>>>>> 7ae96b5 (Versión más acutual)
                 try {
                     val fileName = "id_card_${usuarioActual.id}.jpg"
                     val file = File(requireContext().filesDir, fileName)
@@ -88,6 +100,7 @@ class ConfiguracionFragment : Fragment() {
                     Toast.makeText(requireContext(), "Error al guardar imagen: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 // En una app real, guardaríamos el bitmap en un archivo y guardaríamos la ruta
                 // Aquí simulamos guardando una marca de tiempo como ID de foto
@@ -97,6 +110,8 @@ class ConfiguracionFragment : Fragment() {
 >>>>>>> 0800574 (Versión más acutual)
 =======
 >>>>>>> experimental
+=======
+>>>>>>> 7ae96b5 (Versión más acutual)
             }
         }
     }

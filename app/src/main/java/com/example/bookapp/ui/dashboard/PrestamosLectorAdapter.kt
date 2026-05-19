@@ -7,17 +7,22 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import com.example.bookapp.R
 =======
 >>>>>>> 0800574 (Versión más acutual)
 =======
 import com.example.bookapp.R
 >>>>>>> experimental
+=======
+import com.example.bookapp.R
+>>>>>>> 7ae96b5 (Versión más acutual)
 import com.example.bookapp.data.entities.PrestamoConDetalles
 import com.example.bookapp.databinding.ItemPrestamoLectorBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -35,6 +40,13 @@ class PrestamosLectorAdapter : ListAdapter<PrestamoConDetalles, PrestamosLectorA
 >>>>>>> 0800574 (Versión más acutual)
 =======
 >>>>>>> experimental
+=======
+class PrestamosLectorAdapter(
+    private val onLibroClick: (Int) -> Unit
+) : ListAdapter<PrestamoConDetalles, PrestamosLectorAdapter.ViewHolder>(DiffCallback) {
+
+    inner class ViewHolder(private val binding: ItemPrestamoLectorBinding) : RecyclerView.ViewHolder(binding.root) {
+>>>>>>> 7ae96b5 (Versión más acutual)
         private val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
 
         fun bind(prestamo: PrestamoConDetalles) {
@@ -44,6 +56,7 @@ class PrestamosLectorAdapter : ListAdapter<PrestamoConDetalles, PrestamosLectorA
             val hoy = System.currentTimeMillis()
             if (prestamo.fechaEntregaReal != null) {
                 binding.tvEstado.text = "Devuelto"
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -65,15 +78,29 @@ class PrestamosLectorAdapter : ListAdapter<PrestamoConDetalles, PrestamosLectorA
 <<<<<<< HEAD
 =======
                 binding.tvEstado.setTextColor(binding.root.context.getColor(android.R.color.holo_green_dark))
+=======
+                binding.tvEstado.setChipBackgroundColorResource(android.R.color.holo_green_light)
+                binding.tvEstado.setTextColor(binding.root.context.getColor(android.R.color.black))
+>>>>>>> 7ae96b5 (Versión más acutual)
             } else if (hoy > prestamo.fechaDevolucionEsperada) {
                 binding.tvEstado.text = "Atrasado"
-                binding.tvEstado.setTextColor(binding.root.context.getColor(android.R.color.holo_red_dark))
+                binding.tvEstado.setChipBackgroundColorResource(android.R.color.holo_red_light)
+                binding.tvEstado.setTextColor(binding.root.context.getColor(android.R.color.black))
             } else {
                 binding.tvEstado.text = "Pendiente"
+<<<<<<< HEAD
                 binding.tvEstado.setTextColor(binding.root.context.getColor(android.R.color.holo_orange_dark))
 >>>>>>> 0800574 (Versión más acutual)
 =======
 >>>>>>> experimental
+=======
+                binding.tvEstado.setChipBackgroundColorResource(R.color.primary_light_brown)
+                binding.tvEstado.setTextColor(binding.root.context.getColor(android.R.color.black))
+            }
+
+            binding.root.setOnClickListener {
+                onLibroClick(prestamo.libroId)
+>>>>>>> 7ae96b5 (Versión más acutual)
             }
         }
     }

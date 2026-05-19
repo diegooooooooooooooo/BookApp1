@@ -41,6 +41,7 @@ interface PrestamoDao {
     @Query("""
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, prestamos.libroId,
 =======
         SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, 
@@ -48,6 +49,9 @@ interface PrestamoDao {
 =======
         SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, prestamos.libroId,
 >>>>>>> experimental
+=======
+        SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, prestamos.libroId,
+>>>>>>> 7ae96b5 (Versión más acutual)
                prestamos.fechaPrestamo, prestamos.fechaDevolucionEsperada, 
                prestamos.fechaEntregaReal, prestamos.multa, prestamos.valorPrestamo 
         FROM prestamos 
@@ -60,6 +64,7 @@ interface PrestamoDao {
     @Query("""
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, prestamos.libroId,
 =======
         SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, 
@@ -67,6 +72,9 @@ interface PrestamoDao {
 =======
         SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, prestamos.libroId,
 >>>>>>> experimental
+=======
+        SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, prestamos.libroId,
+>>>>>>> 7ae96b5 (Versión más acutual)
                prestamos.fechaPrestamo, prestamos.fechaDevolucionEsperada, 
                prestamos.fechaEntregaReal, prestamos.multa, prestamos.valorPrestamo 
         FROM prestamos 
@@ -79,6 +87,7 @@ interface PrestamoDao {
     @Query("""
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, prestamos.libroId,
 =======
         SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, 
@@ -86,11 +95,15 @@ interface PrestamoDao {
 =======
         SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, prestamos.libroId,
 >>>>>>> experimental
+=======
+        SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, prestamos.libroId,
+>>>>>>> 7ae96b5 (Versión más acutual)
                prestamos.fechaPrestamo, prestamos.fechaDevolucionEsperada, 
                prestamos.fechaEntregaReal, prestamos.multa, prestamos.valorPrestamo 
         FROM prestamos 
         INNER JOIN socios ON prestamos.socioId = socios.id 
         INNER JOIN libros ON prestamos.libroId = libros.id 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         WHERE LOWER(socios.correo) = LOWER(:correo)
@@ -100,10 +113,14 @@ interface PrestamoDao {
 =======
         WHERE LOWER(socios.correo) = LOWER(:correo)
 >>>>>>> experimental
+=======
+        WHERE LOWER(socios.correo) = LOWER(:correo)
+>>>>>>> 7ae96b5 (Versión más acutual)
     """)
     fun getPrestamosPorCorreoSocio(correo: String): Flow<List<com.example.bookapp.data.entities.PrestamoConDetalles>>
 
     @Query("""
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, prestamos.libroId,
@@ -113,6 +130,9 @@ interface PrestamoDao {
 =======
         SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, prestamos.libroId,
 >>>>>>> experimental
+=======
+        SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, prestamos.libroId,
+>>>>>>> 7ae96b5 (Versión más acutual)
                prestamos.fechaPrestamo, prestamos.fechaDevolucionEsperada, 
                prestamos.fechaEntregaReal, prestamos.multa, prestamos.valorPrestamo 
         FROM prestamos 

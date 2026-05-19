@@ -22,8 +22,11 @@
     <style name="Theme.BookApp" parent="Base.Theme.BookApp" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> experimental
+=======
+>>>>>>> 7ae96b5 (Versión más acutual)
 
     <style name="Widget.CalendarView.Custom" parent="android:Widget.CalendarView">
         <item name="android:dateTextAppearance">@style/CalendarDateText</item>
@@ -43,8 +46,11 @@
     </style>
 </resources>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 </resources>
 >>>>>>> 0800574 (Versión más acutual)
 =======
 >>>>>>> experimental
+=======
+>>>>>>> 7ae96b5 (Versión más acutual)

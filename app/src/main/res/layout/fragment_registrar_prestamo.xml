@@ -89,8 +89,11 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> experimental
+=======
+>>>>>>> 7ae96b5 (Versión más acutual)
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_width="wrap_content"
@@ -100,9 +103,12 @@
             android:visibility="gone" />
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 0800574 (Versión más acutual)
 =======
 >>>>>>> experimental
+=======
+>>>>>>> 7ae96b5 (Versión más acutual)
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

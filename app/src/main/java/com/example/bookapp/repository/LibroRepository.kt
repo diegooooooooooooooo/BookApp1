@@ -16,6 +16,7 @@ class LibroRepository(private val libroDao: LibroDao) {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> experimental
     suspend fun insertLibro(libro: LibroEntity): Int {
@@ -32,6 +33,13 @@ class LibroRepository(private val libroDao: LibroDao) {
 >>>>>>> 0800574 (Versión más acutual)
 =======
 >>>>>>> experimental
+=======
+    suspend fun insertLibro(libro: LibroEntity): Int {
+        val libroAjustado = adjustLibroStatus(libro)
+        val id = libroDao.insert(libroAjustado).toInt()
+        syncLibroToFirestore(libroAjustado.copy(id = id))
+        return id
+>>>>>>> 7ae96b5 (Versión más acutual)
     }
 
     suspend fun updateLibro(libro: LibroEntity) {

@@ -131,6 +131,7 @@ class BibliotecaRepository(
     
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     suspend fun insertLibro(libro: LibroEntity): Int = libroRepository.insertLibro(libro)
 =======
     suspend fun insertLibro(libro: LibroEntity) = libroRepository.insertLibro(libro)
@@ -138,6 +139,9 @@ class BibliotecaRepository(
 =======
     suspend fun insertLibro(libro: LibroEntity): Int = libroRepository.insertLibro(libro)
 >>>>>>> experimental
+=======
+    suspend fun insertLibro(libro: LibroEntity): Int = libroRepository.insertLibro(libro)
+>>>>>>> 7ae96b5 (Versión más acutual)
     suspend fun updateLibro(libro: LibroEntity) = libroRepository.updateLibro(libro)
     suspend fun deleteLibro(libro: LibroEntity) = libroRepository.deleteLibro(libro)
     
@@ -152,12 +156,16 @@ class BibliotecaRepository(
     suspend fun updateUsuario(usuario: UsuarioEntity) = usuarioRepository.updateUsuario(usuario)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     suspend fun ensureLectorIsSocio(usuario: UsuarioEntity) = usuarioRepository.ensureLectorIsSocio(usuario)
 =======
 >>>>>>> 0800574 (Versión más acutual)
 =======
     suspend fun ensureLectorIsSocio(usuario: UsuarioEntity) = usuarioRepository.ensureLectorIsSocio(usuario)
 >>>>>>> experimental
+=======
+    suspend fun ensureLectorIsSocio(usuario: UsuarioEntity) = usuarioRepository.ensureLectorIsSocio(usuario)
+>>>>>>> 7ae96b5 (Versión más acutual)
     suspend fun syncUsuariosFromFirestore() = usuarioRepository.syncUsuariosFromFirestore()
 
     // --- Socios (Readers) ---
@@ -172,6 +180,7 @@ class BibliotecaRepository(
     
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     suspend fun registrarPrestamo(prestamo: PrestamoEntity): Result<Unit> = prestamoRepository.registrarPrestamo(prestamo)
 =======
     suspend fun registrarPrestamo(prestamo: PrestamoEntity) = prestamoRepository.registrarPrestamo(prestamo)
@@ -179,6 +188,9 @@ class BibliotecaRepository(
 =======
     suspend fun registrarPrestamo(prestamo: PrestamoEntity): Result<Unit> = prestamoRepository.registrarPrestamo(prestamo)
 >>>>>>> experimental
+=======
+    suspend fun registrarPrestamo(prestamo: PrestamoEntity): Result<Unit> = prestamoRepository.registrarPrestamo(prestamo)
+>>>>>>> 7ae96b5 (Versión más acutual)
     suspend fun getPrestamoById(id: Int): PrestamoEntity? = prestamoRepository.getPrestamoById(id)
     suspend fun registrarDevolucion(prestamo: PrestamoEntity) = prestamoRepository.registrarDevolucion(prestamo)
 
@@ -199,6 +211,7 @@ class BibliotecaRepository(
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     private suspend fun ensureLectorIsSocio(usuario: UsuarioEntity) {
         if (usuario.rol == UserRole.LECTOR || usuario.rol == UserRole.USUARIO) {
@@ -214,6 +227,8 @@ class BibliotecaRepository(
 >>>>>>> 0800574 (Versión más acutual)
 =======
 >>>>>>> experimental
+=======
+>>>>>>> 7ae96b5 (Versión más acutual)
     /**
      * Función para descargar datos de Firestore a Room (Sincronización inicial o manual)
      */

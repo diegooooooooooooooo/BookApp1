@@ -24,13 +24,17 @@ class PrestamoRepository(
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> experimental
+=======
+>>>>>>> 7ae96b5 (Versión más acutual)
     suspend fun registrarPrestamo(prestamo: PrestamoEntity): Result<Unit> {
         return try {
             val libro = libroDao.getLibroById(prestamo.libroId)
             if (libro == null) return Result.failure(Exception("Libro no encontrado"))
             if (libro.ejemplares <= 0) return Result.failure(Exception("No hay ejemplares disponibles"))
+<<<<<<< HEAD
 
             val id = prestamoDao.insert(prestamo).toInt()
             val valorFijo = 50.0
@@ -81,6 +85,31 @@ class PrestamoRepository(
 >>>>>>> 0800574 (Versión más acutual)
 =======
 >>>>>>> experimental
+=======
+
+            val id = prestamoDao.insert(prestamo).toInt()
+            val valorFijo = 50.0
+            val prestamoConId = prestamo.copy(id = id, valorPrestamo = valorFijo)
+            
+            // Update local book
+            val nuevosEjemplares = libro.ejemplares - 1
+            val libroActualizado = libro.copy(
+                ejemplares = nuevosEjemplares,
+                estado = if (nuevosEjemplares <= 0) LibroEstado.PRESTADO else LibroEstado.DISPONIBLE
+            )
+            libroDao.update(libroActualizado)
+            
+            // Sync to Firestore
+            syncLibroToFirestore(libroActualizado)
+            
+            // Update local loan with calculated value
+            prestamoDao.update(prestamoConId)
+            syncPrestamoToFirestore(prestamoConId)
+            Result.success(Unit)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+>>>>>>> 7ae96b5 (Versión más acutual)
     }
 
     suspend fun registrarDevolucion(prestamo: PrestamoEntity) {

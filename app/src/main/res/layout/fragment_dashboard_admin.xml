@@ -304,10 +304,14 @@
                 android:layout_marginTop="12dp"
                 app:cardCornerRadius="16dp"
 <<<<<<< HEAD
+<<<<<<< HEAD
                 app:cardElevation="0dp"
 =======
                 app:cardElevation="2dp"
 >>>>>>> experimental
+=======
+                app:cardElevation="2dp"
+>>>>>>> 7ae96b5 (Versión más acutual)
                 app:layout_constraintTop_toBottomOf="@id/tvSectionTitleTop"
                 app:strokeColor="@color/gold_yellow"
                 app:strokeWidth="1dp">
@@ -316,19 +320,64 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 <<<<<<< HEAD
+<<<<<<< HEAD
                     android:background="@color/gold_yellow"
                     android:orientation="horizontal"
                     android:padding="8dp">
+=======
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/gold_yellow"
+                        android:orientation="horizontal"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:id="@+id/tvTopMonthLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="RANKING DE POPULARIDAD"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_marginEnd="4dp"
+                            android:src="@android:drawable/btn_star_big_on"
+                            app:tint="@color/white" />
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvTopLibros"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:nestedScrollingEnabled="false"
+                        tools:listitem="@layout/item_libro_top"
+                        tools:itemCount="3" />
+>>>>>>> 7ae96b5 (Versión más acutual)
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:id="@+id/tvEmptyTopLibros"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:text="#1 DEL MES · ABRIL 2026"
-                        android:textColor="@color/white"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
+                        android:padding="20dp"
+                        android:text="No hay datos de préstamos disponibles"
+                        android:textAlignment="center"
+                        android:textColor="@color/blue_slate"
+                        android:visibility="gone" />
 
+<<<<<<< HEAD
                     <View
                         android:layout_width="0dp"
                         android:layout_height="0dp"
@@ -407,6 +456,8 @@
                         android:visibility="gone" />
 
 >>>>>>> experimental
+=======
+>>>>>>> 7ae96b5 (Versión más acutual)
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 

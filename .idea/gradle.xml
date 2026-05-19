@@ -10,6 +10,7 @@
           <set>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
 =======
@@ -20,6 +21,10 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
 >>>>>>> experimental
+=======
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+>>>>>>> 7ae96b5 (Versión más acutual)
           </set>
         </option>
       </GradleProjectSettings>

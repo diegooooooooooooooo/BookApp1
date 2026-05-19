@@ -45,6 +45,7 @@ class UsuarioRepository(
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     suspend fun ensureLectorIsSocio(usuario: UsuarioEntity) {
 =======
     private suspend fun ensureLectorIsSocio(usuario: UsuarioEntity) {
@@ -52,6 +53,9 @@ class UsuarioRepository(
 =======
     suspend fun ensureLectorIsSocio(usuario: UsuarioEntity) {
 >>>>>>> experimental
+=======
+    suspend fun ensureLectorIsSocio(usuario: UsuarioEntity) {
+>>>>>>> 7ae96b5 (Versión más acutual)
         if (usuario.rol == UserRole.LECTOR || usuario.rol == UserRole.USUARIO) {
             val existingSocio = socioDao.getSocioByCorreo(usuario.correo)
             if (existingSocio == null) {

@@ -5,9 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import androidx.core.view.isVisible
 >>>>>>> experimental
+=======
+import androidx.core.view.isVisible
+>>>>>>> 7ae96b5 (Versión más acutual)
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -17,9 +21,13 @@ import com.example.bookapp.R
 import com.example.bookapp.data.model.PrestamoPendiente
 import com.example.bookapp.databinding.FragmentDashboardAdminBinding
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import com.example.bookapp.ui.reportes.TopLibrosAdapter
 >>>>>>> experimental
+=======
+import com.example.bookapp.ui.reportes.TopLibrosAdapter
+>>>>>>> 7ae96b5 (Versión más acutual)
 import com.example.bookapp.viewmodel.BibliotecaViewModel
 import com.example.bookapp.viewmodel.ViewModelFactory
 import java.util.Calendar
@@ -45,10 +53,14 @@ class DashboardAdminFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         setupMorososRecyclerView()
 =======
         setupRecyclerViews()
 >>>>>>> experimental
+=======
+        setupRecyclerViews()
+>>>>>>> 7ae96b5 (Versión más acutual)
 
         binding.btnVerTodosMorosos.setOnClickListener {
             // Navegar a la lista completa de préstamos pendientes con opciones de ordenamiento
@@ -70,11 +82,23 @@ class DashboardAdminFragment : Fragment() {
             binding.badgeSuccess.text = "${prestamos.size - countPendientes} al día"
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+        // Observar libros más solicitados
+        viewModel.top5LibrosMasPrestados.observe(viewLifecycleOwner) { topList ->
+            val topAdapter = TopLibrosAdapter(topList)
+            binding.rvTopLibros.adapter = topAdapter
+            binding.tvEmptyTopLibros.isVisible = topList.isEmpty()
+            binding.rvTopLibros.isVisible = topList.isNotEmpty()
+        }
+>>>>>>> 7ae96b5 (Versión más acutual)
     }
 
-    private fun setupMorososRecyclerView() {
+    private fun setupRecyclerViews() {
         binding.rvMorosos.layoutManager = LinearLayoutManager(requireContext())
         binding.rvMorosos.setHasFixedSize(true)
+<<<<<<< HEAD
 =======
 
         // Observar libros más solicitados
@@ -93,6 +117,11 @@ class DashboardAdminFragment : Fragment() {
         binding.rvTopLibros.layoutManager = LinearLayoutManager(requireContext())
         binding.rvTopLibros.setHasFixedSize(true)
 >>>>>>> experimental
+=======
+
+        binding.rvTopLibros.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvTopLibros.setHasFixedSize(true)
+>>>>>>> 7ae96b5 (Versión más acutual)
     }
 
     override fun onDestroyView() {

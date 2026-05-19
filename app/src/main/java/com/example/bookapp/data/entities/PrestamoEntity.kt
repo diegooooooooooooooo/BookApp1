@@ -24,12 +24,16 @@ data class PrestamoConDetalles(
     val libroTitulo: String,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     val libroId: Int,
 =======
 >>>>>>> 0800574 (Versión más acutual)
 =======
     val libroId: Int,
 >>>>>>> experimental
+=======
+    val libroId: Int,
+>>>>>>> 7ae96b5 (Versión más acutual)
     val fechaPrestamo: Long,
     val fechaDevolucionEsperada: Long,
     val fechaEntregaReal: Long?,

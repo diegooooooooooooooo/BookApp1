@@ -119,8 +119,11 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> experimental
+=======
+>>>>>>> 7ae96b5 (Versión más acutual)
             <ImageView
                 android:id="@+id/ivProfileId"
                 android:layout_width="match_parent"
@@ -132,10 +135,13 @@
                 android:visibility="gone" />
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 0800574 (Versión más acutual)
 =======
 >>>>>>> experimental
+=======
+>>>>>>> 7ae96b5 (Versión más acutual)
             <TextView
                 android:id="@+id/tvProfileIdStatus"
                 android:layout_width="wrap_content"
