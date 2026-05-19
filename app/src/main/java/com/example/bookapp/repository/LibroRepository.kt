@@ -15,17 +15,23 @@ class LibroRepository(private val libroDao: LibroDao) {
     val allLibros: Flow<List<LibroEntity>> = libroDao.getAllLibros()
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> experimental
     suspend fun insertLibro(libro: LibroEntity): Int {
         val libroAjustado = adjustLibroStatus(libro)
         val id = libroDao.insert(libroAjustado).toInt()
         syncLibroToFirestore(libroAjustado.copy(id = id))
         return id
+<<<<<<< HEAD
 =======
     suspend fun insertLibro(libro: LibroEntity) {
         val libroAjustado = adjustLibroStatus(libro)
         val id = libroDao.insert(libroAjustado).toInt()
         syncLibroToFirestore(libroAjustado.copy(id = id))
 >>>>>>> 0800574 (Versión más acutual)
+=======
+>>>>>>> experimental
     }
 
     suspend fun updateLibro(libro: LibroEntity) {

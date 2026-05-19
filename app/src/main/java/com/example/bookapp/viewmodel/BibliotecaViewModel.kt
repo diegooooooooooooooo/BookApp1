@@ -18,11 +18,17 @@ class BibliotecaViewModel(private val repository: BibliotecaRepository) : ViewMo
     val isSearchingOnline: LiveData<Boolean> = _isSearchingOnline
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     private val _prestamoResult = MutableLiveData<Result<Unit>?>()
     val prestamoResult: LiveData<Result<Unit>?> = _prestamoResult
 
 =======
 >>>>>>> 0800574 (Versión más acutual)
+=======
+    private val _prestamoResult = MutableLiveData<Result<Unit>?>()
+    val prestamoResult: LiveData<Result<Unit>?> = _prestamoResult
+
+>>>>>>> experimental
     private val localLibros: LiveData<List<LibroEntity>> = repository.allLibros.asLiveData()
     
     val allLibrosCombined = MediatorLiveData<List<LibroEntity>>().apply {
@@ -125,6 +131,9 @@ class BibliotecaViewModel(private val repository: BibliotecaRepository) : ViewMo
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> experimental
     fun registrarPrestamo(prestamo: PrestamoEntity, libroParaImportar: LibroEntity? = null) = viewModelScope.launch {
         _prestamoResult.value = null // Reset previous state
         
@@ -152,10 +161,13 @@ class BibliotecaViewModel(private val repository: BibliotecaRepository) : ViewMo
 
     fun clearPrestamoResult() {
         _prestamoResult.value = null
+<<<<<<< HEAD
 =======
     fun registrarPrestamo(prestamo: PrestamoEntity) = viewModelScope.launch {
         repository.registrarPrestamo(prestamo)
 >>>>>>> 0800574 (Versión más acutual)
+=======
+>>>>>>> experimental
     }
 
     fun registrarDevolucion(prestamo: PrestamoEntity) = viewModelScope.launch {
@@ -168,11 +180,17 @@ class BibliotecaViewModel(private val repository: BibliotecaRepository) : ViewMo
         repository.getPrestamosActivosPorSocio(socioId).asLiveData()
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     fun getPrestamosPorCorreoSocio(correo: String): LiveData<List<com.example.bookapp.data.entities.PrestamoConDetalles>> =
         repository.getPrestamosPorCorreoSocio(correo).asLiveData()
 
 =======
 >>>>>>> 0800574 (Versión más acutual)
+=======
+    fun getPrestamosPorCorreoSocio(correo: String): LiveData<List<com.example.bookapp.data.entities.PrestamoConDetalles>> =
+        repository.getPrestamosPorCorreoSocio(correo).asLiveData()
+
+>>>>>>> experimental
     fun getIngresosMes(mes: String): LiveData<Double?> = repository.getIngresosPorMes(mes).asLiveData()
     
     fun getIngresosAnio(anio: String): LiveData<Double?> = repository.getIngresosPorAnio(anio).asLiveData()

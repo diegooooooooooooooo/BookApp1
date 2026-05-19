@@ -40,10 +40,14 @@ interface PrestamoDao {
 
     @Query("""
 <<<<<<< HEAD
+<<<<<<< HEAD
         SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, prestamos.libroId,
 =======
         SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, 
 >>>>>>> 0800574 (Versión más acutual)
+=======
+        SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, prestamos.libroId,
+>>>>>>> experimental
                prestamos.fechaPrestamo, prestamos.fechaDevolucionEsperada, 
                prestamos.fechaEntregaReal, prestamos.multa, prestamos.valorPrestamo 
         FROM prestamos 
@@ -55,10 +59,14 @@ interface PrestamoDao {
 
     @Query("""
 <<<<<<< HEAD
+<<<<<<< HEAD
         SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, prestamos.libroId,
 =======
         SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, 
 >>>>>>> 0800574 (Versión más acutual)
+=======
+        SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, prestamos.libroId,
+>>>>>>> experimental
                prestamos.fechaPrestamo, prestamos.fechaDevolucionEsperada, 
                prestamos.fechaEntregaReal, prestamos.multa, prestamos.valorPrestamo 
         FROM prestamos 
@@ -70,29 +78,41 @@ interface PrestamoDao {
 
     @Query("""
 <<<<<<< HEAD
+<<<<<<< HEAD
         SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, prestamos.libroId,
 =======
         SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, 
 >>>>>>> 0800574 (Versión más acutual)
+=======
+        SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, prestamos.libroId,
+>>>>>>> experimental
                prestamos.fechaPrestamo, prestamos.fechaDevolucionEsperada, 
                prestamos.fechaEntregaReal, prestamos.multa, prestamos.valorPrestamo 
         FROM prestamos 
         INNER JOIN socios ON prestamos.socioId = socios.id 
         INNER JOIN libros ON prestamos.libroId = libros.id 
 <<<<<<< HEAD
+<<<<<<< HEAD
         WHERE LOWER(socios.correo) = LOWER(:correo)
 =======
         WHERE socios.correo = :correo
 >>>>>>> 0800574 (Versión más acutual)
+=======
+        WHERE LOWER(socios.correo) = LOWER(:correo)
+>>>>>>> experimental
     """)
     fun getPrestamosPorCorreoSocio(correo: String): Flow<List<com.example.bookapp.data.entities.PrestamoConDetalles>>
 
     @Query("""
 <<<<<<< HEAD
+<<<<<<< HEAD
         SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, prestamos.libroId,
 =======
         SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, 
 >>>>>>> 0800574 (Versión más acutual)
+=======
+        SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, prestamos.libroId,
+>>>>>>> experimental
                prestamos.fechaPrestamo, prestamos.fechaDevolucionEsperada, 
                prestamos.fechaEntregaReal, prestamos.multa, prestamos.valorPrestamo 
         FROM prestamos 

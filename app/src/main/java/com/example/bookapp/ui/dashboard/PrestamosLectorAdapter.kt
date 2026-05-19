@@ -6,25 +6,35 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 <<<<<<< HEAD
+<<<<<<< HEAD
 import com.example.bookapp.R
 =======
 >>>>>>> 0800574 (Versión más acutual)
+=======
+import com.example.bookapp.R
+>>>>>>> experimental
 import com.example.bookapp.data.entities.PrestamoConDetalles
 import com.example.bookapp.databinding.ItemPrestamoLectorBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> experimental
 class PrestamosLectorAdapter(
     private val onLibroClick: (Int) -> Unit
 ) : ListAdapter<PrestamoConDetalles, PrestamosLectorAdapter.ViewHolder>(DiffCallback) {
 
     inner class ViewHolder(private val binding: ItemPrestamoLectorBinding) : RecyclerView.ViewHolder(binding.root) {
+<<<<<<< HEAD
 =======
 class PrestamosLectorAdapter : ListAdapter<PrestamoConDetalles, PrestamosLectorAdapter.ViewHolder>(DiffCallback) {
 
     class ViewHolder(private val binding: ItemPrestamoLectorBinding) : RecyclerView.ViewHolder(binding.root) {
 >>>>>>> 0800574 (Versión más acutual)
+=======
+>>>>>>> experimental
         private val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
 
         fun bind(prestamo: PrestamoConDetalles) {
@@ -35,6 +45,9 @@ class PrestamosLectorAdapter : ListAdapter<PrestamoConDetalles, PrestamosLectorA
             if (prestamo.fechaEntregaReal != null) {
                 binding.tvEstado.text = "Devuelto"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> experimental
                 binding.tvEstado.setChipBackgroundColorResource(android.R.color.holo_green_light)
                 binding.tvEstado.setTextColor(binding.root.context.getColor(android.R.color.black))
             } else if (hoy > prestamo.fechaDevolucionEsperada) {
@@ -49,6 +62,7 @@ class PrestamosLectorAdapter : ListAdapter<PrestamoConDetalles, PrestamosLectorA
 
             binding.root.setOnClickListener {
                 onLibroClick(prestamo.libroId)
+<<<<<<< HEAD
 =======
                 binding.tvEstado.setTextColor(binding.root.context.getColor(android.R.color.holo_green_dark))
             } else if (hoy > prestamo.fechaDevolucionEsperada) {
@@ -58,6 +72,8 @@ class PrestamosLectorAdapter : ListAdapter<PrestamoConDetalles, PrestamosLectorA
                 binding.tvEstado.text = "Pendiente"
                 binding.tvEstado.setTextColor(binding.root.context.getColor(android.R.color.holo_orange_dark))
 >>>>>>> 0800574 (Versión más acutual)
+=======
+>>>>>>> experimental
             }
         }
     }

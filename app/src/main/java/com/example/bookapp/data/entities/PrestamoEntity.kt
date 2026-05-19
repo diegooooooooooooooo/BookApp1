@@ -23,9 +23,13 @@ data class PrestamoConDetalles(
     val socioNombre: String,
     val libroTitulo: String,
 <<<<<<< HEAD
+<<<<<<< HEAD
     val libroId: Int,
 =======
 >>>>>>> 0800574 (Versión más acutual)
+=======
+    val libroId: Int,
+>>>>>>> experimental
     val fechaPrestamo: Long,
     val fechaDevolucionEsperada: Long,
     val fechaEntregaReal: Long?,

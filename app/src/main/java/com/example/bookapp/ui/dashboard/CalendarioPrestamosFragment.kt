@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> experimental
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.asLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,6 +18,7 @@ import com.example.bookapp.BookApplication
 import com.example.bookapp.data.entities.PrestamoConDetalles
 import com.example.bookapp.databinding.FragmentCalendarioPrestamosBinding
 import com.example.bookapp.viewmodel.BibliotecaViewModel
+<<<<<<< HEAD
 =======
 import androidx.lifecycle.asLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,6 +26,8 @@ import com.example.bookapp.BookApplication
 import com.example.bookapp.data.entities.PrestamoConDetalles
 import com.example.bookapp.databinding.FragmentCalendarioPrestamosBinding
 >>>>>>> 0800574 (Versión más acutual)
+=======
+>>>>>>> experimental
 import com.example.bookapp.viewmodel.LoginViewModel
 import com.example.bookapp.viewmodel.ViewModelFactory
 import java.util.*
@@ -40,12 +46,18 @@ class CalendarioPrestamosFragment : Fragment() {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> experimental
     private val viewModel: BibliotecaViewModel by viewModels {
         ViewModelFactory((requireActivity().application as BookApplication).repository)
     }
 
+<<<<<<< HEAD
 =======
 >>>>>>> 0800574 (Versión más acutual)
+=======
+>>>>>>> experimental
     private lateinit var adapter: PrestamosLectorAdapter
     private var allPrestamos: List<PrestamoConDetalles> = emptyList()
 
@@ -63,14 +75,21 @@ class CalendarioPrestamosFragment : Fragment() {
         setupRecyclerView()
         setupCalendar()
 <<<<<<< HEAD
+<<<<<<< HEAD
         setupButtons()
 =======
 >>>>>>> 0800574 (Versión más acutual)
+=======
+        setupButtons()
+>>>>>>> experimental
         observeLoginAndPrestamos()
     }
 
     private fun setupRecyclerView() {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> experimental
         adapter = PrestamosLectorAdapter { libroId ->
             val action = CalendarioPrestamosFragmentDirections.actionCalendarioPrestamosFragmentToDetalleLibroFragment(
                 libroId = libroId,
@@ -78,9 +97,12 @@ class CalendarioPrestamosFragment : Fragment() {
             )
             findNavController().navigate(action)
         }
+<<<<<<< HEAD
 =======
         adapter = PrestamosLectorAdapter()
 >>>>>>> 0800574 (Versión más acutual)
+=======
+>>>>>>> experimental
         binding.rvPrestamosDia.layoutManager = LinearLayoutManager(context)
         binding.rvPrestamosDia.adapter = adapter
     }
@@ -88,14 +110,21 @@ class CalendarioPrestamosFragment : Fragment() {
     private fun setupCalendar() {
         binding.calendarView.setOnDateChangeListener { _, year, month, dayOfMonth ->
 <<<<<<< HEAD
+<<<<<<< HEAD
             binding.tvInfoLabel.text = "Detalle del día seleccionado ($dayOfMonth/${month + 1}/$year):"
 =======
 >>>>>>> 0800574 (Versión más acutual)
+=======
+            binding.tvInfoLabel.text = "Detalle del día seleccionado ($dayOfMonth/${month + 1}/$year):"
+>>>>>>> experimental
             filterPrestamosByDate(year, month, dayOfMonth)
         }
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> experimental
     private fun setupButtons() {
         binding.btnShowAll.setOnClickListener {
             binding.tvInfoLabel.text = "Todos mis préstamos:"
@@ -107,13 +136,19 @@ class CalendarioPrestamosFragment : Fragment() {
         }
     }
 
+<<<<<<< HEAD
 =======
 >>>>>>> 0800574 (Versión más acutual)
+=======
+>>>>>>> experimental
     private fun observeLoginAndPrestamos() {
         // Observamos el usuario logueado para reaccionar si el login tarda
         loginViewModel.usuarioLogueado.observe(viewLifecycleOwner) { user ->
             user?.let {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> experimental
                 // Una vez tenemos al usuario, observamos sus préstamos a través del ViewModel
                 viewModel.getPrestamosPorCorreoSocio(it.correo).observe(viewLifecycleOwner) { prestamos ->
                     allPrestamos = prestamos
@@ -125,6 +160,7 @@ class CalendarioPrestamosFragment : Fragment() {
                     }
                     adapter.submitList(prestamos)
                 }
+<<<<<<< HEAD
 =======
                 val repository = (requireActivity().application as BookApplication).repository
                 
@@ -136,6 +172,8 @@ class CalendarioPrestamosFragment : Fragment() {
                         adapter.submitList(prestamos)
                     }
 >>>>>>> 0800574 (Versión más acutual)
+=======
+>>>>>>> experimental
             }
         }
     }

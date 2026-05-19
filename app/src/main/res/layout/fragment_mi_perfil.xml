@@ -118,6 +118,9 @@
                 android:letterSpacing="0.1" />
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> experimental
             <ImageView
                 android:id="@+id/ivProfileId"
                 android:layout_width="match_parent"
@@ -128,8 +131,11 @@
                 app:tint="@color/silver"
                 android:visibility="gone" />
 
+<<<<<<< HEAD
 =======
 >>>>>>> 0800574 (Versión más acutual)
+=======
+>>>>>>> experimental
             <TextView
                 android:id="@+id/tvProfileIdStatus"
                 android:layout_width="wrap_content"

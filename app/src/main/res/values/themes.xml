@@ -21,6 +21,9 @@
 
     <style name="Theme.BookApp" parent="Base.Theme.BookApp" />
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> experimental
 
     <style name="Widget.CalendarView.Custom" parent="android:Widget.CalendarView">
         <item name="android:dateTextAppearance">@style/CalendarDateText</item>
@@ -39,6 +42,9 @@
         <item name="android:textStyle">bold</item>
     </style>
 </resources>
+<<<<<<< HEAD
 =======
 </resources>
 >>>>>>> 0800574 (Versión más acutual)
+=======
+>>>>>>> experimental

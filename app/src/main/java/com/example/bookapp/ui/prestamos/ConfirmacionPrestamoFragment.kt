@@ -6,6 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> experimental
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -17,11 +20,14 @@ import com.example.bookapp.viewmodel.LoginViewModel
 import com.example.bookapp.viewmodel.ViewModelFactory
 import java.text.SimpleDateFormat
 import java.util.*
+<<<<<<< HEAD
 =======
 import androidx.navigation.fragment.findNavController
 import com.example.bookapp.R
 import com.example.bookapp.databinding.FragmentConfirmacionPrestamoBinding
 >>>>>>> 0800574 (Versión más acutual)
+=======
+>>>>>>> experimental
 
 /**
  * Pantalla de ticket digital.
@@ -32,13 +38,19 @@ class ConfirmacionPrestamoFragment : Fragment() {
     private var _binding: FragmentConfirmacionPrestamoBinding? = null
     private val binding get() = _binding!!
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> experimental
     private val args: ConfirmacionPrestamoFragmentArgs by navArgs()
 
     private val loginViewModel: LoginViewModel by activityViewModels {
         ViewModelFactory((requireActivity().application as BookApplication).repository)
     }
+<<<<<<< HEAD
 =======
 >>>>>>> 0800574 (Versión más acutual)
+=======
+>>>>>>> experimental
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,6 +64,9 @@ class ConfirmacionPrestamoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> experimental
         // Display loan details from args
         binding.tvTicketUsuario.text = args.socioNombre
         binding.tvTicketLibro.text = args.libroTitulo
@@ -67,11 +82,14 @@ class ConfirmacionPrestamoFragment : Fragment() {
                 UserRole.LECTOR, UserRole.USUARIO -> findNavController().navigate(R.id.action_confirmacionPrestamoFragment_to_dashboardLectorFragment)
                 else -> findNavController().navigate(R.id.action_confirmacionPrestamoFragment_to_dashboardLectorFragment)
             }
+<<<<<<< HEAD
 =======
         binding.btnFinalizar.setOnClickListener {
             // Volver al dashboard del bibliotecario
             findNavController().navigate(R.id.dashboardBibliotecarioFragment)
 >>>>>>> 0800574 (Versión más acutual)
+=======
+>>>>>>> experimental
         }
     }
 

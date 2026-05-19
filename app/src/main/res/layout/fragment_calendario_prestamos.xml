@@ -1,14 +1,21 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
 =======
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 >>>>>>> 0800574 (Versión más acutual)
+=======
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+>>>>>>> experimental
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> experimental
     android:background="@color/bg_cream"
     android:fillViewport="true">
 
@@ -84,6 +91,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
+<<<<<<< HEAD
 =======
     android:background="@color/white"
     android:padding="16dp">
@@ -130,3 +138,5 @@
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 >>>>>>> 0800574 (Versión más acutual)
+=======
+>>>>>>> experimental
