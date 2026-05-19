@@ -14,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.bookapp.BookApplication
 import com.example.bookapp.R
 import com.example.bookapp.data.entities.LibroEstado
+import com.example.bookapp.data.entities.LibroEntity
 import com.example.bookapp.data.entities.PrestamoEntity
 import com.example.bookapp.data.model.UserRole
 import com.example.bookapp.databinding.FragmentRegistrarPrestamoBinding
@@ -42,6 +43,7 @@ class RegistrarPrestamoFragment : Fragment() {
 
     private var selectedSocioId: Int = -1
     private var selectedLibroId: Int = -1
+    private var selectedLibro: LibroEntity? = null
     private var selectedDateMillis: Long = 0
 
     override fun onCreateView(
@@ -70,17 +72,6 @@ class RegistrarPrestamoFragment : Fragment() {
         loginViewModel.usuarioLogueado.observe(viewLifecycleOwner) { usuario ->
             val isLector = usuario?.rol == UserRole.LECTOR || usuario?.rol == UserRole.USUARIO
             binding.tilUsuario.isVisible = !isLector
-            
-            if (isLector) {
-                // Pre-select the current user as the socio
-                viewModel.allSocios.observe(viewLifecycleOwner) { socios ->
-                    val currentSocio = socios.find { it.correo == usuario.correo }
-                    currentSocio?.let {
-                        selectedSocioId = it.id
-                        binding.spinnerUsuario.setText(it.nombre, false)
-                    }
-                }
-            }
         }
 
         // Observe Socios (Readers) from DB
@@ -88,8 +79,18 @@ class RegistrarPrestamoFragment : Fragment() {
             val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, socios.map { it.nombre })
             binding.spinnerUsuario.setAdapter(adapter)
 
-            // Auto-select socio if passed via Safe Args
-            if (args.socioId != -1 && selectedSocioId == -1) {
+            // Auto-select socio if it's a lector
+            val currentUser = loginViewModel.usuarioLogueado.value
+            if (currentUser?.rol == UserRole.LECTOR || currentUser?.rol == UserRole.USUARIO) {
+                val currentSocio = socios.find { it.correo?.lowercase() == currentUser.correo.lowercase() }
+                currentSocio?.let {
+                    selectedSocioId = it.id
+                    binding.spinnerUsuario.setText(it.nombre, false)
+                } ?: run {
+                    Toast.makeText(context, "Error: No se encontró tu perfil de lector. Contacta al administrador.", Toast.LENGTH_LONG).show()
+                }
+            } else if (args.socioId != -1 && selectedSocioId == -1) {
+                // Auto-select socio if passed via Safe Args (for librarian flow)
                 val socioPreseleccionado = socios.find { it.id == args.socioId }
                 socioPreseleccionado?.let {
                     selectedSocioId = it.id
@@ -111,8 +112,9 @@ class RegistrarPrestamoFragment : Fragment() {
             // Update UI if book is pre-selected (searching in all books, not just available)
             if (selectedLibroId != -1) {
                 val libroPreseleccionado = libros.find { it.id == selectedLibroId }
-                libroPreseleccionado?.let {
-                    binding.spinnerLibro.setText(it.titulo, false)
+                if (libroPreseleccionado != null) {
+                    selectedLibro = libroPreseleccionado
+                    binding.spinnerLibro.setText(libroPreseleccionado.titulo, false)
                     
                     // Update UI to show what book is selected if the field is hidden
                     if (!binding.tilLibro.isVisible) {
@@ -124,7 +126,9 @@ class RegistrarPrestamoFragment : Fragment() {
             }
 
             binding.spinnerLibro.setOnItemClickListener { _, _, position, _ ->
-                selectedLibroId = librosDisponibles[position].id
+                val libro = librosDisponibles[position]
+                selectedLibroId = libro.id
+                selectedLibro = libro
             }
         }
 
@@ -153,10 +157,37 @@ class RegistrarPrestamoFragment : Fragment() {
                         fechaPrestamo = System.currentTimeMillis(),
                         fechaDevolucionEsperada = selectedDateMillis
                     )
-                    viewModel.registrarPrestamo(prestamo)
-                    Toast.makeText(context, "Préstamo registrado exitosamente", Toast.LENGTH_SHORT).show()
-                    findNavController().navigate(R.id.confirmacionPrestamoFragment)
+                    
+                    binding.btnConfirmarPrestamo.isEnabled = false
+                    binding.progressBar.isVisible = true
+                    viewModel.registrarPrestamo(prestamo, selectedLibro)
                 }
+            }
+        }
+
+        viewModel.prestamoResult.observe(viewLifecycleOwner) { result ->
+            if (result == null) return@observe
+            
+            binding.btnConfirmarPrestamo.isEnabled = true
+            binding.progressBar.isVisible = false
+            
+            if (result.isSuccess) {
+                Toast.makeText(context, "Préstamo registrado exitosamente", Toast.LENGTH_SHORT).show()
+                
+                val socioNombre = binding.spinnerUsuario.text.toString()
+                val libroTitulo = binding.spinnerLibro.text.toString()
+                
+                val action = RegistrarPrestamoFragmentDirections.actionRegistrarPrestamoFragmentToConfirmacionPrestamoFragment(
+                    socioNombre = socioNombre,
+                    libroTitulo = libroTitulo,
+                    fechaLimite = selectedDateMillis
+                )
+                viewModel.clearPrestamoResult()
+                findNavController().navigate(action)
+            } else {
+                val error = result.exceptionOrNull()?.message ?: "Error desconocido"
+                Toast.makeText(context, "Error: $error", Toast.LENGTH_LONG).show()
+                viewModel.clearPrestamoResult()
             }
         }
     }

@@ -17,6 +17,9 @@ class BibliotecaViewModel(private val repository: BibliotecaRepository) : ViewMo
     private val _isSearchingOnline = MutableLiveData<Boolean>()
     val isSearchingOnline: LiveData<Boolean> = _isSearchingOnline
 
+    private val _prestamoResult = MutableLiveData<Result<Unit>?>()
+    val prestamoResult: LiveData<Result<Unit>?> = _prestamoResult
+
     private val localLibros: LiveData<List<LibroEntity>> = repository.allLibros.asLiveData()
     
     val allLibrosCombined = MediatorLiveData<List<LibroEntity>>().apply {
@@ -118,8 +121,33 @@ class BibliotecaViewModel(private val repository: BibliotecaRepository) : ViewMo
         repository.insertSocio(socio)
     }
 
-    fun registrarPrestamo(prestamo: PrestamoEntity) = viewModelScope.launch {
-        repository.registrarPrestamo(prestamo)
+    fun registrarPrestamo(prestamo: PrestamoEntity, libroParaImportar: LibroEntity? = null) = viewModelScope.launch {
+        _prestamoResult.value = null // Reset previous state
+        
+        try {
+            val prestamoFinal = if (libroParaImportar != null && libroParaImportar.isPlaceholder) {
+                // First, import the book to the local database
+                val libroReal = libroParaImportar.copy(
+                    id = 0, // Let Room generate a real ID
+                    isPlaceholder = false,
+                    ejemplares = 5, // Default stock for imported books
+                    estado = LibroEstado.DISPONIBLE
+                )
+                val newId = repository.insertLibro(libroReal)
+                prestamo.copy(libroId = newId)
+            } else {
+                prestamo
+            }
+
+            val result = repository.registrarPrestamo(prestamoFinal)
+            _prestamoResult.postValue(result)
+        } catch (e: Exception) {
+            _prestamoResult.postValue(Result.failure(e))
+        }
+    }
+
+    fun clearPrestamoResult() {
+        _prestamoResult.value = null
     }
 
     fun registrarDevolucion(prestamo: PrestamoEntity) = viewModelScope.launch {
@@ -130,6 +158,9 @@ class BibliotecaViewModel(private val repository: BibliotecaRepository) : ViewMo
 
     fun getPrestamosActivosPorSocio(socioId: Int): LiveData<List<com.example.bookapp.data.entities.PrestamoConDetalles>> =
         repository.getPrestamosActivosPorSocio(socioId).asLiveData()
+
+    fun getPrestamosPorCorreoSocio(correo: String): LiveData<List<com.example.bookapp.data.entities.PrestamoConDetalles>> =
+        repository.getPrestamosPorCorreoSocio(correo).asLiveData()
 
     fun getIngresosMes(mes: String): LiveData<Double?> = repository.getIngresosPorMes(mes).asLiveData()
     

@@ -43,6 +43,7 @@ class LoginViewModel(private val repository: BibliotecaRepository) : ViewModel()
                         repository.insertUsuario(adminLocal)
                     }
                     val user = repository.getUsuarioByCorreo("admin@bookapp.com")
+                    user?.let { repository.ensureLectorIsSocio(it) }
                     _usuarioLogueado.postValue(user)
                 } catch (e: Exception) {
                     _error.postValue("Error en bypass: ${e.message}")
@@ -61,6 +62,7 @@ class LoginViewModel(private val repository: BibliotecaRepository) : ViewModel()
                         repository.insertUsuario(biblioLocal)
                     }
                     val user = repository.getUsuarioByCorreo("biblio@bookapp.com")
+                    user?.let { repository.ensureLectorIsSocio(it) }
                     _usuarioLogueado.postValue(user)
                 } catch (e: Exception) {
                     _error.postValue("Error en bypass: ${e.message}")
@@ -110,6 +112,7 @@ class LoginViewModel(private val repository: BibliotecaRepository) : ViewModel()
                     }
                     
                     if (usuarioLocal != null) {
+                        repository.ensureLectorIsSocio(usuarioLocal)
                         _usuarioLogueado.postValue(usuarioLocal)
                     } else {
                         _error.postValue("Error crítico: No se pudo crear el perfil local.")

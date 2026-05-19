@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -12,6 +13,7 @@ import com.example.bookapp.BookApplication
 import com.example.bookapp.R
 import com.example.bookapp.data.model.PrestamoPendiente
 import com.example.bookapp.databinding.FragmentDashboardAdminBinding
+import com.example.bookapp.ui.reportes.TopLibrosAdapter
 import com.example.bookapp.viewmodel.BibliotecaViewModel
 import com.example.bookapp.viewmodel.ViewModelFactory
 import java.util.Calendar
@@ -36,7 +38,7 @@ class DashboardAdminFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setupMorososRecyclerView()
+        setupRecyclerViews()
 
         binding.btnVerTodosMorosos.setOnClickListener {
             // Navegar a la lista completa de préstamos pendientes con opciones de ordenamiento
@@ -57,11 +59,22 @@ class DashboardAdminFragment : Fragment() {
             val countPendientes = binding.badgeMorososCount.text.toString().split(" ")[0].toIntOrNull() ?: 0
             binding.badgeSuccess.text = "${prestamos.size - countPendientes} al día"
         }
+
+        // Observar libros más solicitados
+        viewModel.top5LibrosMasPrestados.observe(viewLifecycleOwner) { topList ->
+            val topAdapter = TopLibrosAdapter(topList)
+            binding.rvTopLibros.adapter = topAdapter
+            binding.tvEmptyTopLibros.isVisible = topList.isEmpty()
+            binding.rvTopLibros.isVisible = topList.isNotEmpty()
+        }
     }
 
-    private fun setupMorososRecyclerView() {
+    private fun setupRecyclerViews() {
         binding.rvMorosos.layoutManager = LinearLayoutManager(requireContext())
         binding.rvMorosos.setHasFixedSize(true)
+
+        binding.rvTopLibros.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvTopLibros.setHasFixedSize(true)
     }
 
     override fun onDestroyView() {

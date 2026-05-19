@@ -14,10 +14,11 @@ class LibroRepository(private val libroDao: LibroDao) {
 
     val allLibros: Flow<List<LibroEntity>> = libroDao.getAllLibros()
 
-    suspend fun insertLibro(libro: LibroEntity) {
+    suspend fun insertLibro(libro: LibroEntity): Int {
         val libroAjustado = adjustLibroStatus(libro)
         val id = libroDao.insert(libroAjustado).toInt()
         syncLibroToFirestore(libroAjustado.copy(id = id))
+        return id
     }
 
     suspend fun updateLibro(libro: LibroEntity) {

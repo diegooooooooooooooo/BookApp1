@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -42,6 +43,11 @@ class LibroDetalleFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         
+        // Hide "Prestar" button if requested via args (e.g., when coming from My Loans)
+        if (args.ocultarBotonPrestar) {
+            binding.btnPrestarLibro.isVisible = false
+        }
+
         val libroId = args.libroId
         if (libroId != -1) {
             viewModel.allLibrosCombined.observe(viewLifecycleOwner) { libros ->
@@ -58,23 +64,36 @@ class LibroDetalleFragment : Fragment() {
                         crossfade(true)
                         placeholder(R.drawable.ic_book)
                         error(R.drawable.ic_book)
+                        listener(
+                            onSuccess = { _, _ -> 
+                                binding.ivDetallePortada.imageTintList = null 
+                            }
+                        )
                     }
 
-                    when (it.estado) {
-                        LibroEstado.DISPONIBLE -> {
-                            binding.chipDetalleEstado.text = "Disponible"
-                            binding.chipDetalleEstado.setChipBackgroundColorResource(android.R.color.holo_green_light)
-                            binding.btnPrestarLibro.isEnabled = true
-                        }
-                        LibroEstado.PRESTADO -> {
-                            binding.chipDetalleEstado.text = "Prestado"
-                            binding.chipDetalleEstado.setChipBackgroundColorResource(android.R.color.holo_red_light)
-                            binding.btnPrestarLibro.isEnabled = false
-                        }
-                        LibroEstado.NO_DISPONIBLE -> {
-                            binding.chipDetalleEstado.text = "No Disponible"
-                            binding.chipDetalleEstado.setChipBackgroundColorResource(android.R.color.darker_gray)
-                            binding.btnPrestarLibro.isEnabled = false
+                    if (it.isPlaceholder) {
+                        binding.chipDetalleEstado.text = "Disponible (Online)"
+                        binding.chipDetalleEstado.setChipBackgroundColorResource(android.R.color.holo_blue_light)
+                        binding.btnPrestarLibro.isEnabled = true
+                        binding.btnPrestarLibro.text = "Prestar libro"
+                    } else {
+                        binding.btnPrestarLibro.text = "Prestar libro"
+                        when (it.estado) {
+                            LibroEstado.DISPONIBLE -> {
+                                binding.chipDetalleEstado.text = "Disponible"
+                                binding.chipDetalleEstado.setChipBackgroundColorResource(android.R.color.holo_green_light)
+                                binding.btnPrestarLibro.isEnabled = true
+                            }
+                            LibroEstado.PRESTADO -> {
+                                binding.chipDetalleEstado.text = "Prestado"
+                                binding.chipDetalleEstado.setChipBackgroundColorResource(android.R.color.holo_red_light)
+                                binding.btnPrestarLibro.isEnabled = false
+                            }
+                            LibroEstado.NO_DISPONIBLE -> {
+                                binding.chipDetalleEstado.text = "No Disponible"
+                                binding.chipDetalleEstado.setChipBackgroundColorResource(android.R.color.darker_gray)
+                                binding.btnPrestarLibro.isEnabled = false
+                            }
                         }
                     }
                 }

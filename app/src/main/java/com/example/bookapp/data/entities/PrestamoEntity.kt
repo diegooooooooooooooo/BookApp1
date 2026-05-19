@@ -22,6 +22,7 @@ data class PrestamoConDetalles(
     val id: Int,
     val socioNombre: String,
     val libroTitulo: String,
+    val libroId: Int,
     val fechaPrestamo: Long,
     val fechaDevolucionEsperada: Long,
     val fechaEntregaReal: Long?,

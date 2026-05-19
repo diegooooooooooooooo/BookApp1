@@ -129,7 +129,7 @@ class BibliotecaRepository(
     // --- Libros ---
     val allLibros: Flow<List<LibroEntity>> = libroRepository.allLibros
     
-    suspend fun insertLibro(libro: LibroEntity) = libroRepository.insertLibro(libro)
+    suspend fun insertLibro(libro: LibroEntity): Int = libroRepository.insertLibro(libro)
     suspend fun updateLibro(libro: LibroEntity) = libroRepository.updateLibro(libro)
     suspend fun deleteLibro(libro: LibroEntity) = libroRepository.deleteLibro(libro)
     
@@ -142,6 +142,7 @@ class BibliotecaRepository(
     suspend fun insertUsuario(usuario: UsuarioEntity) = usuarioRepository.insertUsuario(usuario)
     suspend fun getUsuarioByCorreo(correo: String) = usuarioRepository.getUsuarioByCorreo(correo)
     suspend fun updateUsuario(usuario: UsuarioEntity) = usuarioRepository.updateUsuario(usuario)
+    suspend fun ensureLectorIsSocio(usuario: UsuarioEntity) = usuarioRepository.ensureLectorIsSocio(usuario)
     suspend fun syncUsuariosFromFirestore() = usuarioRepository.syncUsuariosFromFirestore()
 
     // --- Socios (Readers) ---
@@ -154,7 +155,7 @@ class BibliotecaRepository(
     val prestamosActivosConDetalles: Flow<List<com.example.bookapp.data.entities.PrestamoConDetalles>> = 
         prestamoRepository.prestamosActivosConDetalles
     
-    suspend fun registrarPrestamo(prestamo: PrestamoEntity) = prestamoRepository.registrarPrestamo(prestamo)
+    suspend fun registrarPrestamo(prestamo: PrestamoEntity): Result<Unit> = prestamoRepository.registrarPrestamo(prestamo)
     suspend fun getPrestamoById(id: Int): PrestamoEntity? = prestamoRepository.getPrestamoById(id)
     suspend fun registrarDevolucion(prestamo: PrestamoEntity) = prestamoRepository.registrarDevolucion(prestamo)
 
@@ -172,17 +173,6 @@ class BibliotecaRepository(
     fun getTop5Libros() = prestamoRepository.getTop5Libros()
     
     suspend fun searchOnline(query: String) = apiService.searchBooks(query)
-
-    private suspend fun ensureLectorIsSocio(usuario: UsuarioEntity) {
-        if (usuario.rol == UserRole.LECTOR || usuario.rol == UserRole.USUARIO) {
-            val existingSocio = socioDao.getSocioByCorreo(usuario.correo)
-            if (existingSocio == null) {
-                socioDao.insert(SocioEntity(nombre = usuario.nombre, correo = usuario.correo))
-            } else if (existingSocio.nombre != usuario.nombre) {
-                socioDao.update(existingSocio.copy(nombre = usuario.nombre))
-            }
-        }
-    }
 
     /**
      * Función para descargar datos de Firestore a Room (Sincronización inicial o manual)

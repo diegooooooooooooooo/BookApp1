@@ -196,6 +196,10 @@
             android:name="libroId"
             app:argType="integer"
             android:defaultValue="-1" />
+        <argument
+            android:name="ocultarBotonPrestar"
+            app:argType="boolean"
+            android:defaultValue="false" />
         <action
             android:id="@+id/action_detalleLibroFragment_to_registrarPrestamoFragment"
             app:destination="@id/registrarPrestamoFragment" />
@@ -237,7 +241,32 @@
         android:id="@+id/confirmacionPrestamoFragment"
         android:name="com.example.bookapp.ui.prestamos.ConfirmacionPrestamoFragment"
         android:label="Ticket"
-        tools:layout="@layout/fragment_confirmacion_prestamo" />
+        tools:layout="@layout/fragment_confirmacion_prestamo" >
+        <argument
+            android:name="socioNombre"
+            app:argType="string" />
+        <argument
+            android:name="libroTitulo"
+            app:argType="string" />
+        <argument
+            android:name="fechaLimite"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_confirmacionPrestamoFragment_to_dashboardLectorFragment"
+            app:destination="@id/dashboardLectorFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_confirmacionPrestamoFragment_to_dashboardBibliotecarioFragment"
+            app:destination="@id/dashboardBibliotecarioFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_confirmacionPrestamoFragment_to_dashboardAdminFragment"
+            app:destination="@id/dashboardAdminFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
 
     <fragment
         android:id="@+id/registrarDevolucionFragment"
@@ -287,12 +316,19 @@
         <action
             android:id="@+id/action_dashboardLectorFragment_to_configuracionFragment"
             app:destination="@id/configuracionFragment" />
+        <action
+            android:id="@+id/action_dashboardLectorFragment_to_detalleLibroFragment"
+            app:destination="@id/detalleLibroFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/calendarioPrestamosFragment"
         android:name="com.example.bookapp.ui.dashboard.CalendarioPrestamosFragment"
         android:label="Calendario"
-        tools:layout="@layout/fragment_calendario_prestamos" />
+        tools:layout="@layout/fragment_calendario_prestamos" >
+        <action
+            android:id="@+id/action_calendarioPrestamosFragment_to_detalleLibroFragment"
+            app:destination="@id/detalleLibroFragment" />
+    </fragment>
 
 </navigation>
