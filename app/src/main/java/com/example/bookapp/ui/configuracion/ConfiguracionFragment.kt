@@ -2,7 +2,10 @@ package com.example.bookapp.ui.configuracion
 
 import android.content.Context
 import android.content.pm.PackageManager
+<<<<<<< HEAD
 import android.graphics.Bitmap
+=======
+>>>>>>> 0800574 (Versión más acutual)
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -22,8 +25,11 @@ import com.example.bookapp.databinding.FragmentConfiguracionBinding
 import com.example.bookapp.viewmodel.LoginViewModel
 import com.example.bookapp.viewmodel.ViewModelFactory
 import com.example.bookapp.worker.LoanNotificationWorker
+<<<<<<< HEAD
 import java.io.File
 import java.io.FileOutputStream
+=======
+>>>>>>> 0800574 (Versión más acutual)
 import java.util.concurrent.TimeUnit
 
 class ConfiguracionFragment : Fragment() {
@@ -54,6 +60,7 @@ class ConfiguracionFragment : Fragment() {
         if (bitmap != null) {
             val usuarioActual = loginViewModel.usuarioLogueado.value
             if (usuarioActual != null) {
+<<<<<<< HEAD
                 try {
                     val fileName = "id_card_${usuarioActual.id}.jpg"
                     val file = File(requireContext().filesDir, fileName)
@@ -68,6 +75,13 @@ class ConfiguracionFragment : Fragment() {
                 } catch (e: Exception) {
                     Toast.makeText(requireContext(), "Error al guardar imagen: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
+=======
+                // En una app real, guardaríamos el bitmap en un archivo y guardaríamos la ruta
+                // Aquí simulamos guardando una marca de tiempo como ID de foto
+                val updatedUser = usuarioActual.copy(fotoId = "ID_SCANNED_${System.currentTimeMillis()}")
+                loginViewModel.updateUsuario(updatedUser)
+                Toast.makeText(requireContext(), "ID Guardada correctamente", Toast.LENGTH_SHORT).show()
+>>>>>>> 0800574 (Versión más acutual)
             }
         }
     }

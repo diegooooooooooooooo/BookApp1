@@ -22,6 +22,7 @@ class PrestamoRepository(
     val prestamosActivos: Flow<List<PrestamoEntity>> = prestamoDao.getPrestamosActivos()
     val prestamosActivosConDetalles: Flow<List<PrestamoConDetalles>> = prestamoDao.getPrestamosActivosConDetalles()
 
+<<<<<<< HEAD
     suspend fun registrarPrestamo(prestamo: PrestamoEntity): Result<Unit> {
         return try {
             val libro = libroDao.getLibroById(prestamo.libroId)
@@ -50,6 +51,30 @@ class PrestamoRepository(
         } catch (e: Exception) {
             Result.failure(e)
         }
+=======
+    suspend fun registrarPrestamo(prestamo: PrestamoEntity) {
+        val libro = libroDao.getLibroById(prestamo.libroId)
+        if (libro == null || libro.ejemplares <= 0) return
+
+        val id = prestamoDao.insert(prestamo).toInt()
+        val valorFijo = 50.0
+        val prestamoConId = prestamo.copy(id = id, valorPrestamo = valorFijo)
+        
+        // Update local book
+        val nuevosEjemplares = libro.ejemplares - 1
+        val libroActualizado = libro.copy(
+            ejemplares = nuevosEjemplares,
+            estado = if (nuevosEjemplares <= 0) LibroEstado.PRESTADO else LibroEstado.DISPONIBLE
+        )
+        libroDao.update(libroActualizado)
+        
+        // Sync to Firestore
+        syncLibroToFirestore(libroActualizado)
+        
+        // Update local loan with calculated value
+        prestamoDao.update(prestamoConId)
+        syncPrestamoToFirestore(prestamoConId)
+>>>>>>> 0800574 (Versión más acutual)
     }
 
     suspend fun registrarDevolucion(prestamo: PrestamoEntity) {

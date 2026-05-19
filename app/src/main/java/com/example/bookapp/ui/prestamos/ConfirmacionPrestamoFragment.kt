@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+<<<<<<< HEAD
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -16,6 +17,11 @@ import com.example.bookapp.viewmodel.LoginViewModel
 import com.example.bookapp.viewmodel.ViewModelFactory
 import java.text.SimpleDateFormat
 import java.util.*
+=======
+import androidx.navigation.fragment.findNavController
+import com.example.bookapp.R
+import com.example.bookapp.databinding.FragmentConfirmacionPrestamoBinding
+>>>>>>> 0800574 (Versión más acutual)
 
 /**
  * Pantalla de ticket digital.
@@ -25,11 +31,14 @@ class ConfirmacionPrestamoFragment : Fragment() {
 
     private var _binding: FragmentConfirmacionPrestamoBinding? = null
     private val binding get() = _binding!!
+<<<<<<< HEAD
     private val args: ConfirmacionPrestamoFragmentArgs by navArgs()
 
     private val loginViewModel: LoginViewModel by activityViewModels {
         ViewModelFactory((requireActivity().application as BookApplication).repository)
     }
+=======
+>>>>>>> 0800574 (Versión más acutual)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,6 +51,7 @@ class ConfirmacionPrestamoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+<<<<<<< HEAD
         // Display loan details from args
         binding.tvTicketUsuario.text = args.socioNombre
         binding.tvTicketLibro.text = args.libroTitulo
@@ -57,6 +67,11 @@ class ConfirmacionPrestamoFragment : Fragment() {
                 UserRole.LECTOR, UserRole.USUARIO -> findNavController().navigate(R.id.action_confirmacionPrestamoFragment_to_dashboardLectorFragment)
                 else -> findNavController().navigate(R.id.action_confirmacionPrestamoFragment_to_dashboardLectorFragment)
             }
+=======
+        binding.btnFinalizar.setOnClickListener {
+            // Volver al dashboard del bibliotecario
+            findNavController().navigate(R.id.dashboardBibliotecarioFragment)
+>>>>>>> 0800574 (Versión más acutual)
         }
     }
 

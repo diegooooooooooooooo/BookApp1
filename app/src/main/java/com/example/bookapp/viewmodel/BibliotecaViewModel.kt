@@ -17,9 +17,12 @@ class BibliotecaViewModel(private val repository: BibliotecaRepository) : ViewMo
     private val _isSearchingOnline = MutableLiveData<Boolean>()
     val isSearchingOnline: LiveData<Boolean> = _isSearchingOnline
 
+<<<<<<< HEAD
     private val _prestamoResult = MutableLiveData<Result<Unit>?>()
     val prestamoResult: LiveData<Result<Unit>?> = _prestamoResult
 
+=======
+>>>>>>> 0800574 (Versión más acutual)
     private val localLibros: LiveData<List<LibroEntity>> = repository.allLibros.asLiveData()
     
     val allLibrosCombined = MediatorLiveData<List<LibroEntity>>().apply {
@@ -121,6 +124,7 @@ class BibliotecaViewModel(private val repository: BibliotecaRepository) : ViewMo
         repository.insertSocio(socio)
     }
 
+<<<<<<< HEAD
     fun registrarPrestamo(prestamo: PrestamoEntity, libroParaImportar: LibroEntity? = null) = viewModelScope.launch {
         _prestamoResult.value = null // Reset previous state
         
@@ -148,6 +152,10 @@ class BibliotecaViewModel(private val repository: BibliotecaRepository) : ViewMo
 
     fun clearPrestamoResult() {
         _prestamoResult.value = null
+=======
+    fun registrarPrestamo(prestamo: PrestamoEntity) = viewModelScope.launch {
+        repository.registrarPrestamo(prestamo)
+>>>>>>> 0800574 (Versión más acutual)
     }
 
     fun registrarDevolucion(prestamo: PrestamoEntity) = viewModelScope.launch {
@@ -159,9 +167,12 @@ class BibliotecaViewModel(private val repository: BibliotecaRepository) : ViewMo
     fun getPrestamosActivosPorSocio(socioId: Int): LiveData<List<com.example.bookapp.data.entities.PrestamoConDetalles>> =
         repository.getPrestamosActivosPorSocio(socioId).asLiveData()
 
+<<<<<<< HEAD
     fun getPrestamosPorCorreoSocio(correo: String): LiveData<List<com.example.bookapp.data.entities.PrestamoConDetalles>> =
         repository.getPrestamosPorCorreoSocio(correo).asLiveData()
 
+=======
+>>>>>>> 0800574 (Versión más acutual)
     fun getIngresosMes(mes: String): LiveData<Double?> = repository.getIngresosPorMes(mes).asLiveData()
     
     fun getIngresosAnio(anio: String): LiveData<Double?> = repository.getIngresosPorAnio(anio).asLiveData()

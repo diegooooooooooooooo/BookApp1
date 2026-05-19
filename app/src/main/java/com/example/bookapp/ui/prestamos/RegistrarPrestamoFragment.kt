@@ -14,7 +14,10 @@ import androidx.navigation.fragment.findNavController
 import com.example.bookapp.BookApplication
 import com.example.bookapp.R
 import com.example.bookapp.data.entities.LibroEstado
+<<<<<<< HEAD
 import com.example.bookapp.data.entities.LibroEntity
+=======
+>>>>>>> 0800574 (Versión más acutual)
 import com.example.bookapp.data.entities.PrestamoEntity
 import com.example.bookapp.data.model.UserRole
 import com.example.bookapp.databinding.FragmentRegistrarPrestamoBinding
@@ -43,7 +46,10 @@ class RegistrarPrestamoFragment : Fragment() {
 
     private var selectedSocioId: Int = -1
     private var selectedLibroId: Int = -1
+<<<<<<< HEAD
     private var selectedLibro: LibroEntity? = null
+=======
+>>>>>>> 0800574 (Versión más acutual)
     private var selectedDateMillis: Long = 0
 
     override fun onCreateView(
@@ -72,6 +78,20 @@ class RegistrarPrestamoFragment : Fragment() {
         loginViewModel.usuarioLogueado.observe(viewLifecycleOwner) { usuario ->
             val isLector = usuario?.rol == UserRole.LECTOR || usuario?.rol == UserRole.USUARIO
             binding.tilUsuario.isVisible = !isLector
+<<<<<<< HEAD
+=======
+            
+            if (isLector) {
+                // Pre-select the current user as the socio
+                viewModel.allSocios.observe(viewLifecycleOwner) { socios ->
+                    val currentSocio = socios.find { it.correo == usuario.correo }
+                    currentSocio?.let {
+                        selectedSocioId = it.id
+                        binding.spinnerUsuario.setText(it.nombre, false)
+                    }
+                }
+            }
+>>>>>>> 0800574 (Versión más acutual)
         }
 
         // Observe Socios (Readers) from DB
@@ -79,6 +99,7 @@ class RegistrarPrestamoFragment : Fragment() {
             val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, socios.map { it.nombre })
             binding.spinnerUsuario.setAdapter(adapter)
 
+<<<<<<< HEAD
             // Auto-select socio if it's a lector
             val currentUser = loginViewModel.usuarioLogueado.value
             if (currentUser?.rol == UserRole.LECTOR || currentUser?.rol == UserRole.USUARIO) {
@@ -91,6 +112,10 @@ class RegistrarPrestamoFragment : Fragment() {
                 }
             } else if (args.socioId != -1 && selectedSocioId == -1) {
                 // Auto-select socio if passed via Safe Args (for librarian flow)
+=======
+            // Auto-select socio if passed via Safe Args
+            if (args.socioId != -1 && selectedSocioId == -1) {
+>>>>>>> 0800574 (Versión más acutual)
                 val socioPreseleccionado = socios.find { it.id == args.socioId }
                 socioPreseleccionado?.let {
                     selectedSocioId = it.id
@@ -112,9 +137,14 @@ class RegistrarPrestamoFragment : Fragment() {
             // Update UI if book is pre-selected (searching in all books, not just available)
             if (selectedLibroId != -1) {
                 val libroPreseleccionado = libros.find { it.id == selectedLibroId }
+<<<<<<< HEAD
                 if (libroPreseleccionado != null) {
                     selectedLibro = libroPreseleccionado
                     binding.spinnerLibro.setText(libroPreseleccionado.titulo, false)
+=======
+                libroPreseleccionado?.let {
+                    binding.spinnerLibro.setText(it.titulo, false)
+>>>>>>> 0800574 (Versión más acutual)
                     
                     // Update UI to show what book is selected if the field is hidden
                     if (!binding.tilLibro.isVisible) {
@@ -126,9 +156,13 @@ class RegistrarPrestamoFragment : Fragment() {
             }
 
             binding.spinnerLibro.setOnItemClickListener { _, _, position, _ ->
+<<<<<<< HEAD
                 val libro = librosDisponibles[position]
                 selectedLibroId = libro.id
                 selectedLibro = libro
+=======
+                selectedLibroId = librosDisponibles[position].id
+>>>>>>> 0800574 (Versión más acutual)
             }
         }
 
@@ -157,6 +191,7 @@ class RegistrarPrestamoFragment : Fragment() {
                         fechaPrestamo = System.currentTimeMillis(),
                         fechaDevolucionEsperada = selectedDateMillis
                     )
+<<<<<<< HEAD
                     
                     binding.btnConfirmarPrestamo.isEnabled = false
                     binding.progressBar.isVisible = true
@@ -190,6 +225,14 @@ class RegistrarPrestamoFragment : Fragment() {
                 viewModel.clearPrestamoResult()
             }
         }
+=======
+                    viewModel.registrarPrestamo(prestamo)
+                    Toast.makeText(context, "Préstamo registrado exitosamente", Toast.LENGTH_SHORT).show()
+                    findNavController().navigate(R.id.confirmacionPrestamoFragment)
+                }
+            }
+        }
+>>>>>>> 0800574 (Versión más acutual)
     }
 
     override fun onDestroyView() {

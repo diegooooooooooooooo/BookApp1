@@ -8,8 +8,13 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
+<<<<<<< HEAD
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+=======
+            <option value="/run/media/dknw/Quartz/AS Proyectos/BookApp1" />
+            <option value="/run/media/dknw/Quartz/AS Proyectos/BookApp1/app" />
+>>>>>>> 0800574 (Versión más acutual)
           </set>
         </option>
       </GradleProjectSettings>

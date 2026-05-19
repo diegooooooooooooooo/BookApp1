@@ -2,5 +2,9 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+<<<<<<< HEAD
+=======
+    <mapping directory="/run/media/dknw/Quartz/AS Proyectos/BookApp1" vcs="Git" />
+>>>>>>> 0800574 (Versión más acutual)
   </component>
 </project>

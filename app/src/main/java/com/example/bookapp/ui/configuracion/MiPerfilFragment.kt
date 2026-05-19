@@ -4,16 +4,25 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+<<<<<<< HEAD
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import coil.load
+=======
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
+>>>>>>> 0800574 (Versión más acutual)
 import com.example.bookapp.BookApplication
 import com.example.bookapp.databinding.FragmentMiPerfilBinding
 import com.example.bookapp.viewmodel.LoginViewModel
 import com.example.bookapp.viewmodel.ViewModelFactory
+<<<<<<< HEAD
 import java.io.File
+=======
+>>>>>>> 0800574 (Versión más acutual)
 
 class MiPerfilFragment : Fragment() {
 
@@ -40,6 +49,7 @@ class MiPerfilFragment : Fragment() {
                 binding.tvProfileNombre.text = it.nombre
                 binding.tvProfileEmail.text = it.correo
                 binding.tvProfilePassword.text = it.contrasena
+<<<<<<< HEAD
                 
                 if (it.fotoId != null) {
                     val file = File(it.fotoId)
@@ -61,6 +71,9 @@ class MiPerfilFragment : Fragment() {
                     binding.tvProfileIdStatus.isVisible = true
                     binding.tvProfileIdStatus.text = "No disponible"
                 }
+=======
+                binding.tvProfileIdStatus.text = it.fotoId ?: "No disponible"
+>>>>>>> 0800574 (Versión más acutual)
             }
         }
 

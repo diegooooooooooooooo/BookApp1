@@ -196,10 +196,13 @@
             android:name="libroId"
             app:argType="integer"
             android:defaultValue="-1" />
+<<<<<<< HEAD
         <argument
             android:name="ocultarBotonPrestar"
             app:argType="boolean"
             android:defaultValue="false" />
+=======
+>>>>>>> 0800574 (Versión más acutual)
         <action
             android:id="@+id/action_detalleLibroFragment_to_registrarPrestamoFragment"
             app:destination="@id/registrarPrestamoFragment" />
@@ -241,6 +244,7 @@
         android:id="@+id/confirmacionPrestamoFragment"
         android:name="com.example.bookapp.ui.prestamos.ConfirmacionPrestamoFragment"
         android:label="Ticket"
+<<<<<<< HEAD
         tools:layout="@layout/fragment_confirmacion_prestamo" >
         <argument
             android:name="socioNombre"
@@ -267,6 +271,9 @@
             app:popUpTo="@id/nav_graph"
             app:popUpToInclusive="true" />
     </fragment>
+=======
+        tools:layout="@layout/fragment_confirmacion_prestamo" />
+>>>>>>> 0800574 (Versión más acutual)
 
     <fragment
         android:id="@+id/registrarDevolucionFragment"
@@ -316,19 +323,26 @@
         <action
             android:id="@+id/action_dashboardLectorFragment_to_configuracionFragment"
             app:destination="@id/configuracionFragment" />
+<<<<<<< HEAD
         <action
             android:id="@+id/action_dashboardLectorFragment_to_detalleLibroFragment"
             app:destination="@id/detalleLibroFragment" />
+=======
+>>>>>>> 0800574 (Versión más acutual)
     </fragment>
 
     <fragment
         android:id="@+id/calendarioPrestamosFragment"
         android:name="com.example.bookapp.ui.dashboard.CalendarioPrestamosFragment"
         android:label="Calendario"
+<<<<<<< HEAD
         tools:layout="@layout/fragment_calendario_prestamos" >
         <action
             android:id="@+id/action_calendarioPrestamosFragment_to_detalleLibroFragment"
             app:destination="@id/detalleLibroFragment" />
     </fragment>
+=======
+        tools:layout="@layout/fragment_calendario_prestamos" />
+>>>>>>> 0800574 (Versión más acutual)
 
 </navigation>

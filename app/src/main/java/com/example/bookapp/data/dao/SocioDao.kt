@@ -21,6 +21,10 @@ interface SocioDao {
     @Query("SELECT * FROM socios WHERE id = :id")
     suspend fun getSocioById(id: Int): SocioEntity?
 
+<<<<<<< HEAD
     @Query("SELECT * FROM socios WHERE LOWER(correo) = LOWER(:correo) LIMIT 1")
+=======
+    @Query("SELECT * FROM socios WHERE correo = :correo LIMIT 1")
+>>>>>>> 0800574 (Versión más acutual)
     suspend fun getSocioByCorreo(correo: String): SocioEntity?
 }
