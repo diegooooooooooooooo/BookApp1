@@ -32,6 +32,7 @@ drawable ic_back
 drawable ic_book
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+id action_calendarioPrestamosFragment_to_detalleLibroFragment
 id action_catalogoLibrosFragment_to_configuracionFragment
 id action_catalogoLibrosFragment_to_detalleLibroFragment
 id action_catalogoLibrosFragment_to_registrarLibroFragment
@@ -102,6 +103,7 @@ id btnVerTodosMorosos
 id calendarView
 id calendarioPrestamosFragment
 id cardAccountData
+id cardCalendar
 id cardCatalogo
 id cardConfiguracion
 id cardData
@@ -357,6 +359,9 @@ string ver_reportes
 string welcome_bibliotecario
 string welcome_lector
 style Base.Theme.BookApp
+style CalendarDateText
+style CalendarWeekDayText
 style Theme.BookApp
+style Widget.CalendarView.Custom
 xml backup_rules
 xml data_extraction_rules

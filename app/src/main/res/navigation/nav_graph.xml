@@ -196,6 +196,10 @@
             android:name="libroId"
             app:argType="integer"
             android:defaultValue="-1" />
+        <argument
+            android:name="ocultarBotonPrestar"
+            app:argType="boolean"
+            android:defaultValue="false" />
         <action
             android:id="@+id/action_detalleLibroFragment_to_registrarPrestamoFragment"
             app:destination="@id/registrarPrestamoFragment" />
@@ -321,6 +325,10 @@
         android:id="@+id/calendarioPrestamosFragment"
         android:name="com.example.bookapp.ui.dashboard.CalendarioPrestamosFragment"
         android:label="Calendario"
-        tools:layout="@layout/fragment_calendario_prestamos" />
+        tools:layout="@layout/fragment_calendario_prestamos" >
+        <action
+            android:id="@+id/action_calendarioPrestamosFragment_to_detalleLibroFragment"
+            app:destination="@id/detalleLibroFragment" />
+    </fragment>
 
 </navigation>

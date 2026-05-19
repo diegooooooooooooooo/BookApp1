@@ -1,4 +1,4 @@
-#Mon May 18 17:29:56 CST 2026
+#Mon May 18 21:18:49 CST 2026
 base.0=/home/dknw/Proyects/BookApp1/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
 base.1=/home/dknw/Proyects/BookApp1/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
 base.10=/home/dknw/Proyects/BookApp1/app/build/intermediates/dex/debug/mergeProjectDexDebug/9/classes.dex

@@ -39,7 +39,7 @@ interface PrestamoDao {
     fun getPrestamosActivos(): Flow<List<PrestamoEntity>>
 
     @Query("""
-        SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, 
+        SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, prestamos.libroId,
                prestamos.fechaPrestamo, prestamos.fechaDevolucionEsperada, 
                prestamos.fechaEntregaReal, prestamos.multa, prestamos.valorPrestamo 
         FROM prestamos 
@@ -50,7 +50,7 @@ interface PrestamoDao {
     fun getPrestamosActivosConDetalles(): Flow<List<com.example.bookapp.data.entities.PrestamoConDetalles>>
 
     @Query("""
-        SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, 
+        SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, prestamos.libroId,
                prestamos.fechaPrestamo, prestamos.fechaDevolucionEsperada, 
                prestamos.fechaEntregaReal, prestamos.multa, prestamos.valorPrestamo 
         FROM prestamos 
@@ -61,7 +61,7 @@ interface PrestamoDao {
     fun getPrestamosActivosPorSocio(socioId: Int): Flow<List<com.example.bookapp.data.entities.PrestamoConDetalles>>
 
     @Query("""
-        SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, 
+        SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, prestamos.libroId,
                prestamos.fechaPrestamo, prestamos.fechaDevolucionEsperada, 
                prestamos.fechaEntregaReal, prestamos.multa, prestamos.valorPrestamo 
         FROM prestamos 
@@ -72,7 +72,7 @@ interface PrestamoDao {
     fun getPrestamosPorCorreoSocio(correo: String): Flow<List<com.example.bookapp.data.entities.PrestamoConDetalles>>
 
     @Query("""
-        SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, 
+        SELECT prestamos.id, socios.nombre as socioNombre, libros.titulo as libroTitulo, prestamos.libroId,
                prestamos.fechaPrestamo, prestamos.fechaDevolucionEsperada, 
                prestamos.fechaEntregaReal, prestamos.multa, prestamos.valorPrestamo 
         FROM prestamos 

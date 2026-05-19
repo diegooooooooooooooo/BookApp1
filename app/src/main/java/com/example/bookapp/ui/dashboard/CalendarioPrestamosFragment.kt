@@ -9,6 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.asLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.navigation.fragment.findNavController
 import com.example.bookapp.BookApplication
 import com.example.bookapp.data.entities.PrestamoConDetalles
 import com.example.bookapp.databinding.FragmentCalendarioPrestamosBinding
@@ -55,7 +56,13 @@ class CalendarioPrestamosFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        adapter = PrestamosLectorAdapter()
+        adapter = PrestamosLectorAdapter { libroId ->
+            val action = CalendarioPrestamosFragmentDirections.actionCalendarioPrestamosFragmentToDetalleLibroFragment(
+                libroId = libroId,
+                ocultarBotonPrestar = true
+            )
+            findNavController().navigate(action)
+        }
         binding.rvPrestamosDia.layoutManager = LinearLayoutManager(context)
         binding.rvPrestamosDia.adapter = adapter
     }
