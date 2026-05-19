@@ -40,6 +40,11 @@ class RegistrarLibroFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Default value for new books
+        if (args.libroId == -1) {
+            binding.etValor.setText("50.0")
+        }
+
         // Recuperar argumentos si existen (para edición) - Safe Args
         val libroId = args.libroId
         if (libroId != -1) {
@@ -61,7 +66,7 @@ class RegistrarLibroFragment : Fragment() {
                     editorial = editorial,
                     isbn = isbn,
                     ejemplares = ejemplaresStr.toIntOrNull() ?: 1,
-                    valor = valorStr.toDoubleOrNull() ?: 0.0
+                    valor = valorStr.toDoubleOrNull() ?: 50.0
                 ) ?: LibroEntity(
                     titulo = titulo,
                     autor = autor,
@@ -69,7 +74,7 @@ class RegistrarLibroFragment : Fragment() {
                     isbn = isbn,
                     categoria = "",
                     ejemplares = ejemplaresStr.toIntOrNull() ?: 1,
-                    valor = valorStr.toDoubleOrNull() ?: 0.0
+                    valor = valorStr.toDoubleOrNull() ?: 50.0
                 )
 
                 if (libroAEditar != null) {

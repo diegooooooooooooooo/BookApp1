@@ -17,6 +17,14 @@
         app:strokeColor="@color/silver"
         app:strokeWidth="1dp" />
 
+    <com.google.android.material.search.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="@string/buscar_hint"
+        app:layout_anchor="@id/searchBar">
+    </com.google.android.material.search.SearchView>
+
     <HorizontalScrollView
         android:id="@+id/scrollViewFilters"
         android:layout_width="match_parent"
@@ -64,6 +72,16 @@
 
         </com.google.android.material.chip.ChipGroup>
     </HorizontalScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@id/rvLibros"
+        app:layout_constraintBottom_toBottomOf="@id/rvLibros"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvLibros"

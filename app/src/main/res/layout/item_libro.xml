@@ -33,7 +33,6 @@
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_book"
-                app:tint="@color/blue_slate"
                 android:contentDescription="Portada" />
         </com.google.android.material.card.MaterialCardView>
 

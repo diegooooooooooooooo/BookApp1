@@ -4,6 +4,7 @@ package com.example.bookapp.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,6 +29,9 @@ public final class FragmentMiPerfilBinding implements ViewBinding {
   public final MaterialCardView cardData;
 
   @NonNull
+  public final ImageView ivProfileId;
+
+  @NonNull
   public final TextView tvProfileEmail;
 
   @NonNull
@@ -44,12 +48,13 @@ public final class FragmentMiPerfilBinding implements ViewBinding {
 
   private FragmentMiPerfilBinding(@NonNull ConstraintLayout rootView,
       @NonNull MaterialButton btnBack, @NonNull MaterialCardView cardData,
-      @NonNull TextView tvProfileEmail, @NonNull TextView tvProfileIdStatus,
-      @NonNull TextView tvProfileNombre, @NonNull TextView tvProfilePassword,
-      @NonNull TextView tvProfileTitle) {
+      @NonNull ImageView ivProfileId, @NonNull TextView tvProfileEmail,
+      @NonNull TextView tvProfileIdStatus, @NonNull TextView tvProfileNombre,
+      @NonNull TextView tvProfilePassword, @NonNull TextView tvProfileTitle) {
     this.rootView = rootView;
     this.btnBack = btnBack;
     this.cardData = cardData;
+    this.ivProfileId = ivProfileId;
     this.tvProfileEmail = tvProfileEmail;
     this.tvProfileIdStatus = tvProfileIdStatus;
     this.tvProfileNombre = tvProfileNombre;
@@ -96,6 +101,12 @@ public final class FragmentMiPerfilBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.ivProfileId;
+      ImageView ivProfileId = ViewBindings.findChildViewById(rootView, id);
+      if (ivProfileId == null) {
+        break missingId;
+      }
+
       id = R.id.tvProfileEmail;
       TextView tvProfileEmail = ViewBindings.findChildViewById(rootView, id);
       if (tvProfileEmail == null) {
@@ -127,7 +138,8 @@ public final class FragmentMiPerfilBinding implements ViewBinding {
       }
 
       return new FragmentMiPerfilBinding((ConstraintLayout) rootView, btnBack, cardData,
-          tvProfileEmail, tvProfileIdStatus, tvProfileNombre, tvProfilePassword, tvProfileTitle);
+          ivProfileId, tvProfileEmail, tvProfileIdStatus, tvProfileNombre, tvProfilePassword,
+          tvProfileTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

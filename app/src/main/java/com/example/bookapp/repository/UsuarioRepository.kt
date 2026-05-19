@@ -43,7 +43,7 @@ class UsuarioRepository(
 
     suspend fun getUsuarioByCorreo(correo: String) = usuarioDao.getUsuarioByCorreo(correo)
 
-    private suspend fun ensureLectorIsSocio(usuario: UsuarioEntity) {
+    suspend fun ensureLectorIsSocio(usuario: UsuarioEntity) {
         if (usuario.rol == UserRole.LECTOR || usuario.rol == UserRole.USUARIO) {
             val existingSocio = socioDao.getSocioByCorreo(usuario.correo)
             if (existingSocio == null) {

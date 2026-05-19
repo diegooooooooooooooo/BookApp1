@@ -155,6 +155,7 @@ id ivDetallePortada
 id ivLogo
 id ivNotifications
 id ivPortada
+id ivProfileId
 id ivSectionMorosos
 id ivSectionTop
 id ivSplashLogo

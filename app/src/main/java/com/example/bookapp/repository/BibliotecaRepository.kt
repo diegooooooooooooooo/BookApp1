@@ -12,6 +12,11 @@ import com.example.bookapp.data.entities.SocioEntity
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.DocumentChange
 import com.example.bookapp.data.model.UserRole
+import com.example.bookapp.data.api.OpenLibraryService
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -39,6 +44,22 @@ class BibliotecaRepository(
     private val usuariosCollection = firestore.collection("usuarios")
     private val sociosCollection = firestore.collection("socios")
     private val prestamosCollection = firestore.collection("prestamos")
+
+    private val apiService: OpenLibraryService by lazy {
+        val logging = HttpLoggingInterceptor().apply {
+            level = HttpLoggingInterceptor.Level.BODY
+        }
+        val client = OkHttpClient.Builder()
+            .addInterceptor(logging)
+            .build()
+
+        Retrofit.Builder()
+            .baseUrl(OpenLibraryService.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(client)
+            .build()
+            .create(OpenLibraryService::class.java)
+    }
 
     /**
      * Inicia la sincronización en tiempo real desde Firestore hacia Room.
@@ -108,7 +129,7 @@ class BibliotecaRepository(
     // --- Libros ---
     val allLibros: Flow<List<LibroEntity>> = libroRepository.allLibros
     
-    suspend fun insertLibro(libro: LibroEntity) = libroRepository.insertLibro(libro)
+    suspend fun insertLibro(libro: LibroEntity): Int = libroRepository.insertLibro(libro)
     suspend fun updateLibro(libro: LibroEntity) = libroRepository.updateLibro(libro)
     suspend fun deleteLibro(libro: LibroEntity) = libroRepository.deleteLibro(libro)
     
@@ -121,6 +142,7 @@ class BibliotecaRepository(
     suspend fun insertUsuario(usuario: UsuarioEntity) = usuarioRepository.insertUsuario(usuario)
     suspend fun getUsuarioByCorreo(correo: String) = usuarioRepository.getUsuarioByCorreo(correo)
     suspend fun updateUsuario(usuario: UsuarioEntity) = usuarioRepository.updateUsuario(usuario)
+    suspend fun ensureLectorIsSocio(usuario: UsuarioEntity) = usuarioRepository.ensureLectorIsSocio(usuario)
     suspend fun syncUsuariosFromFirestore() = usuarioRepository.syncUsuariosFromFirestore()
 
     // --- Socios (Readers) ---
@@ -133,7 +155,7 @@ class BibliotecaRepository(
     val prestamosActivosConDetalles: Flow<List<com.example.bookapp.data.entities.PrestamoConDetalles>> = 
         prestamoRepository.prestamosActivosConDetalles
     
-    suspend fun registrarPrestamo(prestamo: PrestamoEntity) = prestamoRepository.registrarPrestamo(prestamo)
+    suspend fun registrarPrestamo(prestamo: PrestamoEntity): Result<Unit> = prestamoRepository.registrarPrestamo(prestamo)
     suspend fun getPrestamoById(id: Int): PrestamoEntity? = prestamoRepository.getPrestamoById(id)
     suspend fun registrarDevolucion(prestamo: PrestamoEntity) = prestamoRepository.registrarDevolucion(prestamo)
 
@@ -150,16 +172,7 @@ class BibliotecaRepository(
 
     fun getTop5Libros() = prestamoRepository.getTop5Libros()
     
-    private suspend fun ensureLectorIsSocio(usuario: UsuarioEntity) {
-        if (usuario.rol == UserRole.LECTOR || usuario.rol == UserRole.USUARIO) {
-            val existingSocio = socioDao.getSocioByCorreo(usuario.correo)
-            if (existingSocio == null) {
-                socioDao.insert(SocioEntity(nombre = usuario.nombre, correo = usuario.correo))
-            } else if (existingSocio.nombre != usuario.nombre) {
-                socioDao.update(existingSocio.copy(nombre = usuario.nombre))
-            }
-        }
-    }
+    suspend fun searchOnline(query: String) = apiService.searchBooks(query)
 
     /**
      * Función para descargar datos de Firestore a Room (Sincronización inicial o manual)

@@ -67,7 +67,7 @@ interface PrestamoDao {
         FROM prestamos 
         INNER JOIN socios ON prestamos.socioId = socios.id 
         INNER JOIN libros ON prestamos.libroId = libros.id 
-        WHERE socios.correo = :correo
+        WHERE LOWER(socios.correo) = LOWER(:correo)
     """)
     fun getPrestamosPorCorreoSocio(correo: String): Flow<List<com.example.bookapp.data.entities.PrestamoConDetalles>>
 

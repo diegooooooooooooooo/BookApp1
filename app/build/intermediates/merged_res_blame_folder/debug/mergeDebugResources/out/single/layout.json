@@ -20,12 +20,12 @@
         "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/fragment_registrar_libro.xml"
     },
     {
-        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-mergeDebugResources-66:/layout/item_libro_devolucion.xml",
-        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/item_libro_devolucion.xml"
-    },
-    {
         "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-mergeDebugResources-66:/layout/fragment_registrar_usuario.xml",
         "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/fragment_registrar_usuario.xml"
+    },
+    {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-mergeDebugResources-66:/layout/item_libro_devolucion.xml",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/item_libro_devolucion.xml"
     },
     {
         "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-mergeDebugResources-66:/layout/fragment_top_libros.xml",
@@ -56,12 +56,12 @@
         "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/fragment_sign_up.xml"
     },
     {
-        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-mergeDebugResources-66:/layout/item_libro_top.xml",
-        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/item_libro_top.xml"
+        "merged": "com.example.bookapp-mergeDebugResources-66:/layout/fragment_mi_perfil.xml",
+        "source": "com.example.bookapp-main-69:/layout/fragment_mi_perfil.xml"
     },
     {
-        "merged": "com.example.bookapp-mergeDebugResources-66:/layout/fragment_registrar_prestamo.xml",
-        "source": "com.example.bookapp-main-69:/layout/fragment_registrar_prestamo.xml"
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-mergeDebugResources-66:/layout/item_libro_top.xml",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/item_libro_top.xml"
     },
     {
         "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-mergeDebugResources-66:/layout/nav_header.xml",
@@ -108,16 +108,16 @@
         "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/fragment_registrar_socio.xml"
     },
     {
+        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-mergeDebugResources-66:/layout/fragment_registrar_prestamo.xml",
+        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/fragment_registrar_prestamo.xml"
+    },
+    {
         "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-mergeDebugResources-66:/layout/fragment_detalle_libro.xml",
         "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/fragment_detalle_libro.xml"
     },
     {
         "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-mergeDebugResources-66:/layout/item_usuario.xml",
         "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/item_usuario.xml"
-    },
-    {
-        "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-mergeDebugResources-66:/layout/fragment_registrar_prestamo.xml",
-        "source": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-main-69:/layout/fragment_registrar_prestamo.xml"
     },
     {
         "merged": "/home/dknw/.gradle/daemon/9.2.1/com.example.bookapp-mergeDebugResources-66:/layout/fragment_lista_pendientes.xml",

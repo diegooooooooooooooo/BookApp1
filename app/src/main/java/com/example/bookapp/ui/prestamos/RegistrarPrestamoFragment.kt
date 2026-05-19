@@ -6,15 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.bookapp.BookApplication
 import com.example.bookapp.R
 import com.example.bookapp.data.entities.LibroEstado
+import com.example.bookapp.data.entities.LibroEntity
 import com.example.bookapp.data.entities.PrestamoEntity
+import com.example.bookapp.data.model.UserRole
 import com.example.bookapp.databinding.FragmentRegistrarPrestamoBinding
 import com.example.bookapp.viewmodel.BibliotecaViewModel
+import com.example.bookapp.viewmodel.LoginViewModel
 import com.example.bookapp.viewmodel.ViewModelFactory
 import com.google.android.material.datepicker.MaterialDatePicker
 import java.text.SimpleDateFormat
@@ -32,8 +37,13 @@ class RegistrarPrestamoFragment : Fragment() {
         ViewModelFactory((requireActivity().application as BookApplication).repository)
     }
 
+    private val loginViewModel: LoginViewModel by activityViewModels {
+        ViewModelFactory((requireActivity().application as BookApplication).repository)
+    }
+
     private var selectedSocioId: Int = -1
     private var selectedLibroId: Int = -1
+    private var selectedLibro: LibroEntity? = null
     private var selectedDateMillis: Long = 0
 
     override fun onCreateView(
@@ -47,13 +57,40 @@ class RegistrarPrestamoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Initialize selectedLibroId from args immediately
+        if (args.libroId != -1) {
+            selectedLibroId = args.libroId
+            binding.tilLibro.isVisible = false
+        }
+        
+        // Initialize selectedSocioId from args if provided
+        if (args.socioId != -1) {
+            selectedSocioId = args.socioId
+        }
+
+        // Hide user selection if it's a reader
+        loginViewModel.usuarioLogueado.observe(viewLifecycleOwner) { usuario ->
+            val isLector = usuario?.rol == UserRole.LECTOR || usuario?.rol == UserRole.USUARIO
+            binding.tilUsuario.isVisible = !isLector
+        }
+
         // Observe Socios (Readers) from DB
         viewModel.allSocios.observe(viewLifecycleOwner) { socios ->
             val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, socios.map { it.nombre })
             binding.spinnerUsuario.setAdapter(adapter)
 
-            // Auto-select socio if passed via Safe Args
-            if (args.socioId != -1 && selectedSocioId == -1) {
+            // Auto-select socio if it's a lector
+            val currentUser = loginViewModel.usuarioLogueado.value
+            if (currentUser?.rol == UserRole.LECTOR || currentUser?.rol == UserRole.USUARIO) {
+                val currentSocio = socios.find { it.correo?.lowercase() == currentUser.correo.lowercase() }
+                currentSocio?.let {
+                    selectedSocioId = it.id
+                    binding.spinnerUsuario.setText(it.nombre, false)
+                } ?: run {
+                    Toast.makeText(context, "Error: No se encontró tu perfil de lector. Contacta al administrador.", Toast.LENGTH_LONG).show()
+                }
+            } else if (args.socioId != -1 && selectedSocioId == -1) {
+                // Auto-select socio if passed via Safe Args (for librarian flow)
                 val socioPreseleccionado = socios.find { it.id == args.socioId }
                 socioPreseleccionado?.let {
                     selectedSocioId = it.id
@@ -66,23 +103,32 @@ class RegistrarPrestamoFragment : Fragment() {
             }
         }
 
-        // Observe Books from DB
-        viewModel.allLibros.observe(viewLifecycleOwner) { libros ->
+        // Observe Books from DB (Combined with Simulation)
+        viewModel.allLibrosCombined.observe(viewLifecycleOwner) { libros ->
             val librosDisponibles = libros.filter { it.estado == LibroEstado.DISPONIBLE }
             val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, librosDisponibles.map { it.titulo })
             binding.spinnerLibro.setAdapter(adapter)
             
-            // Auto-select book if passed via Safe Args
-            if (args.libroId != -1 && selectedLibroId == -1) {
-                val libroPreseleccionado = librosDisponibles.find { it.id == args.libroId }
-                libroPreseleccionado?.let {
-                    selectedLibroId = it.id
-                    binding.spinnerLibro.setText(it.titulo, false)
+            // Update UI if book is pre-selected (searching in all books, not just available)
+            if (selectedLibroId != -1) {
+                val libroPreseleccionado = libros.find { it.id == selectedLibroId }
+                if (libroPreseleccionado != null) {
+                    selectedLibro = libroPreseleccionado
+                    binding.spinnerLibro.setText(libroPreseleccionado.titulo, false)
+                    
+                    // Update UI to show what book is selected if the field is hidden
+                    if (!binding.tilLibro.isVisible) {
+                        binding.tilLibro.isVisible = true
+                        binding.tilLibro.isEnabled = false
+                        binding.spinnerLibro.isEnabled = false
+                    }
                 }
             }
 
             binding.spinnerLibro.setOnItemClickListener { _, _, position, _ ->
-                selectedLibroId = librosDisponibles[position].id
+                val libro = librosDisponibles[position]
+                selectedLibroId = libro.id
+                selectedLibro = libro
             }
         }
 
@@ -100,18 +146,48 @@ class RegistrarPrestamoFragment : Fragment() {
         }
 
         binding.btnConfirmarPrestamo.setOnClickListener {
-            if (selectedSocioId != -1 && selectedLibroId != -1 && selectedDateMillis != 0L) {
-                val prestamo = PrestamoEntity(
-                    socioId = selectedSocioId,
-                    libroId = selectedLibroId,
-                    fechaPrestamo = System.currentTimeMillis(),
-                    fechaDevolucionEsperada = selectedDateMillis
-                )
-                viewModel.registrarPrestamo(prestamo)
+            when {
+                selectedSocioId == -1 -> Toast.makeText(context, "Por favor, seleccione un usuario", Toast.LENGTH_SHORT).show()
+                selectedLibroId == -1 -> Toast.makeText(context, "Por favor, seleccione un libro", Toast.LENGTH_SHORT).show()
+                selectedDateMillis == 0L -> Toast.makeText(context, "Por favor, seleccione una fecha de devolución", Toast.LENGTH_SHORT).show()
+                else -> {
+                    val prestamo = PrestamoEntity(
+                        socioId = selectedSocioId,
+                        libroId = selectedLibroId,
+                        fechaPrestamo = System.currentTimeMillis(),
+                        fechaDevolucionEsperada = selectedDateMillis
+                    )
+                    
+                    binding.btnConfirmarPrestamo.isEnabled = false
+                    binding.progressBar.isVisible = true
+                    viewModel.registrarPrestamo(prestamo, selectedLibro)
+                }
+            }
+        }
+
+        viewModel.prestamoResult.observe(viewLifecycleOwner) { result ->
+            if (result == null) return@observe
+            
+            binding.btnConfirmarPrestamo.isEnabled = true
+            binding.progressBar.isVisible = false
+            
+            if (result.isSuccess) {
                 Toast.makeText(context, "Préstamo registrado exitosamente", Toast.LENGTH_SHORT).show()
-                findNavController().navigate(R.id.confirmacionPrestamoFragment)
+                
+                val socioNombre = binding.spinnerUsuario.text.toString()
+                val libroTitulo = binding.spinnerLibro.text.toString()
+                
+                val action = RegistrarPrestamoFragmentDirections.actionRegistrarPrestamoFragmentToConfirmacionPrestamoFragment(
+                    socioNombre = socioNombre,
+                    libroTitulo = libroTitulo,
+                    fechaLimite = selectedDateMillis
+                )
+                viewModel.clearPrestamoResult()
+                findNavController().navigate(action)
             } else {
-                Toast.makeText(context, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show()
+                val error = result.exceptionOrNull()?.message ?: "Error desconocido"
+                Toast.makeText(context, "Error: $error", Toast.LENGTH_LONG).show()
+                viewModel.clearPrestamoResult()
             }
         }
     }

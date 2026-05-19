@@ -21,6 +21,6 @@ interface SocioDao {
     @Query("SELECT * FROM socios WHERE id = :id")
     suspend fun getSocioById(id: Int): SocioEntity?
 
-    @Query("SELECT * FROM socios WHERE correo = :correo LIMIT 1")
+    @Query("SELECT * FROM socios WHERE LOWER(correo) = LOWER(:correo) LIMIT 1")
     suspend fun getSocioByCorreo(correo: String): SocioEntity?
 }

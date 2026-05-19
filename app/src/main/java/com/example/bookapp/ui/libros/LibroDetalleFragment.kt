@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import coil.load
 import com.example.bookapp.BookApplication
 import com.example.bookapp.R
 import com.example.bookapp.data.entities.LibroEstado
@@ -43,7 +44,7 @@ class LibroDetalleFragment : Fragment() {
         
         val libroId = args.libroId
         if (libroId != -1) {
-            viewModel.allLibros.observe(viewLifecycleOwner) { libros ->
+            viewModel.allLibrosCombined.observe(viewLifecycleOwner) { libros ->
                 val libro = libros.find { it.id == libroId }
                 libro?.let {
                     binding.tvDetalleTitulo.text = it.titulo
@@ -52,21 +53,36 @@ class LibroDetalleFragment : Fragment() {
                     binding.tvDetalleCategoria.text = it.categoria
                     binding.tvDetalleValor.text = String.format(Locale.getDefault(), "$%.2f", it.valor)
                     
-                    when (it.estado) {
-                        LibroEstado.DISPONIBLE -> {
-                            binding.chipDetalleEstado.text = "Disponible"
-                            binding.chipDetalleEstado.setChipBackgroundColorResource(android.R.color.holo_green_light)
-                            binding.btnPrestarLibro.isEnabled = true
-                        }
-                        LibroEstado.PRESTADO -> {
-                            binding.chipDetalleEstado.text = "Prestado"
-                            binding.chipDetalleEstado.setChipBackgroundColorResource(android.R.color.holo_red_light)
-                            binding.btnPrestarLibro.isEnabled = false
-                        }
-                        LibroEstado.NO_DISPONIBLE -> {
-                            binding.chipDetalleEstado.text = "No Disponible"
-                            binding.chipDetalleEstado.setChipBackgroundColorResource(android.R.color.darker_gray)
-                            binding.btnPrestarLibro.isEnabled = false
+                    // Cargar portada con Coil
+                    binding.ivDetallePortada.load(it.portadaUrl) {
+                        crossfade(true)
+                        placeholder(R.drawable.ic_book)
+                        error(R.drawable.ic_book)
+                    }
+
+                    if (it.isPlaceholder) {
+                        binding.chipDetalleEstado.text = "Disponible (Online)"
+                        binding.chipDetalleEstado.setChipBackgroundColorResource(android.R.color.holo_blue_light)
+                        binding.btnPrestarLibro.isEnabled = true
+                        binding.btnPrestarLibro.text = "Prestar libro"
+                    } else {
+                        binding.btnPrestarLibro.text = "Prestar libro"
+                        when (it.estado) {
+                            LibroEstado.DISPONIBLE -> {
+                                binding.chipDetalleEstado.text = "Disponible"
+                                binding.chipDetalleEstado.setChipBackgroundColorResource(android.R.color.holo_green_light)
+                                binding.btnPrestarLibro.isEnabled = true
+                            }
+                            LibroEstado.PRESTADO -> {
+                                binding.chipDetalleEstado.text = "Prestado"
+                                binding.chipDetalleEstado.setChipBackgroundColorResource(android.R.color.holo_red_light)
+                                binding.btnPrestarLibro.isEnabled = false
+                            }
+                            LibroEstado.NO_DISPONIBLE -> {
+                                binding.chipDetalleEstado.text = "No Disponible"
+                                binding.chipDetalleEstado.setChipBackgroundColorResource(android.R.color.darker_gray)
+                                binding.btnPrestarLibro.isEnabled = false
+                            }
                         }
                     }
                 }
